@@ -3,11 +3,13 @@
 
 
 @theme {
-  --color-cv-white:    #F5F3F7;
-  --color-cv-mauve:    #9B84B2;
-  --color-cv-plum:     #3A2740;
-  --color-cv-charcoal: #4F4F4F;
-  --color-cv-gold:     #D4AF37;
+    --color-cv-white: #F5F3F7;
+    --color-cv-mauve: #9B84B2;
+    --color-cv-plum: #3A2740;
+    --color-cv-charcoal: #4F4F4F;
+    --color-cv-gold: #D4AF37;
+    --color-cv-purple: #3D3566;
+    --color-cv-muted: #999999;
 }
 
 
