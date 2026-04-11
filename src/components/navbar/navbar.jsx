@@ -2,10 +2,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "OUR STORY",  path: "/about" },
-  { label: "CALLIGRAPHY PRODUCTS",    path: "/calligraphy-products" },
-  { label: "GIFT PRODUCTS",   path: "/gift-products" },
-  { label: "CONTACT",    path: "/contact" },
+  { label: "OUR STORY", path: "/about" },
+  { label: "CALLIGRAPHY PRODUCTS", path: "/calligraphy-products" },
+  { label: "GIFT PRODUCTS", path: "/gift-products" },
+  { label: "CONTACT", path: "/contact" },
+
 ];
 
 const CartIcon = () => (
@@ -42,7 +43,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-white border-b border-cv-border h-16">
         <div className="w-full h-full px-cv-lg md:px-cv-3xl flex items-center justify-between box-border">
 
-          
+
           <button
             onClick={() => navigate("/")}
             className="bg-transparent border-none cursor-pointer p-0 font-cv-serif text-cv-gold italic font-cv-semibold"
@@ -79,9 +80,15 @@ export default function Navbar() {
             })}
           </ul>
 
-          
+
           <div className="flex items-center gap-cv-md">
-            <button className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple">
+            <button
+              onClick={() => navigate("/cart")}
+              className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple transition"
+              style={{ transitionDuration: "var(--duration-cv-base)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cv-gold)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-purple)")}
+            >
               <CartIcon />
             </button>
 
@@ -95,7 +102,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        
+
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-cv-border px-cv-lg py-cv-md flex flex-col gap-cv-md">
             {navLinks.map(({ label, path }) => {
