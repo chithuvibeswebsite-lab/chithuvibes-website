@@ -1,9 +1,3 @@
-// Footer.jsx — Fully responsive, Tailwind + inline where needed
-
-const GOLD  = "#D4AF37";
-const SERIF = "'Cormorant Garamond', serif";
-const SANS  = "'Jost', sans-serif";
-
 function openWhatsApp() {
   window.open(
     "https://wa.me/919876543210?text=" +
@@ -44,61 +38,45 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      className="w-full box-border"
-      style={{ fontFamily: SANS, padding: "40px 40px 24px", backgroundColor: "#EDEAEA" }}
+    <footer className="w-full box-border font-cv-sans px-cv-xl pt-cv-xl pb-cv-lg"
+      style={{ backgroundColor: "#EDEAEA" }}
     >
 
-      {/* ── MAIN GOLD CARD ── */}
-      <div
-        className="rounded-2xl mb-6"
-        style={{ backgroundColor: GOLD }}
-      >
-        {/* 
-          Mobile:  flex-col, items stacked
-          Desktop: grid 2-col side by side 
-        */}
-        <div className="flex flex-col gap-10 px-8 py-10 md:grid md:gap-12 md:items-start md:px-14 md:py-12"
-          style={{ gridTemplateColumns: "1fr auto" }}>
+      {/* MAIN GOLD CARD */}
+      <div className="bg-cv-gold rounded-cv-xl mb-cv-lg">
+        <div
+          className="flex flex-col gap-cv-3xl px-cv-xl py-cv-3xl md:grid md:gap-cv-3xl md:items-start md:px-cv-4xl md:py-cv-3xl"
+          style={{ gridTemplateColumns: "1fr auto" }}
+        >
 
           {/* Left — headline + tagline */}
           <div className="w-full md:max-w-[460px]">
             <h2
-              className="font-normal leading-[1.15] mb-6"
-              style={{
-                fontFamily: SERIF,
-                fontSize: "clamp(32px, 5vw, 64px)",
-                color: "#ffffff",
-              }}
+              className="font-cv-serif font-cv-regular leading-cv-snug mb-cv-lg text-white"
+              style={{ fontSize: "clamp(32px, 5vw, 64px)" }}
             >
               Craft your story<br />with us
             </h2>
             <p
-              className="leading-[1.6]"
-              style={{
-                fontFamily: SANS,
-                fontSize: "14px",
-                color: "rgba(255,255,255,0.85)",
-                maxWidth: 380,
-              }}
+              className="font-cv-sans text-cv-sm leading-cv-normal"
+              style={{ color: "rgba(255,255,255,0.85)", maxWidth: 380 }}
             >
               Connect with CHITHU VIBES for bespoke laser engraving and Tamil calligraphy
             </p>
           </div>
 
           {/* Right — nav + social */}
-          <div className="flex flex-col gap-8 md:items-end md:gap-10">
+          <div className="flex flex-col gap-cv-xl md:items-end md:gap-cv-3xl">
 
             {/* Nav columns */}
-            <div className="flex gap-12 md:gap-20">
+            <div className="flex gap-cv-3xl md:gap-cv-4xl">
               {[col1, col2].map((col, ci) => (
-                <ul key={ci} className="list-none p-0 m-0 flex flex-col gap-4 md:gap-5">
+                <ul key={ci} className="list-none p-0 m-0 flex flex-col gap-cv-md md:gap-cv-lg">
                   {col.map(({ label, id, action }) => (
                     <li key={label}>
                       <button
                         onClick={action ?? (() => scrollTo(id))}
-                        className="bg-transparent border-none cursor-pointer p-0 text-left leading-none font-normal"
-                        style={{ fontFamily: SANS, fontSize: "15px", color: "#ffffff" }}
+                        className="bg-transparent border-none cursor-pointer p-0 text-left font-cv-sans text-cv-base font-cv-regular text-white leading-none"
                       >
                         {label}
                       </button>
@@ -109,14 +87,14 @@ export default function Footer() {
             </div>
 
             {/* Social icons */}
-            <div className="flex items-center gap-4 md:gap-5">
+            <div className="flex items-center gap-cv-md md:gap-cv-lg">
               {socials.map((s, i) => (
                 <a
                   key={i}
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center opacity-90"
+                  className="flex items-center justify-center opacity-cv-soft"
                 >
                   {s.icon}
                 </a>
@@ -127,22 +105,18 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── BOTTOM BAR ── */}
-      <div className="flex flex-col gap-3 px-2 pt-2 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+      {/* BOTTOM BAR */}
+      <div className="flex flex-col gap-cv-sm px-cv-pxsm pt-cv-pxsm sm:flex-row sm:items-center sm:justify-between sm:gap-0">
 
-        <p
-          className="m-0"
-          style={{ fontFamily: SANS, fontSize: "13px", color: "#C9A84C" }}
-        >
+        <p className="m-0 font-cv-sans text-cv-xs text-cv-gold">
           © 2026 CHITHU VIBES. All rights reserved.
         </p>
 
-        <div className="flex flex-wrap gap-4 md:gap-6">
+        <div className="flex flex-wrap gap-cv-md md:gap-cv-lg">
           {["Privacy policy", "Terms of service", "Cookie settings"].map((t) => (
             <button
               key={t}
-              className="bg-transparent border-none cursor-pointer p-0 underline underline-offset-[3px]"
-              style={{ fontFamily: SANS, fontSize: "13px", color: GOLD }}
+              className="bg-transparent border-none cursor-pointer p-0 underline underline-offset-[3px] font-cv-sans text-cv-xs text-cv-gold"
             >
               {t}
             </button>

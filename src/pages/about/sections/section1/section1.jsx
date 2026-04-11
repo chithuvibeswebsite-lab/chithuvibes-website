@@ -1,42 +1,38 @@
 export default function AboutHero() {
   return (
-    <section className="min-h-screen bg-[#F5F3F8] flex flex-col items-center justify-center text-center px-6 py-16 md:px-8 md:py-20">
+    <section className="min-h-screen bg-cv-white flex flex-col items-center justify-center text-center px-cv-lg py-cv-3xl md:px-cv-xl md:py-cv-4xl">
 
       {/* Label */}
-      <p className="text-xs tracking-[0.3em] text-[#C9A84C] uppercase mb-8 font-medium"
-        style={{ fontFamily: "'Jost', sans-serif" }}>
+      <p className="text-cv-label tracking-cv-widest text-cv-gold uppercase mb-cv-xl font-cv-medium font-cv-sans">
         A Master's Legacy
       </p>
 
       {/* H1 — italic purple */}
       <h1
-        className="text-[44px] sm:text-[60px] md:text-[72px] lg:text-[90px] leading-[1.05] text-[#3D3566] mb-2"
-        style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 400 }}
+        className="leading-cv-tight text-cv-purple mb-cv-pxsm font-cv-serif italic font-cv-regular"
+        style={{ fontSize: "clamp(44px, 8vw, 90px)" }}
       >
         The Soul of Tamil<br />Calligraphy.
       </h1>
 
       {/* H2 — gold */}
       <h2
-        className="text-[44px] sm:text-[60px] md:text-[72px] lg:text-[90px] leading-[1.05] text-[#C9A84C] mb-8"
-        style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600 }}
+        className="leading-cv-tight text-cv-gold mb-cv-xl font-cv-serif font-cv-semibold"
+        style={{ fontSize: "clamp(44px, 8vw, 90px)" }}
       >
         The Precision of the Laser.
       </h2>
 
       {/* Divider line */}
-      <div className="w-16 h-px bg-[#C9A84C] mb-8" />
+      <div className="w-16 h-cv-px bg-cv-gold mb-cv-xl" />
 
       {/* Subtext */}
-      <p
-        className="text-sm text-[#999999] leading-relaxed max-w-xs sm:max-w-sm text-center mb-6"
-        style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}
-      >
+      <p className="text-cv-sm text-cv-muted leading-cv-normal max-w-xs sm:max-w-sm text-center mb-cv-lg font-cv-sans font-cv-light">
         Where ancient scripts meet modern radiance. Founded in 2023, Chithu Vibes is the convergence of scholarly heritage and laser engineering.
       </p>
 
       {/* Down arrow */}
-      <span className="text-[#C9A84C] text-lg">&#8964;</span>
+      <span className="text-cv-gold text-cv-md">&#8964;</span>
 
     </section>
   );

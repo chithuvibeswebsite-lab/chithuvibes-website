@@ -1,5 +1,5 @@
 # Chithu Vibes — Design System Guide
-**Brand:** Chithu Vibes  
+**Brand:** Chithu Vibes
 **Stack:** React + Vite + Tailwind CSS v4  
 **Token prefix:** `cv-` (mandatory — all custom tokens must use this prefix)
 

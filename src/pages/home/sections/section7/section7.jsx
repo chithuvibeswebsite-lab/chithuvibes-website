@@ -1,34 +1,29 @@
 export default function BespokeSection() {
   return (
     <section
-      className="box-border text-center px-6 py-16 md:px-[72px] md:py-[100px]"
+      className="box-border text-center px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-section"
       style={{ backgroundColor: "#EDEAF2" }}
     >
       <div className="mx-auto" style={{ maxWidth: "800px" }}>
 
         {/* Heading */}
         <h2
-          className="font-normal leading-[1.1] mb-6 text-[40px] md:text-[72px]"
-          style={{ fontFamily: "'Cormorant Garamond', serif", color: "#3D3566" }}
+          className="font-cv-regular leading-cv-tight mb-cv-lg font-cv-serif text-cv-purple"
+          style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
         >
           Begin Your Bespoke Journey
         </h2>
 
         {/* Sub */}
-        <p
-          className="text-[14px] md:text-[15px] leading-[1.7] mb-10 md:mb-12"
-          style={{ fontFamily: "'Jost', sans-serif", color: "#AAAAAA" }}
-        >
+        <p className="text-cv-sm leading-cv-relaxed mb-cv-3xl font-cv-sans text-cv-muted">
           Custom requests, bulk orders, or personal engravings. We are just a message away.
         </p>
 
         {/* WhatsApp Button */}
         <button
-          className="border-none cursor-pointer inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.18em] uppercase px-10 py-[18px]"
+          className="border-none cursor-pointer inline-flex items-center gap-cv-lg text-cv-xs font-cv-bold tracking-cv-wider uppercase px-cv-2xl py-cv-md font-cv-sans text-cv-purple"
           style={{
-            background: "linear-gradient(to right, #f5e6a5,#D4AF37,#D4AF37)",
-            color: "#3D3566",
-            fontFamily: "'Jost', sans-serif",
+            background: "linear-gradient(to right, #f5e6a5, #D4AF37, #D4AF37)",
             boxShadow: "0 6px 24px rgba(201,168,76,0.3)",
           }}
         >

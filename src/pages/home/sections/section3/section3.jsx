@@ -27,65 +27,46 @@ export default function HeritageSection() {
 
       {/* RIGHT — content */}
       <div
-        className="flex items-center box-border px-6 py-12 md:px-[72px] md:py-[80px]"
+        className="flex items-center box-border px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-4xl"
         style={{ backgroundColor: "#EDEAF2" }}
       >
         <div className="w-full">
 
           {/* Badge */}
-          <div
-            className="inline-block mb-7 px-[14px] py-[6px]"
-            style={{ backgroundColor: "#3D3566" }}
-          >
-            <span
-              className="text-[11px] tracking-[0.22em] uppercase text-white"
-              style={{ fontFamily: "'Jost', sans-serif" }}
-            >
+          <div className="inline-block mb-cv-xl px-cv-md py-cv-xs bg-cv-purple">
+            <span className="text-cv-label tracking-cv-wider uppercase text-white font-cv-sans">
               The Heritage
             </span>
           </div>
 
           {/* Heading */}
           <h2
-            className="italic font-normal leading-[1.15] mb-10 text-[40px] md:text-[64px]"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              color: "#3D3566",
-            }}
+            className="italic font-cv-regular leading-cv-snug mb-cv-3xl font-cv-serif text-cv-purple"
+            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
             Evolving the<br />Eternal Script
           </h2>
 
           {/* Para 1 */}
           <p
-            className="text-[14px] md:text-[15px] leading-[1.85] mb-7 w-full md:max-w-[480px]"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              color: "#444444",
-            }}
+            className="text-cv-sm leading-[1.85] mb-cv-xl w-full md:max-w-[480px] font-cv-sans"
+            style={{ color: "#444444" }}
           >
             Chithu Vibes was born from a singular vision: to ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world.
           </p>
 
           {/* Para 2 */}
           <p
-            className="text-[14px] md:text-[15px] leading-[1.85] mb-12 w-full md:max-w-[480px]"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              color: "#444444",
-            }}
+            className="text-cv-sm leading-[1.85] mb-cv-3xl w-full md:max-w-[480px] font-cv-sans"
+            style={{ color: "#444444" }}
           >
             Our process combines the meditative patience of a traditional scribe with the uncompromising power of industrial lasers. Every piece is a dialogue between the old and the new.
           </p>
 
           {/* Link Button */}
           <button
-            className="bg-transparent border-none text-[12px] font-bold tracking-[0.18em] uppercase pb-1 cursor-pointer"
-            style={{
-              borderBottom: "2px solid #C9A84C",
-              color: "#C9A84C",
-              fontFamily: "'Jost', sans-serif",
-            }}
+            className="bg-transparent border-none text-cv-xs font-cv-bold tracking-cv-wider uppercase pb-cv-xs cursor-pointer font-cv-sans text-cv-gold"
+            style={{ borderBottom: "2px solid var(--color-cv-gold)" }}
           >
             Learn Our Process
           </button>

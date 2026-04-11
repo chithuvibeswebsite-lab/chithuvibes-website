@@ -26,8 +26,7 @@ const ShieldIcon = () => (
 );
 
 const FounderIllustration = () => (
-  <svg viewBox="0 0 220 270" xmlns="http://www.w3.org/2000/svg"
-    className="w-full h-full block">
+  <svg viewBox="0 0 220 270" xmlns="http://www.w3.org/2000/svg" className="w-full h-full block">
     <rect width="220" height="270" fill="#1a1520" />
     <ellipse cx="110" cy="245" rx="78" ry="60" fill="#c0420a" />
     <ellipse cx="110" cy="225" rx="65" ry="54" fill="#d4560e" />
@@ -68,50 +67,39 @@ const bioParas = [
 ];
 
 const cards = [
-  {
-    icon: <TrophyIcon />,
-    label: "Award-Winning\nTech",
-    desc: "M.Phil Gold Medalist\nbringing algorithmic\nprecision to artistic engraving.",
-  },
-  {
-    icon: <ScrollIcon />,
-    label: "Heritage Expert",
-    desc: "Ancient Tamil\nEpigraphy specialist\nensuring scriptural authenticity.",
-  },
-  {
-    icon: <ShieldIcon />,
-    label: "Professional\nIntegrity",
-    desc: "PGDLAL credentials\nensuring ethical\npractices in every commission.",
-  },
+  { icon: <TrophyIcon />, label: "Award-Winning\nTech",      desc: "M.Phil Gold Medalist\nbringing algorithmic\nprecision to artistic engraving." },
+  { icon: <ScrollIcon />, label: "Heritage Expert",           desc: "Ancient Tamil\nEpigraphy specialist\nensuring scriptural authenticity." },
+  { icon: <ShieldIcon />, label: "Professional\nIntegrity",   desc: "PGDLAL credentials\nensuring ethical\npractices in every commission." },
 ];
 
 export default function FounderSection() {
   return (
-    <div
-      className="w-full flex flex-col items-center bg-white px-6 py-14 md:px-16 md:py-24 box-border"
-      style={{ fontFamily: "'Montserrat', sans-serif" }}
-    >
+    <div className="w-full flex flex-col items-center bg-white px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-5xl box-border font-cv-sans">
       <div className="w-full max-w-[1100px]">
 
         {/* Top grid: portrait + text */}
-        <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] gap-10 md:gap-20 items-start mb-14 md:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] gap-cv-3xl md:gap-cv-4xl items-start mb-cv-3xl md:mb-cv-4xl">
 
           {/* Portrait column */}
           <div className="flex justify-center">
             <div className="relative inline-block">
-              <div className="rounded-3xl overflow-hidden bg-[#1a1520] w-[260px] h-[310px] md:w-[340px] md:h-[400px]">
+              <div
+                className="rounded-cv-xl overflow-hidden w-[260px] h-[310px] md:w-[340px] md:h-[400px]"
+                style={{ backgroundColor: "#1a1520" }}
+              >
                 <FounderIllustration />
               </div>
+
               {/* Spark badge */}
               <div
-                className="absolute flex items-center justify-center rounded-2xl text-white"
+                className="absolute flex items-center justify-center rounded-cv-xl text-white"
                 style={{
                   bottom: -18,
                   right: -18,
                   width: 64,
                   height: 64,
                   fontSize: 28,
-                  background: "#D4AF37",
+                  background: "var(--color-cv-gold)",
                   boxShadow: "0 4px 20px rgba(212,175,55,0.45)",
                 }}
               >
@@ -121,50 +109,32 @@ export default function FounderSection() {
           </div>
 
           {/* Text column */}
-          <div className="pt-2 mt-6 md:mt-0">
+          <div className="pt-cv-pxsm mt-cv-lg md:mt-0">
 
             {/* Eyebrow */}
-            <p
-              className="uppercase font-semibold tracking-[0.22em] mb-5 p-0 text-[13px] md:text-[11px]"
-              style={{ color: "#D4AF37" }}
-            >
+            <p className="uppercase font-cv-semibold tracking-cv-wider mb-cv-lg text-cv-label md:text-cv-label text-cv-gold">
               The Founder
             </p>
 
             {/* Heading */}
             <h2
-              className="font-normal leading-[1.08] mb-0 p-0"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(52px, 8vw, 72px)",
-                fontWeight: 400,
-                color: "#3A2740",
-              }}
+              className="font-cv-regular leading-[1.08] mb-0 font-cv-serif text-cv-plum"
+              style={{ fontSize: "clamp(52px, 8vw, 72px)" }}
             >
               The Gold<br />Medalist.
             </h2>
 
             {/* Sub heading */}
             <h3
-              className="italic font-normal leading-[1.15] mb-6 p-0"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(40px, 6.5vw, 58px)",
-                fontWeight: 400,
-                color: "#D4AF37",
-              }}
+              className="italic font-cv-regular leading-cv-snug mb-cv-lg font-cv-serif text-cv-gold"
+              style={{ fontSize: "clamp(40px, 6.5vw, 58px)" }}
             >
               The Scholar. The<br />Phoenix.
             </h3>
 
             {/* Name */}
             <span
-              className="underline underline-offset-[4px] cursor-pointer block mb-7 font-normal"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 20,
-                color: "#D4AF37",
-              }}
+              className="underline underline-offset-[4px] cursor-pointer block mb-cv-xl font-cv-regular font-cv-serif text-cv-lg text-cv-gold"
             >
               Jeya Chitra
             </span>
@@ -174,8 +144,7 @@ export default function FounderSection() {
               {bioParas.map((para, i) => (
                 <p
                   key={i}
-                  className={`font-normal leading-[1.85] p-0 ${i < bioParas.length - 1 ? "mb-5" : "mb-0"}`}
-                  style={{ fontSize: 14, color: "#4F4F4F" }}
+                  className={`font-cv-regular leading-[1.85] text-cv-sm text-cv-charcoal ${i < bioParas.length - 1 ? "mb-cv-lg" : "mb-0"}`}
                 >
                   {para}
                 </p>
@@ -186,26 +155,20 @@ export default function FounderSection() {
         </div>
 
         {/* Credential cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-cv-md md:gap-cv-lg">
           {cards.map(({ icon, label, desc }, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center rounded-2xl box-border bg-[#EEECF0] px-6 py-8 md:px-8 md:py-10"
-              style={{ borderLeft: "3px solid #D4AF37" }}
+              className="flex flex-col items-center text-center rounded-cv-xl box-border bg-cv-soft px-cv-lg py-cv-xl md:px-cv-xl md:py-cv-2xl"
+              style={{ borderLeft: "3px solid var(--color-cv-gold)" }}
             >
-              <div className="flex items-center justify-center w-12 h-12 mb-5">
+              <div className="flex items-center justify-center w-12 h-12 mb-cv-lg">
                 {icon}
               </div>
-              <p
-                className="uppercase font-bold tracking-[0.18em] leading-[1.5] m-0 p-0 whitespace-pre-line mb-4"
-                style={{ fontSize: 10, color: "#3A2740" }}
-              >
+              <p className="uppercase font-cv-bold tracking-cv-wider leading-cv-normal whitespace-pre-line mb-cv-md text-cv-label text-cv-plum">
                 {label}
               </p>
-              <p
-                className="font-normal leading-[1.7] m-0 p-0 whitespace-pre-line"
-                style={{ fontSize: 13, color: "#4F4F4F" }}
-              >
+              <p className="font-cv-regular leading-cv-relaxed whitespace-pre-line text-cv-xs text-cv-charcoal">
                 {desc}
               </p>
             </div>

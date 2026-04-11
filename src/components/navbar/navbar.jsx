@@ -40,21 +40,21 @@ export default function Navbar() {
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
       `}</style>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 h-16">
-        <div className="w-full h-full px-6 md:px-12 flex items-center justify-between box-border">
+      <nav className="fixed top-0 left-0 right-0 z-cv-top bg-white border-b border-cv-border h-16">
+        <div className="w-full h-full px-cv-lg md:px-cv-3xl flex items-center justify-between box-border">
 
           {/* Logo */}
           <button
             onClick={() => navigate("/")}
-            className="bg-transparent border-none cursor-pointer p-0"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", fontWeight: 600, fontStyle: "italic", color: "#C9A84C", letterSpacing: "0.01em" }}
+            className="bg-transparent border-none cursor-pointer p-0 font-cv-serif text-cv-gold italic font-cv-semibold"
+            style={{ fontSize: "22px", letterSpacing: "0.01em" }}
           >
             Chithu Vibes
           </button>
 
-          {/* Desktop Nav Links — centered absolutely */}
+          {/* Desktop Nav Links */}
           <ul
-            className="hidden md:flex list-none m-0 p-0 items-center gap-10 absolute left-1/2"
+            className="hidden md:flex list-none m-0 p-0 items-center gap-cv-3xl absolute left-1/2"
             style={{ transform: "translateX(-50%)" }}
           >
             {navLinks.map(({ label, path }) => {
@@ -63,24 +63,14 @@ export default function Navbar() {
                 <li key={label} className="relative">
                   <button
                     onClick={() => navigate(path)}
-                    className="bg-transparent border-none cursor-pointer py-1 px-0 relative"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "11px",
-                      fontWeight: 500,
-                      letterSpacing: "0.12em",
-                      color: active ? "#D4AF37" : "#2D2152",
-                      textTransform: "uppercase",
-                    }}
+                    className={`bg-transparent border-none cursor-pointer py-cv-xs px-0 relative font-cv-sans text-cv-label font-cv-medium uppercase tracking-cv-wide ${active ? "text-cv-gold" : "text-cv-purple"}`}
                   >
                     {label}
-                    {/* Active underline — width transition needs inline style */}
                     <span
-                      className="absolute left-0 h-0.5"
+                      className="absolute left-0 h-cv-pxsm bg-cv-gold"
                       style={{
                         bottom: "-2px",
                         width: active ? "100%" : "0%",
-                        backgroundColor: "#D4AF37",
                         transition: "width 0.3s ease",
                       }}
                     />
@@ -90,19 +80,14 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* Right side: Cart + Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
-            <button
-              className="bg-transparent border-none cursor-pointer flex items-center p-0"
-              style={{ color: "#2D2152" }}
-            >
+          {/* Right: Cart + Hamburger */}
+          <div className="flex items-center gap-cv-md">
+            <button className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple">
               <CartIcon />
             </button>
 
-            {/* Hamburger — mobile only */}
             <button
-              className="md:hidden bg-transparent border-none cursor-pointer flex items-center p-0"
-              style={{ color: "#2D2152" }}
+              className="md:hidden bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple"
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
@@ -111,24 +96,18 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown */}
         {menuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 px-6 py-4 flex flex-col gap-4">
+          <div className="md:hidden bg-white border-t border-cv-border px-cv-lg py-cv-md flex flex-col gap-cv-md">
             {navLinks.map(({ label, path }) => {
               const active = isActive(path);
               return (
                 <button
                   key={label}
                   onClick={() => { navigate(path); setMenuOpen(false); }}
-                  className="bg-transparent border-none cursor-pointer text-left py-1 px-0"
+                  className={`bg-transparent border-none cursor-pointer text-left py-cv-xs font-cv-sans text-cv-xs font-cv-medium uppercase tracking-cv-wide ${active ? "text-cv-gold" : "text-cv-purple"}`}
                   style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    letterSpacing: "0.12em",
-                    color: active ? "#D4AF37" : "#2D2152",
-                    textTransform: "uppercase",
-                    borderLeft: active ? "3px solid #D4AF37" : "3px solid transparent",
+                    borderLeft: active ? "3px solid var(--color-cv-gold)" : "3px solid transparent",
                     paddingLeft: "10px",
                     transition: "color 0.2s ease",
                   }}

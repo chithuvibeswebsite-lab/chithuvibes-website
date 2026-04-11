@@ -1,44 +1,37 @@
 export default function AuthenticitySection() {
   return (
-    <section className="bg-white box-border px-6 py-16 md:px-[72px] md:py-[100px]">
+    <section className="bg-white box-border px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-section">
       <div className="mx-auto text-center" style={{ maxWidth: "860px" }}>
 
         {/* Gold compass icon */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-cv-xl">
           <svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="4" x2="6" y2="38" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" />
-            <line x1="18" y1="4" x2="30" y2="38" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" />
-            <line x1="10" y1="22" x2="26" y2="22" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" />
-            <circle cx="18" cy="4" r="2.5" fill="#C9A84C" />
+            <line x1="18" y1="4" x2="6" y2="38" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
+            <line x1="18" y1="4" x2="30" y2="38" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
+            <line x1="10" y1="22" x2="26" y2="22" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="18" cy="4" r="2.5" fill="var(--color-cv-gold)" />
           </svg>
         </div>
 
         {/* Heading */}
         <h2
-          className="italic font-normal leading-[1.2] mb-9 text-[36px] md:text-[52px]"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            color: "#3D3566",
-          }}
+          className="italic font-cv-regular leading-cv-snug mb-cv-2xl font-cv-serif text-cv-purple"
+          style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
         >
           The Edge of Authenticity
         </h2>
 
         {/* Description */}
         <p
-          className="text-[15px] md:text-[16px] leading-[1.85] mx-auto mb-12 md:mb-16 w-full"
-          style={{
-            fontFamily: "'Jost', sans-serif",
-            color: "#555555",
-            maxWidth: "700px",
-          }}
+          className="text-cv-base leading-[1.85] mx-auto mb-cv-3xl md:mb-cv-3xl w-full font-cv-sans"
+          style={{ color: "#555555", maxWidth: "700px" }}
         >
           Unlike generic fonts, our designs are based on hand-drawn calligraphy by Tamil masters. We then vectorize these unique strokes to maintain the "human touch" even after the laser has done its work.
         </p>
 
         {/* Stats */}
         <div
-          className="grid grid-cols-3 gap-6 md:gap-8 mx-auto"
+          className="grid grid-cols-3 gap-cv-lg md:gap-cv-xl mx-auto"
           style={{ maxWidth: "600px" }}
         >
           {[
@@ -48,21 +41,12 @@ export default function AuthenticitySection() {
           ].map((s) => (
             <div key={s.label}>
               <p
-                className="font-medium leading-none mb-2 text-[32px] md:text-[48px]"
-                style={{
-                  fontFamily: " serif",
-                  color: "#C9A84C",
-                }}
+                className="font-cv-medium leading-none mb-cv-sm font-cv-serif text-cv-gold"
+                style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
               >
                 {s.value}
               </p>
-              <p
-                className="text-[10px] md:text-[11px] tracking-[0.22em] uppercase"
-                style={{
-                  fontFamily: "'Jost', sans-serif",
-                  color: "#999999",
-                }}
-              >
+              <p className="text-cv-label tracking-cv-wider uppercase font-cv-sans text-cv-muted">
                 {s.label}
               </p>
             </div>

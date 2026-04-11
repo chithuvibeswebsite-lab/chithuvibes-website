@@ -5,9 +5,9 @@ export default function FounderSection() {
       style={{ backgroundColor: "#EDEAF2" }}
     >
       {/* LEFT — image placeholder */}
-      <div className="flex items-stretch px-6 py-8 md:pl-[60px] md:pr-[40px] md:py-[40px]">
+      <div className="flex items-stretch px-cv-lg py-cv-xl md:pl-cv-3xl md:pr-cv-xl md:py-cv-xl">
         <div
-          className="rounded-lg w-full flex items-center justify-center min-h-[280px] md:min-h-0"
+          className="rounded-cv-md w-full flex items-center justify-center min-h-[280px] md:min-h-0"
           style={{ backgroundColor: "#D5D5D5" }}
         >
           <svg
@@ -28,32 +28,25 @@ export default function FounderSection() {
       </div>
 
       {/* RIGHT — content */}
-      <div className="flex items-center box-border px-6 py-12 md:pl-[48px] md:pr-[72px] md:py-[80px]">
+      <div className="flex items-center box-border px-cv-lg py-cv-3xl md:pl-cv-2xl md:pr-cv-4xl md:py-cv-4xl">
         <div className="w-full">
 
           {/* Gold line */}
-          <div
-            className="w-14 h-[3px] mb-7"
-            style={{ backgroundColor: "#C9A84C" }}
-          />
+          <div className="w-14 h-cv-pxsm mb-cv-xl bg-cv-gold" />
 
           {/* Heading */}
           <h2
-            className="font-normal leading-[1.2] mb-7 text-[36px] md:text-[52px]"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              color: "#3D3566",
-            }}
+            className="font-cv-regular leading-cv-snug mb-cv-xl font-cv-serif text-cv-purple"
+            style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
           >
             A Note from the Founder
           </h2>
 
           {/* Quote */}
           <p
-            className="italic leading-[1.75] mb-8 text-[18px] md:text-[22px] w-full"
+            className="italic leading-[1.75] mb-cv-xl font-cv-serif text-cv-purple w-full"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              color: "#3D3566",
+              fontSize: "clamp(17px, 2vw, 22px)",
               maxWidth: "520px",
             }}
           >
@@ -61,24 +54,12 @@ export default function FounderSection() {
           </p>
 
           {/* Name */}
-          <p
-            className="text-[12px] font-bold tracking-[0.18em] uppercase mb-1.5"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              color: "#C9A84C",
-            }}
-          >
+          <p className="text-cv-xs font-cv-bold tracking-cv-wider uppercase mb-cv-xs font-cv-sans text-cv-gold">
             Chithu Vibes
           </p>
 
           {/* Title */}
-          <p
-            className="text-[11px] tracking-[0.15em] uppercase"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              color: "#999999",
-            }}
-          >
+          <p className="text-cv-label tracking-cv-wide uppercase font-cv-sans text-cv-muted">
             Master Calligrapher &amp; Founder
           </p>
 

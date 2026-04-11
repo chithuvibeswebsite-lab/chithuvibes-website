@@ -1,18 +1,18 @@
 export default function OriginStorySection() {
   return (
-    <section className="bg-white py-12 px-6 md:py-20 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <section className="bg-white py-cv-3xl px-cv-lg md:py-cv-4xl md:px-cv-xl">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-cv-3xl md:gap-cv-4xl items-center">
 
         {/* LEFT — image with rotated card frame */}
         <div className="relative flex items-center justify-center">
           <div className="relative w-full max-w-[320px] md:max-w-[420px] h-[380px] md:h-[520px] rotate-[-3deg]">
 
             {/* Outer gold border card */}
-            <div className="absolute inset-0 rounded-[20px] border-[1.5px] border-cv-gold rotate-[2deg]" />
+            <div className="absolute inset-0 rounded-cv-xl border-cv-base border-cv-gold rotate-[2deg]" />
 
             {/* Image placeholder */}
-            <div className="absolute inset-0 rounded-[16px] overflow-hidden bg-[#1a2a1a]">
-              <div className="w-full h-full bg-[#1C2B1C] flex items-center justify-center">
+            <div className="absolute inset-0 rounded-cv-xl overflow-hidden" style={{ backgroundColor: "#1a2a1a" }}>
+              <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#1C2B1C" }}>
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#3a4a3a" strokeWidth="1">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <circle cx="8.5" cy="8.5" r="1.5" />
@@ -25,32 +25,38 @@ export default function OriginStorySection() {
         </div>
 
         {/* RIGHT — content */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-cv-lg">
 
           {/* Heading */}
-          <h2 className="text-[38px] md:text-[52px] text-[#3D3566] leading-tight mb-2 font-serif italic font-normal">
+          <h2
+            className="text-cv-purple leading-cv-snug mb-cv-pxsm font-cv-serif italic font-cv-regular"
+            style={{ fontSize: "clamp(34px, 4vw, 52px)" }}
+          >
             Our Origin Story
           </h2>
 
           {/* Para 1 */}
-          <p className="text-[14px] md:text-[15px] text-[#444444] leading-relaxed font-sans font-light">
+          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             Emerging from the heart of Tamil Nadu in 2023, Chithu Vibes was born from a singular vision: to give the ephemeral beauty of handwriting the permanence of stone.
           </p>
 
           {/* Para 2 */}
-          <p className="text-[14px] md:text-[15px] text-[#444444] leading-relaxed font-sans font-light">
+          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             We believe that emotions are the most precious cargo of human communication. When you choose a word, a name, or a verse, you are sharing a piece of your soul.
           </p>
 
           {/* Gold quote block */}
-           <div className="border-l-4 border-[#D4AF37] pl-5 py-1 my-1">
-            <p className="text-[18px] md:text-[20px] text-[#D4AF37] leading-relaxed font-serif italic font-normal">
-             "Etching Your Emotions into Eternity."
+          <div className="border-l-4 border-cv-gold pl-cv-lg py-cv-xs my-cv-xs">
+            <p
+              className="text-cv-gold leading-cv-relaxed font-cv-serif italic font-cv-regular"
+              style={{ fontSize: "clamp(17px, 2vw, 20px)" }}
+            >
+              "Etching Your Emotions into Eternity."
             </p>
-           </div>
+          </div>
 
           {/* Para 3 */}
-          <p className="text-[14px] md:text-[15px] text-[#444444] leading-relaxed font-sans font-light">
+          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             By merging the master's hand with the precision of laser light, we create artifacts that don't just decorate space—they anchor memories.
           </p>
 

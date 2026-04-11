@@ -50,41 +50,42 @@ export default function OrderSection() {
   const right = testimonials[(active + 1) % testimonials.length];
 
   return (
-    <section className="bg-white box-border px-6 py-16 md:px-[72px] md:py-[96px]">
+    <section className="bg-white box-border px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-5xl">
       <div className="w-full mx-auto" style={{ maxWidth: "1200px" }}>
 
         {/* Heading */}
         <h2
-          className="font-normal text-center leading-[1.1] mb-4 text-[36px] md:text-[56px]"
-          style={{ fontFamily: "'Cormorant Garamond', serif", color: "#3D3566" }}
+          className="font-cv-regular text-center leading-cv-tight mb-cv-md font-cv-serif text-cv-purple"
+          style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
         >
           Order directly with us
         </h2>
 
         {/* Sub heading */}
-        <p
-          className="text-[14px] md:text-[15px] text-center mb-12 md:mb-[72px]"
-          style={{ fontFamily: "'Jost', sans-serif", color: "#AAAAAA" }}
-        >
+        <p className="text-cv-sm text-center mb-cv-3xl md:mb-cv-3xl font-cv-sans text-cv-muted">
           Discuss your vision and place your order through WhatsApp.
         </p>
 
         {/* Testimonials */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-12 md:mb-14"
-          style={{ opacity: visible ? 1 : 0, transition: "opacity 0.4s ease" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-cv-3xl md:gap-cv-3xl mb-cv-3xl"
+          style={{ opacity: visible ? 1 : 0, transition: `opacity var(--duration-cv-slow) ease` }}
         >
           {[left, right].map((t, i) => (
             <div key={i} className="text-center">
               <p
-                className="leading-[1.75] mb-9 text-[18px] md:text-[22px]"
-                style={{ fontFamily: "'Cormorant Garamond', serif", color: "#333333" }}
+                className="leading-[1.75] mb-cv-2xl font-cv-serif"
+                style={{
+                  fontSize: "clamp(17px, 2vw, 22px)",
+                  color: "#333333",
+                }}
               >
                 "{t.quote}"
               </p>
 
               {/* Avatar */}
-              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+              <div
+                className="w-14 h-14 rounded-cv-full flex items-center justify-center mx-auto mb-cv-md"
                 style={{ backgroundColor: "#CCCCCC" }}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999999" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
@@ -95,18 +96,12 @@ export default function OrderSection() {
               </div>
 
               {/* Name */}
-              <p
-                className="text-[13px] font-semibold tracking-[0.03em] mb-1"
-                style={{ fontFamily: "'Jost', sans-serif", color: "#3D3566" }}
-              >
+              <p className="text-cv-xs font-cv-semibold tracking-cv-normal mb-cv-xs font-cv-sans text-cv-purple">
                 {t.name}
               </p>
 
               {/* Title */}
-              <p
-                className="text-[13px]"
-                style={{ fontFamily: "'Jost', sans-serif", color: "#999999" }}
-              >
+              <p className="text-cv-xs font-cv-sans text-cv-muted">
                 {t.title}
               </p>
             </div>
@@ -114,16 +109,16 @@ export default function OrderSection() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-[10px]">
+        <div className="flex justify-center gap-cv-sm">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => handleDot(i)}
-              className="border-none cursor-pointer p-0 h-[10px] rounded-[5px]"
+              className="border-none cursor-pointer p-0 h-cv-sm rounded-cv-full"
               style={{
                 width: i === active ? "28px" : "10px",
-                backgroundColor: i === active ? "#3D3566" : "#CCCCCC",
-                transition: "all 0.3s ease",
+                backgroundColor: i === active ? "var(--color-cv-purple)" : "#CCCCCC",
+                transition: `all var(--duration-cv-base) ease`,
               }}
             />
           ))}
