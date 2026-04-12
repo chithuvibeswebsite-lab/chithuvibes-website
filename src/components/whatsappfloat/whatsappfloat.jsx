@@ -39,6 +39,7 @@ export default function WhatsAppFloat() {
 
   useEffect(() => {
     // Safe initial position — bottom-right with margin, respects small screens
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPos({
       x: window.innerWidth - SIZE - MARGIN,
       y: window.innerHeight - SIZE - MARGIN,

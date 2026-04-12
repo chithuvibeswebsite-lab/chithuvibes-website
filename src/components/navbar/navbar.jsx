@@ -5,7 +5,7 @@ const navLinks = [
   { label: "OUR STORY",  path: "/about" },
   { label: "CALLIGRAPHY PRODUCTS",    path: "/calligraphy-products" },
   { label: "GIFT PRODUCTS",   path: "/gift-products" },
-  { label: "CONTACT",    path: "/contact_us" },
+  { label: "CONTACT",    path: "/contact" },
 ];
 
 const CartIcon = () => (
