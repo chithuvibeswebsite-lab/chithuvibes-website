@@ -31,6 +31,10 @@ export default function Navbar() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // 🛒 Replace this with your actual cart state (Context, Redux, Zustand, etc.)
+  // Example: const { cartCount } = useCart();
+  const cartCount = 3; // ← swap this with your real cart count
+
   const isActive = (path) => location.pathname.startsWith(path);
 
   return (
@@ -42,7 +46,6 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-white border-b border-cv-border h-16">
         <div className="w-full h-full px-cv-lg md:px-cv-3xl flex items-center justify-between box-border">
 
-          
           <button
             onClick={() => navigate("/")}
             className="bg-transparent border-none cursor-pointer p-0 font-cv-serif text-cv-gold italic font-cv-semibold"
@@ -50,7 +53,6 @@ export default function Navbar() {
           >
             Chithu Vibes
           </button>
-
 
           <ul
             className="hidden md:flex list-none m-0 p-0 items-center gap-cv-3xl absolute left-1/2"
@@ -79,10 +81,34 @@ export default function Navbar() {
             })}
           </ul>
 
-          
           <div className="flex items-center gap-cv-md">
-            <button className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple">
+
+            {/* ✅ Cart button with badge */}
+            <button
+              className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple relative"
+              onClick={() => navigate("/cart")}
+              aria-label={`Cart ${cartCount > 0 ? `(${cartCount} items)` : ""}`}
+            >
               <CartIcon />
+              {cartCount > 0 && (
+                <span
+                  className="absolute flex items-center justify-center rounded-full pointer-events-none"
+                  style={{
+                    top: "-7px",
+                    right: "-8px",
+                    minWidth: "16px",
+                    height: "16px",
+                    backgroundColor: "#E24B4A",
+                    color: "#fff",
+                    fontSize: "10px",
+                    fontWeight: "500",
+                    lineHeight: "1",
+                    padding: "0 4px",
+                  }}
+                >
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
             </button>
 
             <button
@@ -95,7 +121,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-cv-border px-cv-lg py-cv-md flex flex-col gap-cv-md">
             {navLinks.map(({ label, path }) => {
