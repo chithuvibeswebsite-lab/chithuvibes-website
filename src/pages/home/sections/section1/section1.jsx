@@ -24,19 +24,18 @@ export default function Section1() {
           </p>
 
           <h1
-            className="m-0 mb-cv-pxsm leading-cv-tight tracking-cv-tight font-cv-serif font-cv-semibold text-cv-purple"
-            style={{ fontSize: "clamp(40px, 6vw, 76px)" }}
-          >
-            The Soul of<br />Tamil Calligraphy.
-          </h1>
+  className="m-0 mb-4 leading-cv-tight tracking-cv-tight font-cv-serif font-cv-semibold text-cv-purple"
+  style={{ fontSize: "clamp(40px, 6vw, 76px)" }}
+>
+  The Soul of<br />Tamil Calligraphy.
+</h1>
 
-          <h2
-            className="m-0 mb-cv-xl leading-cv-snug font-cv-serif font-cv-bold text-cv-gold"
-            style={{ fontSize: "clamp(28px, 4vw, 50px)" }}
-          >
-            ழகரம் பேசும்<br />எழுத்தின் கலை.
-          </h2>
-
+<h2
+  className="m-0 mb-cv-xl leading-cv-snug font-cv-serif font-cv-bold text-cv-gold"
+  style={{ fontSize: "clamp(28px, 4vw, 50px)" }}
+>
+  ழகரம் பேசும்<br />எழுத்தின் கலை.
+</h2>
           <p
             className="mb-cv-2xl text-cv-sm leading-[1.85] font-cv-sans font-cv-light"
             style={{ color: "#555555", maxWidth: "380px" }}
