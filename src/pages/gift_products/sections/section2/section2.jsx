@@ -1,3 +1,5 @@
+import { useCart } from "../../../../context/cart.context";
+
 const giftProducts = [
   {
     id: 4,
@@ -57,6 +59,42 @@ const giftProducts = [
   },
 ];
 
+// Cart icon SVG
+function CartIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+      />
+    </svg>
+  );
+}
+
+// Check icon for "Added" state
+function CheckIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
 function ProductImage({ src, alt }) {
   return (
     <div
@@ -75,36 +113,40 @@ function ProductImage({ src, alt }) {
   );
 }
 
-function InquireButton() {
-  function openWhatsApp() {
-    window.open(
-      "https://wa.me/919876543210?text=" +
-        encodeURIComponent(
-          "Hi! I'm interested in ordering a custom gift item from Chithu Vibes."
-        ),
-      "_blank"
-    );
-  }
+function AddToCartButton({ product }) {
+  const { cartItems, addToCart } = useCart();
+  const isInCart = cartItems.some((item) => item.id === product.id);
 
   return (
     <button
-      onClick={openWhatsApp}
-      className="border border-cv-gold bg-transparent cursor-pointer font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase text-cv-gold px-cv-md py-cv-xs rounded-cv-xs transition"
+      onClick={() => addToCart(product)}
+      title={isInCart ? "Added to cart" : "Add to cart"}
+      className="flex items-center justify-center gap-cv-xs border cursor-pointer font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase px-cv-md py-cv-xs rounded-cv-xs transition"
       style={{
         transitionDuration: "var(--duration-cv-base)",
-        whiteSpace: "nowrap",
         minHeight: "36px",
+        borderColor: isInCart
+          ? "var(--color-cv-gold)"
+          : "var(--color-cv-border)",
+        backgroundColor: isInCart ? "var(--color-cv-gold)" : "transparent",
+        color: isInCart ? "white" : "var(--color-cv-muted)",
       }}
       onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-cv-gold)";
         e.currentTarget.style.backgroundColor = "var(--color-cv-gold)";
         e.currentTarget.style.color = "white";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = "transparent";
-        e.currentTarget.style.color = "var(--color-cv-gold)";
+        e.currentTarget.style.borderColor = isInCart
+          ? "var(--color-cv-gold)"
+          : "var(--color-cv-border)";
+        e.currentTarget.style.backgroundColor = isInCart
+          ? "var(--color-cv-gold)"
+          : "transparent";
+        e.currentTarget.style.color = isInCart ? "white" : "var(--color-cv-muted)";
       }}
     >
-      Inquire
+      {isInCart ? <CheckIcon /> : <CartIcon />}
     </button>
   );
 }
@@ -129,19 +171,18 @@ export default function Section2() {
             className="font-cv-sans text-cv-sm font-cv-light text-cv-muted leading-cv-relaxed md:text-right"
             style={{ maxWidth: "300px" }}
           >
-            Modern precision meets sentimental value. Our laser-crafted gifts are designed to preserve your most cherished milestones.
+            Modern precision meets sentimental value. Our laser-crafted gifts
+            are designed to preserve your most cherished milestones.
           </p>
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-cv-3xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-cv-3xl">
           {giftProducts.map((product) => (
             <div key={product.id} className="flex flex-col">
 
-              {/* Image */}
               <ProductImage src={product.image} alt={product.name} />
 
-              {/* Info */}
               <div className="pt-cv-md">
                 <h3
                   className="m-0 mb-cv-xs font-cv-serif font-cv-semibold text-cv-black italic"
@@ -154,9 +195,9 @@ export default function Section2() {
                 </p>
                 <div className="flex items-center justify-between gap-cv-sm">
                   <span className="font-cv-sans text-cv-sm font-cv-semibold text-cv-gold">
-                    ${product.price.toLocaleString()}
+                    ₹{product.price.toLocaleString()}
                   </span>
-                  <InquireButton />
+                  <AddToCartButton product={product} />
                 </div>
               </div>
 

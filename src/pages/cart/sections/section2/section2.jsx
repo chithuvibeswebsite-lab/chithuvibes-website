@@ -1,44 +1,28 @@
 import { useState } from "react";
 import { useCart } from "../../../../context/cart.context";
+import { useNavigate } from "react-router-dom";
 
-// Mock recommended additions
-const recommended = [
-  {
-    id: "rec-1",
-    name: "Matching Calligraphic Miniature",
-    description: "Fridge magnet version of your bespoke design",
-    price: 850,
-    image: "/images/products/tamil-inscription-1.jpg",
-  },
-  {
-    id: "rec-2",
-    name: "Matching Calligraphic Miniature",
-    description: "Fridge magnet version of your bespoke design",
-    price: 850,
-    image: "/images/products/tamil-inscription-1.jpg",
-  },
-];
+// ── Icons ──────────────────────────────────────────────────────────────────
 
-// Icons
-function CustomizableIcon() {
+function TrashIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
+    <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
     </svg>
   );
 }
 
-function GridIcon() {
+function ChatIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
     </svg>
   );
 }
 
 function ShieldIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
     </svg>
   );
@@ -46,24 +30,16 @@ function ShieldIcon() {
 
 function TruckIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
       <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
     </svg>
   );
 }
 
-function ScissorsIcon() {
+function StarIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7.848 8.25l1.536.887M7.848 8.25a3 3 0 11-5.196-3 3 3 0 015.196 3zm1.536.887a2.165 2.165 0 011.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 11-5.196 3 3 3 0 015.196-3zm1.536-.887a2.165 2.165 0 001.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863l2.077-1.199m0-3.328a4.323 4.323 0 012.068-1.379l5.325-1.628a4.5 4.5 0 012.293-.regenerate" />
-    </svg>
-  );
-}
-
-function ChatIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.499z" />
     </svg>
   );
 }
@@ -77,41 +53,68 @@ function SparkleIcon() {
   );
 }
 
-// Fallback cart items for when cart is empty (demo purposes)
-const demoItems = [
-  {
-    id: 1,
-    name: "The Golden Script - Hand-Drawn Inscription",
-    description: "A bespoke calligraphic piece tailored to your story, using archival inks and gold leaf accents.",
-    tag: "Customizable Text",
-    tagIcon: "pen",
-    price: 8500,
-    image: "/images/products/tamil-inscription-1.jpg",
-    quantity: 1,
-  },
-  {
-    id: 4,
-    name: "The Heirloom Crate - Laser-Etched",
-    description: "Solid teak wood box featuring intricate traditional motifs, perfect for preserving precious memories.",
-    tag: "Teak Wood Finish",
-    tagIcon: "grid",
-    price: 12200,
-    image: "/images/products/box-1.jpg",
-    quantity: 1,
-  },
-];
+function EmptyCartIcon() {
+  return (
+    <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    </svg>
+  );
+}
+
+// ── Empty state ────────────────────────────────────────────────────────────
+
+function EmptyCart({ onBrowse }) {
+  return (
+    <div className="flex flex-col items-center justify-center py-cv-5xl text-center">
+      <div className="text-cv-border mb-cv-lg">
+        <EmptyCartIcon />
+      </div>
+      <h3
+        className="m-0 mb-cv-sm font-cv-serif italic font-cv-regular text-cv-black"
+        style={{ fontSize: "clamp(22px, 3vw, 32px)" }}
+      >
+        Your cart is empty
+      </h3>
+      <p className="m-0 mb-cv-2xl font-cv-sans text-cv-sm font-cv-light text-cv-muted leading-cv-relaxed" style={{ maxWidth: "320px" }}>
+        Explore our calligraphy and gift collections and add something beautiful to your selection.
+      </p>
+      <button
+        onClick={onBrowse}
+        className="border border-cv-gold bg-transparent cursor-pointer font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-cv-gold px-cv-2xl py-cv-md rounded-cv-xs transition"
+        style={{ transitionDuration: "var(--duration-cv-base)" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "var(--color-cv-gold)";
+          e.currentTarget.style.color = "white";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.color = "var(--color-cv-gold)";
+        }}
+      >
+        Browse Collection
+      </button>
+    </div>
+  );
+}
+
+// ── Main section ───────────────────────────────────────────────────────────
 
 export default function Section2() {
-  const { cartItems, updateQuantity, addToCart, subtotal } = useCart();
-  const [isGift, setIsGift] = useState(true);
+  const {
+    cartItems,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+    subtotal,
+  } = useCart();
+
+  const navigate = useNavigate();
+  const [isGift, setIsGift] = useState(false);
   const [note, setNote] = useState("");
 
-  // Use real cart items if available, else demo
-  const displayItems = cartItems.length > 0 ? cartItems : demoItems;
-  const displaySubtotal = cartItems.length > 0 ? subtotal : demoItems.reduce((s, i) => s + i.price * i.quantity, 0);
-
   function openWhatsApp() {
-    const itemsList = displayItems
+    const itemsList = cartItems
       .map((i) => `${i.name} x${i.quantity} — ₹${(i.price * i.quantity).toLocaleString()}`)
       .join("\n");
     const giftNote = isGift ? "\n\n🎁 This is a gift order." : "";
@@ -119,33 +122,65 @@ export default function Section2() {
     window.open(
       "https://wa.me/919876543210?text=" +
         encodeURIComponent(
-          `Hi! I'd like to finalize my Chithu Vibes order:\n\n${itemsList}\n\nEstimated Total: ₹${displaySubtotal.toLocaleString()}${giftNote}${artistNote}`
+          `Hi! I'd like to finalize my Chithu Vibes order:\n\n${itemsList}\n\nEstimated Total: ₹${subtotal.toLocaleString()}${giftNote}${artistNote}`
         ),
       "_blank"
     );
   }
 
+  // Empty cart state
+  if (cartItems.length === 0) {
+    return (
+      <section className="bg-cv-white px-cv-lg pb-cv-5xl md:px-cv-4xl">
+        <div className="w-full mx-auto" style={{ maxWidth: "1100px" }}>
+          <EmptyCart onBrowse={() => navigate("/calligraphy-products")} />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="bg-cv-white px-cv-lg py-cv-2xl md:px-cv-4xl pb-cv-5xl">
+    <section className="bg-cv-white px-cv-lg py-cv-2xl pb-cv-5xl md:px-cv-4xl">
       <div
-        className="w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-cv-3xl items-start"
+        className="w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-cv-3xl items-start"
         style={{ maxWidth: "1100px" }}
       >
 
-        {/* ── LEFT COLUMN ── */}
+        {/* ── LEFT — Cart Items ── */}
         <div>
 
-          {/* Cart Items */}
-          <div className="flex flex-col gap-cv-2xl mb-cv-3xl">
-            {displayItems.map((item) => (
+          {/* Header row */}
+          <div className="flex items-center justify-between mb-cv-2xl">
+            <p className="m-0 font-cv-sans text-cv-sm font-cv-medium text-cv-charcoal">
+              {cartItems.length} {cartItems.length === 1 ? "item" : "items"} in your selection
+            </p>
+            <button
+              onClick={clearCart}
+              className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-xs font-cv-medium text-cv-muted underline underline-offset-4 transition"
+              style={{ transitionDuration: "var(--duration-cv-base)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cv-gold)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-muted)")}
+            >
+              Clear all
+            </button>
+          </div>
+
+          {/* Cart item list */}
+          <div className="flex flex-col">
+            {cartItems.map((item, index) => (
               <div
                 key={item.id}
-                className="flex gap-cv-lg border-b border-cv-border pb-cv-2xl"
+                className="flex gap-cv-lg py-cv-2xl"
+                style={{
+                  borderBottom: index < cartItems.length - 1
+                    ? "1px solid var(--color-cv-border)"
+                    : "none",
+                }}
               >
                 {/* Product image */}
                 <div
                   className="shrink-0 rounded-cv-md overflow-hidden bg-cv-soft"
-                  style={{ width: "110px", height: "110px" }}
+                  style={{ width: "100px", height: "100px" }}
                 >
                   <img
                     src={item.image}
@@ -155,62 +190,83 @@ export default function Section2() {
                   />
                 </div>
 
-                {/* Product details */}
-                <div className="flex-1 min-w-0">
-                  <h3
-                    className="m-0 mb-cv-xs font-cv-serif font-cv-semibold text-cv-black leading-cv-snug"
-                    style={{ fontSize: "clamp(15px, 1.8vw, 19px)" }}
-                  >
-                    {item.name}
-                  </h3>
-                  <p className="m-0 mb-cv-sm font-cv-sans text-cv-xs font-cv-light text-cv-muted leading-cv-normal">
-                    {item.description}
-                  </p>
+                {/* Product info */}
+                <div className="flex-1 min-w-0 flex flex-col justify-between">
+                  <div>
+                    <h3
+                      className="m-0 mb-cv-xs font-cv-serif font-cv-semibold text-cv-black leading-cv-snug"
+                      style={{ fontSize: "clamp(14px, 1.6vw, 18px)" }}
+                    >
+                      {item.name}
+                    </h3>
+                    <p className="m-0 mb-cv-sm font-cv-sans text-cv-xs font-cv-light text-cv-muted leading-cv-normal">
+                      {item.description}
+                    </p>
+                  </div>
 
-                  {/* Tag */}
-                  {item.tag && (
-                    <div className="flex items-center gap-cv-xs mb-cv-md">
-                      <span className="text-cv-muted">
-                        {item.tagIcon === "pen" ? <CustomizableIcon /> : <GridIcon />}
-                      </span>
-                      <span className="font-cv-sans text-cv-label font-cv-medium tracking-cv-wide uppercase text-cv-muted">
-                        {item.tag}
-                      </span>
-                    </div>
-                  )}
+                  {/* Price + controls row */}
+                  <div className="flex items-center justify-between gap-cv-sm flex-wrap mt-cv-sm">
 
-                  {/* Price + QTY */}
-                  <div className="flex items-center justify-between gap-cv-sm flex-wrap">
+                    {/* Price */}
                     <span className="font-cv-sans text-cv-base font-cv-semibold text-cv-gold">
-                      ₹ {(item.price * item.quantity).toLocaleString()}
+                      ₹{(item.price * item.quantity).toLocaleString()}
                     </span>
 
-                    {/* Quantity selector */}
-                    <div
-                      className="flex items-center border border-cv-border rounded-cv-xs overflow-hidden"
-                      style={{ height: "34px" }}
-                    >
-                      <button
-                        onClick={() => updateQuantity(item.id, (item.quantity || 1) - 1)}
-                        className="px-cv-sm bg-transparent border-none cursor-pointer font-cv-sans text-cv-base text-cv-charcoal font-cv-light transition"
-                        style={{ transitionDuration: "var(--duration-cv-fast)" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-soft)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                    <div className="flex items-center gap-cv-md">
+
+                      {/* Quantity controls */}
+                      <div
+                        className="flex items-center border border-cv-border rounded-cv-xs overflow-hidden"
+                        style={{ height: "32px" }}
                       >
-                        −
-                      </button>
-                      <span className="px-cv-sm font-cv-sans text-cv-sm font-cv-medium text-cv-black">
-                        {item.quantity || 1}
-                      </span>
+                        <button
+                          onClick={() => decreaseQuantity(item.id)}
+                          className="px-cv-sm bg-transparent border-none cursor-pointer font-cv-sans text-cv-md text-cv-charcoal transition flex items-center justify-center"
+                          style={{
+                            transitionDuration: "var(--duration-cv-fast)",
+                            minWidth: "32px",
+                            height: "100%",
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-soft)")}
+                          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                          title={item.quantity === 1 ? "Remove item" : "Decrease quantity"}
+                        >
+                          −
+                        </button>
+                        <span
+                          className="font-cv-sans text-cv-sm font-cv-medium text-cv-black text-center"
+                          style={{ minWidth: "28px" }}
+                        >
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() => increaseQuantity(item.id)}
+                          className="px-cv-sm bg-transparent border-none cursor-pointer font-cv-sans text-cv-md text-cv-charcoal transition flex items-center justify-center"
+                          style={{
+                            transitionDuration: "var(--duration-cv-fast)",
+                            minWidth: "32px",
+                            height: "100%",
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-soft)")}
+                          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                          title="Increase quantity"
+                        >
+                          +
+                        </button>
+                      </div>
+
+                      {/* Remove button */}
                       <button
-                        onClick={() => updateQuantity(item.id, (item.quantity || 1) + 1)}
-                        className="px-cv-sm bg-transparent border-none cursor-pointer font-cv-sans text-cv-base text-cv-charcoal font-cv-light transition"
-                        style={{ transitionDuration: "var(--duration-cv-fast)" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-soft)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                        onClick={() => removeFromCart(item.id)}
+                        className="bg-transparent border-none cursor-pointer text-cv-muted transition flex items-center justify-center p-cv-xs rounded-cv-xs"
+                        style={{ transitionDuration: "var(--duration-cv-base)" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cv-gold)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-muted)")}
+                        title="Remove from cart"
                       >
-                        +
+                        <TrashIcon />
                       </button>
+
                     </div>
                   </div>
                 </div>
@@ -219,7 +275,7 @@ export default function Section2() {
           </div>
 
           {/* A Personal Touch */}
-          <div className="flex gap-cv-md items-start">
+          <div className="flex gap-cv-md items-start mt-cv-3xl pt-cv-3xl border-t border-cv-border">
             <div className="shrink-0 mt-cv-xs">
               <SparkleIcon />
             </div>
@@ -232,34 +288,42 @@ export default function Section2() {
                 <strong className="font-cv-semibold text-cv-black">
                   Jeya Chitra will personally connect with you
                 </strong>{" "}
-                via WhatsApp to discuss customization and finalize your bespoke order. Each piece is crafted specifically for your vision.
+                via WhatsApp to discuss customization and finalize your bespoke
+                order. Each piece is crafted specifically for your vision.
               </p>
             </div>
           </div>
 
         </div>
 
-        {/* ── RIGHT COLUMN — Summary Card ── */}
+        {/* ── RIGHT — Summary Card ── */}
         <div
-          className="bg-white rounded-cv-lg shadow-cv-md p-cv-xl border border-cv-border"
+          className="bg-white rounded-cv-lg shadow-cv-md p-cv-xl border border-cv-border w-full"
           style={{ position: "sticky", top: "88px" }}
         >
-          <h3 className="m-0 mb-cv-xl font-cv-serif font-cv-regular text-cv-black" style={{ fontSize: "clamp(22px, 2.5vw, 28px)" }}>
+          <h3
+            className="m-0 mb-cv-xl font-cv-serif font-cv-regular text-cv-black"
+            style={{ fontSize: "clamp(22px, 2.5vw, 28px)" }}
+          >
             Summary
           </h3>
 
-          {/* Subtotal row */}
+          {/* Subtotal */}
           <div className="flex items-center justify-between mb-cv-sm">
             <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">Subtotal</span>
             <span className="font-cv-sans text-cv-sm font-cv-semibold text-cv-black">
-              ₹ {displaySubtotal.toLocaleString()}
+              ₹{subtotal.toLocaleString()}
             </span>
           </div>
 
           {/* Studio processing */}
           <div className="flex items-center justify-between pb-cv-lg border-b border-cv-border mb-cv-lg">
-            <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">Studio Processing</span>
-            <span className="font-cv-sans text-cv-xs font-cv-medium text-cv-muted italic">Complimentary</span>
+            <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">
+              Studio Processing
+            </span>
+            <span className="font-cv-sans text-cv-xs font-cv-medium text-cv-muted italic">
+              Complimentary
+            </span>
           </div>
 
           {/* Gift checkbox */}
@@ -283,20 +347,25 @@ export default function Section2() {
                 htmlFor="is-gift"
                 className="font-cv-sans text-cv-sm font-cv-medium text-cv-black cursor-pointer"
               >
-                Is this a gift ?
+                Is this a gift?
               </label>
               <p className="m-0 font-cv-sans text-cv-xs font-cv-light text-cv-muted leading-cv-normal mt-cv-xs">
-                Include a hand-written calligraphic note by Chithuvibes (+₹200-500)
+                Include a hand-written calligraphic note by Chithuvibes (+₹200–500)
               </p>
             </div>
           </div>
 
           {/* Estimated Total */}
           <div className="flex items-end justify-between mb-cv-xl">
-            <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">Estimated Total</span>
+            <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">
+              Estimated Total
+            </span>
             <div className="text-right">
-              <p className="m-0 font-cv-serif font-cv-semibold text-cv-gold" style={{ fontSize: "clamp(20px, 2vw, 26px)" }}>
-                ₹ {displaySubtotal.toLocaleString()}
+              <p
+                className="m-0 font-cv-serif font-cv-semibold text-cv-gold"
+                style={{ fontSize: "clamp(20px, 2vw, 26px)" }}
+              >
+                ₹{subtotal.toLocaleString()}
               </p>
               <p className="m-0 font-cv-sans text-cv-label font-cv-regular tracking-cv-wide uppercase text-cv-muted">
                 Final price on consultation
@@ -322,10 +391,9 @@ export default function Section2() {
               onFocus={(e) => (e.target.style.borderColor = "var(--color-cv-gold)")}
               onBlur={(e) => (e.target.style.borderColor = "var(--color-cv-border)")}
             />
-            {/* Watermark */}
             <span
-              className="absolute bottom-cv-sm right-cv-md font-cv-serif italic text-cv-border pointer-events-none select-none"
-              style={{ fontSize: "22px", opacity: 0.5 }}
+              className="absolute bottom-cv-sm right-cv-md font-cv-serif italic pointer-events-none select-none"
+              style={{ fontSize: "18px", color: "var(--color-cv-border)", opacity: 0.6 }}
             >
               Artistry in Motion
             </span>
@@ -339,12 +407,8 @@ export default function Section2() {
               backgroundColor: "var(--color-cv-gold)",
               transitionDuration: "var(--duration-cv-base)",
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "var(--color-cv-plum)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "var(--color-cv-gold)")
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-plum)")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--color-cv-gold)")}
           >
             <ChatIcon />
             Finalize Design via WhatsApp
@@ -354,8 +418,8 @@ export default function Section2() {
           <div className="flex flex-col gap-cv-sm mb-cv-lg">
             {[
               { icon: <ShieldIcon />, label: "Secure Professional Handling" },
-              { icon: <TruckIcon />, label: "Insured Premium Shipping" },
-              { icon: <CustomizableIcon />, label: "100% Artist-Certified Original" },
+              { icon: <TruckIcon />,  label: "Insured Premium Shipping" },
+              { icon: <StarIcon />,   label: "100% Artist-Certified Original" },
             ].map(({ icon, label }) => (
               <div key={label} className="flex items-center gap-cv-sm">
                 <span className="text-cv-muted">{icon}</span>
@@ -368,7 +432,9 @@ export default function Section2() {
 
           {/* Continue browsing */}
           <div className="text-center">
-            <button className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-xs font-cv-medium tracking-cv-wide uppercase text-cv-muted underline underline-offset-4 transition"
+            <button
+              onClick={() => navigate("/calligraphy-products")}
+              className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-xs font-cv-medium tracking-cv-wide uppercase text-cv-muted underline underline-offset-4 transition"
               style={{ transitionDuration: "var(--duration-cv-base)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cv-gold)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-muted)")}
@@ -377,65 +443,6 @@ export default function Section2() {
             </button>
           </div>
 
-        </div>
-      </div>
-
-      {/* ── RECOMMENDED ADDITIONS ── */}
-      <div className="w-full mx-auto mt-cv-5xl" style={{ maxWidth: "1100px" }}>
-        <p className="m-0 mb-cv-xl font-cv-sans text-cv-label font-cv-medium tracking-cv-widest uppercase text-cv-muted">
-          Recommended Additions
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-cv-lg">
-          {recommended.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center gap-cv-md border border-cv-border rounded-cv-md p-cv-md bg-white"
-            >
-              {/* Image */}
-              <div
-                className="shrink-0 rounded-cv-sm overflow-hidden bg-cv-soft"
-                style={{ width: "64px", height: "64px" }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => (e.target.style.display = "none")}
-                />
-              </div>
-
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <h4 className="m-0 mb-cv-xs font-cv-sans text-cv-sm font-cv-medium text-cv-black leading-cv-snug">
-                  {item.name}
-                </h4>
-                <p className="m-0 font-cv-sans text-cv-xs font-cv-light text-cv-muted">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Add button */}
-              <button
-                onClick={() => addToCart(item)}
-                className="shrink-0 border border-cv-gold bg-transparent cursor-pointer font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-cv-gold px-cv-md py-cv-xs rounded-cv-xs transition"
-                style={{
-                  transitionDuration: "var(--duration-cv-base)",
-                  whiteSpace: "nowrap",
-                  minHeight: "36px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--color-cv-gold)";
-                  e.currentTarget.style.color = "white";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "var(--color-cv-gold)";
-                }}
-              >
-                Add + ₹{item.price}
-              </button>
-            </div>
-          ))}
         </div>
       </div>
     </section>

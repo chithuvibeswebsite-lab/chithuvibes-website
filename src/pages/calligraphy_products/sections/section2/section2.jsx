@@ -1,3 +1,5 @@
+import { useCart } from "../../../../context/cart.context";
+
 const calligraphyProducts = [
   {
     id: 1,
@@ -64,12 +66,47 @@ const calligraphyProducts = [
   },
 ];
 
-// Image placeholder component
+// Cart icon SVG
+function CartIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+      />
+    </svg>
+  );
+}
+
+// Check icon for "Added" state
+function CheckIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
 function ProductImage({ src, alt }) {
   return (
     <div
-      className="w-full rounded-cv-md overflow-hidden"
-      style={{ aspectRatio: "4/3", backgroundColor: "var(--color-cv-soft)" }}
+      className="w-full rounded-cv-md overflow-hidden bg-cv-soft flex items-center justify-center"
+      style={{ aspectRatio: "4/3" }}
     >
       <img
         src={src}
@@ -77,12 +114,47 @@ function ProductImage({ src, alt }) {
         className="w-full h-full object-cover"
         onError={(e) => {
           e.target.style.display = "none";
-          e.target.parentElement.style.display = "flex";
-          e.target.parentElement.style.alignItems = "center";
-          e.target.parentElement.style.justifyContent = "center";
         }}
       />
     </div>
+  );
+}
+
+function AddToCartButton({ product }) {
+  const { cartItems, addToCart } = useCart();
+  const isInCart = cartItems.some((item) => item.id === product.id);
+
+  return (
+    <button
+      onClick={() => addToCart(product)}
+      title={isInCart ? "Added to cart" : "Add to cart"}
+      className="flex items-center justify-center gap-cv-xs border cursor-pointer font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase px-cv-md py-cv-xs rounded-cv-xs transition"
+      style={{
+        transitionDuration: "var(--duration-cv-base)",
+        minHeight: "36px",
+        borderColor: isInCart
+          ? "var(--color-cv-gold)"
+          : "var(--color-cv-border)",
+        backgroundColor: isInCart ? "var(--color-cv-gold)" : "transparent",
+        color: isInCart ? "white" : "var(--color-cv-muted)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-cv-gold)";
+        e.currentTarget.style.backgroundColor = "var(--color-cv-gold)";
+        e.currentTarget.style.color = "white";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = isInCart
+          ? "var(--color-cv-gold)"
+          : "var(--color-cv-border)";
+        e.currentTarget.style.backgroundColor = isInCart
+          ? "var(--color-cv-gold)"
+          : "transparent";
+        e.currentTarget.style.color = isInCart ? "white" : "var(--color-cv-muted)";
+      }}
+    >
+      {isInCart ? <CheckIcon /> : <CartIcon />}
+    </button>
   );
 }
 
@@ -106,19 +178,18 @@ export default function Section2() {
             className="font-cv-sans text-cv-sm font-cv-light text-cv-muted leading-cv-relaxed md:text-right"
             style={{ maxWidth: "280px" }}
           >
-            Each piece is hand-crafted with archival materials, celebrating the ancient rhythm of the quill and the beauty of the written word.
+            Each piece is hand-crafted with archival materials, celebrating
+            the ancient rhythm of the quill and the beauty of the written word.
           </p>
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-cv-3xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-cv-3xl">
           {calligraphyProducts.map((product) => (
             <div key={product.id} className="flex flex-col">
 
-              {/* Image */}
               <ProductImage src={product.image} alt={product.name} />
 
-              {/* Info */}
               <div className="pt-cv-md">
                 <h3
                   className="m-0 mb-cv-xs font-cv-serif font-cv-semibold text-cv-black italic"
@@ -129,18 +200,11 @@ export default function Section2() {
                 <p className="m-0 mb-cv-md font-cv-sans text-cv-xs font-cv-light text-cv-muted leading-cv-normal">
                   {product.description}
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-cv-sm">
                   <span className="font-cv-sans text-cv-sm font-cv-semibold text-cv-gold">
-                    ${product.price.toLocaleString()}
+                    ₹{product.price.toLocaleString()}
                   </span>
-                  <button
-                    className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase text-cv-muted transition py-cv-xs px-cv-xs"
-                    style={{ transitionDuration: "var(--duration-cv-base)", minHeight: "44px" }}
-                    onMouseEnter={(e) => (e.target.style.color = "var(--color-cv-gold)")}
-                    onMouseLeave={(e) => (e.target.style.color = "var(--color-cv-muted)")}
-                  >
-                    Details
-                  </button>
+                  <AddToCartButton product={product} />
                 </div>
               </div>
 
