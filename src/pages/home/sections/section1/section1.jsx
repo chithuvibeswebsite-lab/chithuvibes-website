@@ -1,7 +1,7 @@
 export default function Section1() {
   return (
     <section
-      className="flex items-center min-h-screen pt-16 box-border"
+      className="flex items-center min-h-screen box-border"
       style={{ backgroundColor: "#F0EEF5" }}
     >
       <div

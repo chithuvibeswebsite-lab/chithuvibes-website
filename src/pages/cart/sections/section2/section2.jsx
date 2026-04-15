@@ -3,29 +3,29 @@ import { useNavigate } from "react-router-dom";
 import CartProductCard from "../../../../components/cartproduct_card/cartproduct_card";
 import ProductCard from "../../../../components/product_card/product_card";
 
-const recommendedProducts = [
-  {
-    id: "CAL001",
-    name: "Name Calligraphy Frame",
-    description: "Handcrafted personalised name in black ink...",
-    price: 850,
-    images: ["https://www.google.com/url?q=https://cdn.cgdream.ai/_next/image?url%3Dhttps%253A%252F%252Fapi.cgdream.ai%252Frails%252Factive_storage%252Fblobs%252Fredirect%252FeyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVJkMXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ%253D%253D--b9f8b02b561a0947fa431fdabc38c6eb82fbe9e5%252Ffaeb13cf-2e99-49a0-8b3f-a42a0fb07c56_1.png%26w%3D1080%26q%3D95&sa=D&source=editors&ust=1776253061334755&usg=AOvVaw3CK-bzjcSy2E0SXwwRw8Zv"]
-  },
-  {
-    id: "CAL005",
-    name: "Wax Seal Stamp Kit",
-    description: "Complete kit with custom calligraphy stamp",
-    price: 1500,
-    images: ["https://res.cloudinary.com/demo/image/upload/product5.jpg"]
-  },
-  {
-    id: "CAL006",
-    name: "Personalised Journal",
-    description: "Leather journal with calligraphy name",
-    price: 950,
-    images: ["https://res.cloudinary.com/demo/image/upload/product6.jpg"]
-  },
-];
+// const recommendedProducts = [
+//   {
+//     id: "CAL001",
+//     name: "Name Calligraphy Frame",
+//     description: "Handcrafted personalised name in black ink...",
+//     price: 850,
+//     images: ["https://www.google.com/url?q=https://cdn.cgdream.ai/_next/image?url%3Dhttps%253A%252F%252Fapi.cgdream.ai%252Frails%252Factive_storage%252Fblobs%252Fredirect%252FeyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVJkMXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ%253D%253D--b9f8b02b561a0947fa431fdabc38c6eb82fbe9e5%252Ffaeb13cf-2e99-49a0-8b3f-a42a0fb07c56_1.png%26w%3D1080%26q%3D95&sa=D&source=editors&ust=1776253061334755&usg=AOvVaw3CK-bzjcSy2E0SXwwRw8Zv"]
+//   },
+//   {
+//     id: "CAL005",
+//     name: "Wax Seal Stamp Kit",
+//     description: "Complete kit with custom calligraphy stamp",
+//     price: 1500,
+//     images: ["https://res.cloudinary.com/demo/image/upload/product5.jpg"]
+//   },
+//   {
+//     id: "CAL006",
+//     name: "Personalised Journal",
+//     description: "Leather journal with calligraphy name",
+//     price: 950,
+//     images: ["https://res.cloudinary.com/demo/image/upload/product6.jpg"]
+//   },
+// ];
 
 
 
@@ -77,6 +77,7 @@ export default function Section2() {
     const usedIndexes = new Set();
 
     while (result.length < count && usedIndexes.size < products.length) {
+      // eslint-disable-next-line react-hooks/purity
       const randomIndex = Math.floor(Math.random() * products.length);
 
       if (!usedIndexes.has(randomIndex)) {
