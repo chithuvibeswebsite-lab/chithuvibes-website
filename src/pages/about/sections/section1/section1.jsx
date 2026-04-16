@@ -27,12 +27,12 @@ export default function AboutHero() {
       <div className="w-16 h-cv-px bg-cv-gold mb-cv-xl" />
 
       
-      <p className="text-cv-sm text-cv-muted leading-cv-normal max-w-xs sm:max-w-sm text-center mb-cv-lg font-cv-sans font-cv-light">
+      <p className="text-cv-md text-cv-muted leading-cv-normal max-w-sm sm:max-w-md text-center mb-cv-lg font-cv-sans font-cv-light">
         Where ancient scripts meet modern radiance. Founded in 2023, Chithu Vibes is the convergence of scholarly heritage and laser engineering.
       </p>
 
       
-      <span className="text-cv-gold text-cv-md">&#8964;</span>
+      <span className="text-cv-gold text-cv-xl animate-bounce">&#8964;</span>
 
     </section>
   );

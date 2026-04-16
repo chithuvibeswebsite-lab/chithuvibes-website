@@ -41,7 +41,7 @@ export default function AuthenticitySection() {
           ].map((s) => (
             <div key={s.label}>
               <p
-                className="font-cv-medium leading-none mb-cv-sm font-cv-serif text-cv-gold"
+                className="font-cv-light leading-none mb-cv-sm font-cv-sans text-cv-gold"
                 style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
               >
                 {s.value}

@@ -1,8 +1,4 @@
-const fontLink = document.createElement("link");
-fontLink.href =
-  "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap";
-fontLink.rel = "stylesheet";
-document.head.appendChild(fontLink);
+
  
 export default function NotFound404() {
   return (

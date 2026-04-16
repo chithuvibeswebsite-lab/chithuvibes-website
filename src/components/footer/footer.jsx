@@ -1,10 +1,6 @@
-function openWhatsApp() {
-  window.open(
-    "https://wa.me/919876543210?text=" +
-      encodeURIComponent("Hi! I'm interested in ordering a custom Tamil calligraphy piece from Chithu Vibes."),
-    "_blank"
-  );
-}
+import { Link } from "react-router-dom";
+
+
 
 const FacebookIcon  = () => <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>;
 const InstagramIcon = () => <svg width="20" height="20" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none" /></svg>;
@@ -13,21 +9,15 @@ const LinkedInIcon  = () => <svg width="20" height="20" fill="white" viewBox="0 
 const YouTubeIcon   = () => <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#C9A84C" /></svg>;
 
 export default function Footer() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const col1 = [
-    { label: "Home",       id: "hero" },
-    { label: "About",      id: "heritage" },
-    { label: "Product",    id: "collection" },
-    { label: "Engravings", id: "masterpieces" },
+    { label: "Home",       id: "hero", path: "/"   },
+    { label: "About",      id: "heritage" , path: "/about" },
+    { label: "Calligraphy Products",    id: "collection", path: "/calligraphy-products" },
+    { label: "Gift Products", id: "masterpieces", path: "/gift-products" },
+    {label: "Contact",     id: "contact", path: "/contact" },
   ];
 
-  const col2 = [
-    { label: "Calligraphy",   id: "collection" },
-    { label: "Custom orders", action: openWhatsApp },
-    { label: "Gift sets",     id: "collection" },
-    { label: "Contact",       action: openWhatsApp },
-  ];
 
   const socials = [
     { icon: <FacebookIcon />,  href: "#" },
@@ -70,16 +60,16 @@ export default function Footer() {
 
             
             <div className="flex gap-cv-3xl md:gap-cv-4xl">
-              {[col1, col2].map((col, ci) => (
+              {[col1].map((col, ci) => (
                 <ul key={ci} className="list-none p-0 m-0 flex flex-col gap-cv-md md:gap-cv-lg">
-                  {col.map(({ label, id, action }) => (
+                  {col.map(({ label, path }) => (
                     <li key={label}>
-                      <button
-                        onClick={action ?? (() => scrollTo(id))}
+                      <Link 
+                        to={path}
                         className="bg-transparent border-none cursor-pointer p-0 text-left font-cv-sans text-cv-base font-cv-regular text-white leading-none"
                       >
                         {label}
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -112,7 +102,7 @@ export default function Footer() {
           © 2026 CHITHU VIBES. All rights reserved.
         </p>
 
-        <div className="flex flex-wrap gap-cv-md md:gap-cv-lg">
+        {/* <div className="flex flex-wrap gap-cv-md md:gap-cv-lg">
           {["Privacy policy", "Terms of service", "Cookie settings"].map((t) => (
             <button
               key={t}
@@ -121,7 +111,7 @@ export default function Footer() {
               {t}
             </button>
           ))}
-        </div>
+        </div> */}
 
       </div>
 

@@ -1,14 +1,14 @@
 export default function OriginStorySection() {
   return (
     <section className="bg-white py-cv-3xl px-cv-lg md:py-cv-4xl md:px-cv-xl">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-cv-3xl md:gap-cv-4xl items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-cv-3xl md:gap-cv-4xl items-center">
 
         
         <div className="relative flex items-center justify-center">
-          <div className="relative w-full max-w-[320px] md:max-w-[420px] h-[380px] md:h-[520px] rotate-[-3deg]">
+          <div className="relative w-full max-w-[320px] md:max-w-[420px] h-[380px] md:h-[520px] rotate-[-4deg]">
 
             
-            <div className="absolute inset-0 rounded-cv-xl border-cv-base border-cv-gold rotate-[2deg]" />
+            <div className="absolute inset-0 rounded-cv-xl border-3 p-30 border-cv-gold -rotate-5" />
 
             
             <div className="absolute inset-0 rounded-cv-xl overflow-hidden" style={{ backgroundColor: "#1a2a1a" }}>
@@ -29,31 +29,31 @@ export default function OriginStorySection() {
          
           <h2
             className="text-cv-purple leading-cv-snug mb-cv-pxsm font-cv-serif italic font-cv-regular"
-            style={{ fontSize: "clamp(34px, 4vw, 52px)" }}
+            style={{ fontSize: "clamp(34px, 4vw, 70px)" }}
           >
             Our Origin Story
           </h2>
 
-          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
+          <p className="text-cv-md text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             Emerging from the heart of Tamil Nadu in 2023, Chithu Vibes was born from a singular vision: to give the ephemeral beauty of handwriting the permanence of stone.
           </p>
 
           
-          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
+          <p className="text-cv-md text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             We believe that emotions are the most precious cargo of human communication. When you choose a word, a name, or a verse, you are sharing a piece of your soul.
           </p>
 
         
-          <div className="border-l-4 border-cv-gold pl-cv-lg py-cv-xs my-cv-xs">
+          <div className="border-l-6 border-cv-gold pl-cv-lg py-cv-xs my-cv-xs">
             <p
               className="text-cv-gold leading-cv-relaxed font-cv-serif italic font-cv-regular"
-              style={{ fontSize: "clamp(17px, 2vw, 20px)" }}
+              style={{ fontSize: "clamp(17px, 2vw, 30px)" }}
             >
               "Etching Your Emotions into Eternity."
             </p>
           </div>
 
-          <p className="text-cv-sm text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
+          <p className="text-cv-md text-cv-charcoal leading-cv-relaxed font-cv-sans font-cv-light">
             By merging the master's hand with the precision of laser light, we create artifacts that don't just decorate space—they anchor memories.
           </p>
 

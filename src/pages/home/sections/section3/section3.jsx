@@ -41,14 +41,14 @@ export default function HeritageSection() {
         
           <h2
             className="italic font-cv-regular leading-cv-snug mb-cv-3xl font-cv-serif text-cv-purple"
-            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+            style={{ fontSize: "clamp(36px, 6vw, 70px)" }}
           >
             Evolving the<br />Eternal Script
           </h2>
 
        
           <p
-            className="text-cv-sm leading-[1.85] mb-cv-xl w-full md:max-w-[480px] font-cv-sans"
+            className="text-cv-md leading-[1.85] mb-cv-xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
           >
             Chithu Vibes was born from a singular vision: to ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world.
@@ -56,7 +56,7 @@ export default function HeritageSection() {
 
         
           <p
-            className="text-cv-sm leading-[1.85] mb-cv-3xl w-full md:max-w-[480px] font-cv-sans"
+            className="text-cv-md leading-[1.85] mb-cv-3xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
           >
             Our process combines the meditative patience of a traditional scribe with the uncompromising power of industrial lasers. Every piece is a dialogue between the old and the new.

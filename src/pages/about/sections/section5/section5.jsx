@@ -7,7 +7,7 @@ export default function ManuscriptQuote() {
       </p>
 
       
-      <blockquote className="max-w-xl md:max-w-2xl mx-auto mb-cv-2xl italic font-cv-regular leading-cv-normal text-cv-xl md:text-cv-2xl font-cv-serif text-cv-white">
+      <blockquote className="max-w-xl md:max-w-3xl mx-auto mb-cv-2xl italic font-cv-regular leading-cv-normal text-cv-2xl md:text-cv-3xl font-cv-serif text-cv-white">
         "She spent years mastering the logic of code and the grace of the pen. Today, she uses light to etch your emotions into eternity."
       </blockquote>
 
