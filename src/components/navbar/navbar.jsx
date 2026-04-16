@@ -33,6 +33,10 @@ export default function Navbar() {
   const { totalItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // 🛒 Replace this with your actual cart state (Context, Redux, Zustand, etc.)
+  // Example: const { cartCount } = useCart();
+  const cartCount = 3; // ← swap this with your real cart count
+
   const isActive = (path) => location.pathname.startsWith(path);
 
   return (
