@@ -44,7 +44,7 @@ export default function Section1() {
           </p>
 
           <button
-            className="border-none cursor-pointer text-xs sm:text-sm md:text-cv-sm font-cv-semibold tracking-cv-wider uppercase px-6 sm:px-cv-2xl py-3 animate-pulse md:py-cv-md font-cv-sans"
+            className="border-none cursor-pointer text-xs sm:text-sm md:text-cv-sm font-cv-semibold tracking-cv-wider uppercase px-6 sm:px-cv-2xl py-3 md:py-cv-md font-cv-sans"
             style={{
               background: "linear-gradient(to right, #f5e6a5, #D4AF37, #D4AF37)",
               color: "var(--color-cv-black)",

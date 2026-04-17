@@ -1,7 +1,7 @@
 import { useCart } from "../../../../context/cart.context";
 
 export default function BespokeSection() {
-  const {homePageWhatsapp} = useCart();
+  const { homePageWhatsapp } = useCart();
   return (
     <section
       className="box-border text-center px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-section"
@@ -23,8 +23,8 @@ export default function BespokeSection() {
         </p>
 
         <button
-onClick={() => homePageWhatsapp("919876543210", "Hello Chithu Vibes! I am interested in placing a custom order.")}
-className="
+          onClick={() => homePageWhatsapp("Hello Chithu Vibes! I am interested in placing a custom order.")}
+          className="
     inline-flex items-center gap-cv-lg
     px-cv-2xl py-cv-md
     border-0

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { openWhatsApp } from "../../utils/whatsapp.util";
 
-const WHATSAPP_NUMBER = "919876543210";
 const SCROLL_THRESHOLD = 0.75; 
 
 
@@ -49,7 +49,7 @@ export default function SmartFAB() {
     if (isScrollMode) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+      openWhatsApp("Hello Chithu Vibes! I have a question about your products.");
     }
   };
 
