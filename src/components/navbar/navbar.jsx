@@ -4,6 +4,7 @@ import { useCart } from "../../context/cart.context";
 import { ShoppingCart } from "lucide-react";
 
 const navLinks = [
+  {label: "HOME",                 path: "/" },
   { label: "OUR STORY",            path: "/about" },
   { label: "CALLIGRAPHY PRODUCTS", path: "/calligraphy-products" },
   { label: "GIFT PRODUCTS",        path: "/gift-products" },
@@ -31,8 +32,10 @@ export default function Navbar() {
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMenuOpen(false), [location]);
 
-  const isActive = (path) => location.pathname.startsWith(path);
-
+const isActive = (path) =>
+  path === "/"
+    ? location.pathname === "/"
+    : location.pathname.startsWith(path);
   return (
     <>
       <style>{`

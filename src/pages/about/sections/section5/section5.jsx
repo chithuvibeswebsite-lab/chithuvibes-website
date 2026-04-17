@@ -15,7 +15,7 @@ export default function ManuscriptQuote() {
       <div className="mb-cv-2xl bg-cv-gold opacity-cv-soft w-cv-px h-cv-3xl" />
 
       
-      <button className="uppercase font-cv-medium tracking-cv-wider rounded-cv-full cursor-pointer px-cv-xl py-cv-md font-cv-sans text-cv-label bg-cv-gold text-cv-white">
+      <button onClick={() => window.location.href = '/contact'} className="uppercase font-cv-medium tracking-cv-wider rounded-cv-full cursor-pointer px-cv-xl py-cv-md font-cv-sans text-cv-label bg-cv-gold text-cv-white">
         Start Your Manuscript
       </button>
 

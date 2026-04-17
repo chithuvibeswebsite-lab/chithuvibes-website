@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 export default function Section1() {
   return (
     <section
@@ -43,7 +45,8 @@ export default function Section1() {
             Where ancient script meets avant-garde technology. We immortalize the fluid beauty of Tamil letters into timeless materials with microscopic accuracy.
           </p>
 
-          <button
+          <Link
+          to={'/calligraphy-products'}
             className="border-none cursor-pointer text-xs sm:text-sm md:text-cv-sm font-cv-semibold tracking-cv-wider uppercase px-6 sm:px-cv-2xl py-3 md:py-cv-md font-cv-sans"
             style={{
               background: "linear-gradient(to right, #f5e6a5, #D4AF37, #D4AF37)",
@@ -53,7 +56,7 @@ export default function Section1() {
             }}
           >
             Explore Collection
-          </button>
+          </Link>
         </div>
 
         {/* RIGHT */}
