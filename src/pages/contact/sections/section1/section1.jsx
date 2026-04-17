@@ -68,7 +68,7 @@ export default function BespokeJourney() {
 
       {/* Container */}
       <div className="container mx-auto px-cv-xl md:px-cv-3xl">
-        <div className="flex flex-col md:flex-row items-start gap-cv-3xl lg:gap-cv-4xl">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-cv-3xl lg:gap-cv-4xl">
 
           {/* Image */}
           <div className="w-full md:w-[480px] lg:w-[560px] shrink-0">

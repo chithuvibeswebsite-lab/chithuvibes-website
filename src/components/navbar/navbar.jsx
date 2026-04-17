@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useCart } from "../../context/cart.context";
-import { ShoppingCart} from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const navLinks = [
   { label: "OUR STORY",            path: "/about" },
@@ -24,13 +24,12 @@ const CloseIcon = () => (
 
 export default function Navbar() {
   const navigate = useNavigate();
-const location = useLocation();
+  const location = useLocation();
   const { totalItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-      useEffect(() => setMenuOpen(false), [location]);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMenuOpen(false), [location]);
 
   const isActive = (path) => location.pathname.startsWith(path);
 
@@ -38,10 +37,21 @@ const location = useLocation();
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+        .nav-mobile-drawer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease, opacity 0.3s ease;
+          opacity: 0;
+        }
+        .nav-mobile-drawer.open {
+          max-height: 400px;
+          opacity: 1;
+        }
       `}</style>
 
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-white border-b border-cv-border h-16">
-        <div className="w-full h-full px-cv-lg md:px-cv-3xl flex items-center justify-between box-border">
+        <div className="w-full h-full px-cv-lg lg:px-cv-3xl flex items-center justify-between box-border">
 
           {/* Logo */}
           <button
@@ -52,9 +62,9 @@ const location = useLocation();
             Chithu Vibes
           </button>
 
-          {/* Desktop nav links */}
+          {/* Desktop nav links — centered */}
           <ul
-            className="hidden md:flex list-none m-0 p-0 items-center gap-cv-3xl absolute left-1/2"
+            className="hidden md:flex list-none m-0 p-0 items-center gap-cv-2xl lg:gap-cv-3xl absolute left-1/2"
             style={{ transform: "translateX(-50%)" }}
           >
             {navLinks.map(({ label, path }) => {
@@ -63,7 +73,8 @@ const location = useLocation();
                 <li key={label} className="relative">
                   <button
                     onClick={() => navigate(path)}
-                    className={`bg-transparent border-none cursor-pointer py-cv-xs px-0 relative font-cv-sans text-cv-label font-cv-medium uppercase tracking-cv-wide ${active ? "text-cv-gold" : "text-cv-purple"}`}
+                    className={`bg-transparent border-none cursor-pointer py-cv-xs px-0 relative font-cv-sans font-cv-medium uppercase tracking-cv-wide transition duration-cv-base hover:text-cv-gold ${active ? "text-cv-gold" : "text-cv-purple"}`}
+                    style={{ fontSize: "clamp(9px, 1vw,12px)" }}  
                   >
                     {label}
                     <span
@@ -83,7 +94,7 @@ const location = useLocation();
           {/* Right — cart + hamburger */}
           <div className="flex items-center gap-cv-md">
 
-            {/* Cart button with badge */}
+            {/* Cart */}
             <button
               onClick={() => navigate("/cart")}
               className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple relative transition"
@@ -92,7 +103,7 @@ const location = useLocation();
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-purple)")}
               aria-label="View cart"
             >
-              <ShoppingCart color="#735C00" />
+              <ShoppingCart size={22} color="currentColor" />
               {totalItems > 0 && (
                 <span
                   className="absolute bg-cv-gold text-white font-cv-sans font-cv-semibold rounded-cv-full flex items-center justify-center"
@@ -110,7 +121,7 @@ const location = useLocation();
               )}
             </button>
 
-            {/* Mobile hamburger */}
+            {/* Hamburger */}
             <button
               className="md:hidden bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple"
               onClick={() => setMenuOpen((prev) => !prev)}
@@ -121,20 +132,19 @@ const location = useLocation();
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-white border-t border-cv-border px-cv-lg py-cv-md flex flex-col gap-cv-md">
+        {/* Mobile drawer — animated */}
+        <div className={`md:hidden bg-white border-t border-cv-border nav-mobile-drawer ${menuOpen ? "open" : ""}`}>
+          <div className="px-cv-lg py-cv-md flex flex-col gap-cv-sm">
             {navLinks.map(({ label, path }) => {
               const active = isActive(path);
               return (
                 <button
                   key={label}
                   onClick={() => { navigate(path); setMenuOpen(false); }}
-                  className={`bg-transparent border-none cursor-pointer text-left py-cv-xs font-cv-sans text-cv-xs font-cv-medium uppercase tracking-cv-wide ${active ? "text-cv-gold" : "text-cv-purple"}`}
+                  className={`bg-transparent border-none cursor-pointer text-left py-cv-sm font-cv-sans text-cv-xs font-cv-medium uppercase tracking-cv-wide transition duration-cv-base hover:text-cv-gold ${active ? "text-cv-gold" : "text-cv-purple"}`}
                   style={{
-                    borderLeft: active ? "3px solid var(--color-cv-gold)" : "3px solid transparent",
-                    paddingLeft: "10px",
-                    transition: "color 0.2s ease",
+                    borderLeft: active ? "2px solid var(--color-cv-gold)" : "2px solid transparent",
+                    paddingLeft: "12px",
                   }}
                 >
                   {label}
@@ -142,7 +152,7 @@ const location = useLocation();
               );
             })}
           </div>
-        )}
+        </div>
       </nav>
     </>
   );

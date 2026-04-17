@@ -5,7 +5,7 @@ export default function Section1() {
       style={{ backgroundColor: "#F0EEF5" }}
     >
       <div
-        className="w-full px-0 sm:px-cv-lg py-cv-xl md:px-cv-4xl md:py-cv-3xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-cv-3xl items-center box-border"
+        className="w-full px-0 sm:px-cv-lg py-cv-xl md:px-cv-4xl md:py-cv-3xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-cv-3xl items-center box-border"
       >
 
         {/* LEFT */}
@@ -57,9 +57,9 @@ export default function Section1() {
         </div>
 
         {/* RIGHT */}
-        <div className="relative h-[260px] sm:h-[320px] md:h-full w-full">
+        <div className="relative h-[260px] sm:h-[320px] md:h-full w-full flex items-center justify-center">
           <div
-            className="rounded-cv-md h-full w-full flex items-center justify-center z-cv-base"
+            className="rounded-cv-md h-[500px] w-[500px] flex items-center justify-center z-cv-base"
             style={{ backgroundColor: "#D8D8D8" }}
           >
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" strokeWidth="1">

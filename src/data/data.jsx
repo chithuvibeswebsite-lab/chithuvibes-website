@@ -25,3 +25,11 @@ export const CART = {
 export const NOT_FOUND = {
     section1: {}, section2: {}, section3: {}, section4: {}, section5: {}, section6: {}
 }
+
+export const NAVBAT = {
+
+}
+
+export const FOOTER = {
+
+}   

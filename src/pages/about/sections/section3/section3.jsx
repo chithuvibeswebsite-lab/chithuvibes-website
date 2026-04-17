@@ -2,13 +2,13 @@ import { PenTool } from "lucide-react";
 
 export default function SpotlightSection() {
   return (
-    <div className="w-full min-h-screen md:h-screen flex items-center justify-center px-4 sm:px-cv-lg py-12 sm:py-cv-3xl bg-cv-soft font-cv-sans">
+    <div className="w-full lg:h-screen flex items-center justify-center px-4 sm:px-cv-lg py-12 sm:py-cv-3xl bg-cv-soft font-cv-sans">
 
 <div className="relative w-full sm:w-[90%] md:w-[80%] h-auto md:h-[70%] overflow-hidden rounded-cv-xl px-5 sm:px-cv-lg md:px-cv-4xl pt-10 sm:pt-cv-3xl md:pt-cv-4xl pb-8 sm:pb-cv-xl md:pb-cv-3xl bg-white shadow-cv-sm flex flex-col items-center justify-center">
         {/* ICON */}
         <div className="absolute -top-[10px] -right-[10px] md:-top-[20px] md:-right-[20px] opacity-20 md:opacity-30 pointer-events-none">
           <PenTool
-            className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] rotate-[-100deg] text-[#b0a8b8]"
+            className="w-80 h-80 lg:w-[120px] lg:h-[120px] sm:w-[160px] sm:h-[160px] rotate-[-100deg] text-[#b0a8b8]"
             strokeWidth={1.2}
           />
         </div>

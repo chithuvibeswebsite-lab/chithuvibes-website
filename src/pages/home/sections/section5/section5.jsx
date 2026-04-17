@@ -5,7 +5,7 @@ export default function FounderSection() {
       style={{ backgroundColor: "#EDEAF2" }}
     >
       
-      <div className="flex items-stretch px-cv-lg py-cv-xl md:pl-cv-3xl md:pr-cv-xl md:py-cv-xl">
+      <div className="flex items-stretch px-cv-lg py-cv-xl lg:pl-cv-3xl md:pr-cv-xl md:py-cv-xl">
         <div
           className="rounded-cv-md w-full flex items-center justify-center min-h-[280px] md:min-h-0"
           style={{ backgroundColor: "#D5D5D5" }}

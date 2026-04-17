@@ -64,10 +64,10 @@ export default function FounderSection() {
           <div className="flex h-full justify-center items-center">
             <div className="relative">
               <div className="rounded-cv-xl overflow-hidden w-[220px] h-[260px] sm:w-[260px] sm:h-[310px] md:w-[340px] md:h-[400px] bg-[#1a1520]">
-                <FounderIllustration />
+                <img src="https://i.pinimg.com/736x/dc/a6/58/dca658cb4fbd749ff58523d3ab25f11c.jpg" className='object-contain' alt="" />
               </div>
 
-              <div className="absolute bottom-[-14px] right-[-14px] md:bottom-[-18px] md:right-[-18px] w-[52px] h-[52px] md:w-[64px] md:h-[64px] flex items-center justify-center rounded-cv-xl text-white text-xl md:text-2xl bg-cv-gold shadow-lg">
+              <div className="absolute bottom-[-14px] right-[-14px] md:bottom-[-18px] md:right-[-18px] w-[52px] h-[52px] md:w-[64px] md:h-[64px] flex items-center justify-center rounded-cv-xl text-white text-xl md:text-2xl bg-cv-gold shadow-lg animate-pulse">
                 ✦
               </div>
             </div>

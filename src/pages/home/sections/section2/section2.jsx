@@ -22,13 +22,13 @@ export default function Section2() {
           </h2>
 
           <p className="text-xs sm:text-sm md:mt-cv-md md:text-cv-label tracking-cv-wider uppercase font-cv-sans text-cv-muted">
-            Curated Selection / 2024
+            Curated Selection / {new Date().getFullYear()}
           </p>
         </div>
 
         {/* GRID */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 rounded-cv-md overflow-hidden border border-cv-border"
+          className="grid grid-cols-1 lg:grid-cols-3 rounded-cv-md overflow-hidden border border-cv-border"
         >
           {items.map((item, index) => (
             <div
