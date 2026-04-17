@@ -1,24 +1,40 @@
 import { useCart } from "../../context/cart.context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 
 
 export function ProductImageCarousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fading, setFading] = useState(false);
   const imageList = Array.isArray(images) ? images : [images];
-  // const imageList=images.split(",").map((url) => url.trim());
 
-  const next = () => setCurrentIndex((prev) => (prev + 1) % imageList.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + imageList.length) % imageList.length);
+  const goTo = (idx) => {
+    setFading(true);
+    setTimeout(() => {
+      setCurrentIndex(idx);
+      setFading(false);
+    }, 200);
+  };
+
+  const next = () => goTo((currentIndex + 1) % imageList.length);
+  const prev = () => goTo((currentIndex - 1 + imageList.length) % imageList.length);
+
+  useEffect(() => {
+    if (imageList.length <= 1) return;
+    const timer = setInterval(next, 3000);
+    return () => clearInterval(timer);
+  }, [imageList.length, currentIndex]);
 
   return (
     <div className="relative w-full rounded-cv-md overflow-hidden bg-cv-soft aspect-7/8 group">
-      <div className="w-full aspect-4/5 overflow-hidden">  <img
-        src={imageList[currentIndex]}
-        alt="product"
-        className="w-full h-full object-cover transition-all duration-300"
-        onError={(e) => (e.target.style.display = "none")}
-      />
+      <div className="w-full aspect-4/5 overflow-hidden">
+        <img
+          src={imageList[currentIndex]}
+          alt="product"
+          style={{ opacity: fading ? 0 : 1, transition: "opacity 200ms ease" }}
+          className="w-full h-full object-cover"
+          onError={(e) => (e.target.style.display = "none")}
+        />
       </div>
 
       {imageList.length > 1 && (
@@ -26,27 +42,26 @@ export function ProductImageCarousel({ images }) {
           <button
             onClick={prev}
             className="absolute left-2 top-1/2 -translate-y-1/2 
-  bg-white/80 hover:bg-white 
-  w-9 h-9 flex items-center justify-center rounded-full
-  opacity-0 group-hover:opacity-100 
-  -translate-x-2 group-hover:translate-x-0
-  scale-90 group-hover:scale-100
-  shadow-md hover:shadow-lg
-  transition-all duration-300"
+              bg-white/80 hover:bg-white 
+              w-9 h-9 flex items-center justify-center rounded-full
+              opacity-0 group-hover:opacity-100 
+              -translate-x-2 group-hover:translate-x-0
+              scale-90 group-hover:scale-100
+              shadow-md hover:shadow-lg
+              transition-all duration-300"
           >
             ←
           </button>
-
           <button
             onClick={next}
             className="absolute right-2 top-1/2 -translate-y-1/2 
-  bg-white/80 hover:bg-white 
-  w-9 h-9 flex items-center justify-center rounded-full
-  opacity-0 group-hover:opacity-100 
-  translate-x-2 group-hover:translate-x-0
-  scale-90 group-hover:scale-100
-  shadow-md hover:shadow-lg
-  transition-all duration-300"
+              bg-white/80 hover:bg-white 
+              w-9 h-9 flex items-center justify-center rounded-full
+              opacity-0 group-hover:opacity-100 
+              translate-x-2 group-hover:translate-x-0
+              scale-90 group-hover:scale-100
+              shadow-md hover:shadow-lg
+              transition-all duration-300"
           >
             →
           </button>
@@ -54,8 +69,10 @@ export function ProductImageCarousel({ images }) {
             {imageList.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`w-10 h-1 rounded transition-all ${idx === currentIndex ? "bg-cv-gold w-cv-sm" : "bg-cv-white/70"}`}
+                onClick={() => goTo(idx)}
+                className={`h-1 rounded transition-all duration-300 ${
+                  idx === currentIndex ? "bg-cv-gold w-cv-sm" : "bg-white/70 w-10"
+                }`}
               />
             ))}
           </div>
@@ -75,11 +92,10 @@ function AddToCartButton({ product }) {
       className={`group flex items-center justify-center gap-2 border rounded-cv-xs cursor-pointer 
       transition-all duration-300 font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase 
       px-cv-md py-cv-xs min-h-9
-      ${
-        isInCart
+      ${isInCart
           ? "bg-cv-gold border-cv-gold text-white"
           : "bg-transparent border-cv-border text-cv-muted hover:bg-cv-gold hover:border-cv-gold hover:text-white"
-      }`}
+        }`}
     >
       {isInCart ? (
         <Check className="text-white w-4 h-4" />

@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
 export default function HeritageSection() {
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 min-h-[520px]"
       style={{ backgroundColor: "#DCDCDC" }}
     >
-      
+
       <div
         className="flex items-center justify-center min-h-[300px] md:min-h-[520px]"
         style={{ backgroundColor: "#CCCCCC" }}
@@ -31,14 +33,14 @@ export default function HeritageSection() {
       >
         <div className="w-full">
 
-          
+
           <div className="inline-block mb-cv-xl px-cv-md py-cv-xs bg-cv-purple">
             <span className="text-cv-label tracking-cv-wider uppercase text-white font-cv-sans">
               The Heritage
             </span>
           </div>
 
-        
+
           <h2
             className="italic font-cv-regular leading-cv-snug mb-cv-3xl font-cv-serif text-cv-purple"
             style={{ fontSize: "clamp(36px, 6vw, 70px)" }}
@@ -46,7 +48,7 @@ export default function HeritageSection() {
             Evolving the<br />Eternal Script
           </h2>
 
-       
+
           <p
             className="text-cv-md leading-[1.85] mb-cv-xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
@@ -54,7 +56,7 @@ export default function HeritageSection() {
             Chithu Vibes was born from a singular vision: to ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world.
           </p>
 
-        
+
           <p
             className="text-cv-md leading-[1.85] mb-cv-3xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
@@ -62,13 +64,14 @@ export default function HeritageSection() {
             Our process combines the meditative patience of a traditional scribe with the uncompromising power of industrial lasers. Every piece is a dialogue between the old and the new.
           </p>
 
-          
-          <button
+
+          <Link
+            to={'/about'}
             className="bg-transparent border-none text-cv-xs font-cv-bold tracking-cv-wider uppercase pb-cv-xs cursor-pointer font-cv-sans text-cv-gold"
             style={{ borderBottom: "2px solid var(--color-cv-gold)" }}
           >
             Learn Our Process
-          </button>
+          </Link>
 
         </div>
       </div>
