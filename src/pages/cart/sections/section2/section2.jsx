@@ -4,15 +4,13 @@ import { useNavigate } from "react-router-dom";
 import CartProductCard from "../../../../components/cartproduct_card/cartproduct_card";
 import ProductCard from "../../../../components/product_card/product_card";
 import RecommendationCard from "../../../../components/recommendation_card/recommendation_card";
-
+import { ShoppingCart, } from "lucide-react";
 
 function EmptyCart({ onBrowse, content }) {
   return (
     <div className="flex flex-col items-center justify-center py-cv-5xl text-center">
       <div className="text-cv-border mb-cv-lg">
-        <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
+        <ShoppingCart size={120} />
       </div>
       <h3 className="mb-cv-sm font-cv-serif italic font-cv-regular text-cv-black text-cv-xl md:text-cv-2xl">
         {content.emptyCartTitle} 
