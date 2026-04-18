@@ -34,7 +34,7 @@ function CartItems({ cartItems, clearCart, content }) {
     <div>
       <div className="flex items-center justify-between mb-cv-2xl">
         <p className="font-cv-sans text-cv-sm font-cv-medium text-cv-charcoal">
-          {cartItems.length} {cartItems.length === 1 ? "item" : "items"} {content.cartItemTitle}
+          {cartItems.length} {cartItems.length === 1 ? "item" : "items"} {content.cartItemTitle[0]}
         </p>
         <button
           onClick={clearCart}
