@@ -3,7 +3,7 @@ import { useCart } from "../../../../context/cart.context";
 
 
 
-export default function OrderSection() {
+export default function OrderSection({content}) {
   const [active, setActive] = useState(0);
   const [visible, setVisible] = useState(true);
   const { testimonials } = useCart();
@@ -48,11 +48,11 @@ export default function OrderSection() {
           className="font-cv-regular text-center leading-cv-tight mb-cv-md font-cv-serif text-cv-purple"
           style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
         >
-          Order directly with us
+          {content.title[0]}
         </h2>
 
         <p className="text-cv-sm text-center mb-cv-3xl font-cv-sans text-cv-muted">
-          Discuss your vision and place your order through WhatsApp.
+          {content.title[1]}
         </p>
 
         <div
@@ -61,7 +61,7 @@ export default function OrderSection() {
         >
           {[left, right].map((t, i) => (
             <div key={i} className="flex flex-col text-center">
-              {/* quote grows to fill available space */}
+              
               <div className="flex-1 mb-cv-2xl">
                 <p
                   className="leading-[1.75] font-cv-serif"
@@ -71,7 +71,7 @@ export default function OrderSection() {
                 </p>
               </div>
 
-              {/* avatar + name + designation always at the bottom */}
+              
               <div className="flex flex-col items-center gap-cv-sm">
                 <div
                   className="w-12 h-12 rounded-cv-full flex items-center justify-center"

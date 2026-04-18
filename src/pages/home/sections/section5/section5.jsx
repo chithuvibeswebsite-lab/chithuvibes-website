@@ -1,4 +1,4 @@
-export default function FounderSection() {
+export default function FounderSection({content}) {
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 min-h-[520px]"
@@ -39,7 +39,7 @@ export default function FounderSection() {
             className="font-cv-regular leading-cv-snug mb-cv-xl font-cv-serif text-cv-purple"
             style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
           >
-            A Note from the Founder
+            {content.title}
           </h2>
 
          
@@ -50,17 +50,17 @@ export default function FounderSection() {
               maxWidth: "520px",
             }}
           >
-            "In every stroke of Tamil script, there is a rhythm. My goal was to capture that rhythm and make it permanent. Each piece we create is more than decor—it's a piece of our shared identity."
+            {content.description}
           </p>
 
           
           <p className="text-cv-xs font-cv-bold tracking-cv-wider uppercase mb-cv-xs font-cv-sans text-cv-gold">
-            Chithu Vibes
+            {content.founder[0]}
           </p>
 
           
           <p className="text-cv-label tracking-cv-wide uppercase font-cv-sans text-cv-muted">
-            Master Calligrapher &amp; Founder
+            {content.founder[1]} &amp; {content.founder[2]}
           </p>
 
         </div>

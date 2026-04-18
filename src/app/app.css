@@ -225,7 +225,43 @@
     --sidebar-ring: oklch(0.75 0.13 85);
 }
 
+/* ── Chithu Vibes Custom Scrollbar ── */
 
+/* Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3F7;           /* cv-white — matches page bg */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;           /* cv-gold */
+  border-radius: 9999px;
+  border: 2px solid #F5F3F7;     /* creates a thin gap between thumb and track */
+  transition: background 250ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A2740;           /* cv-plum on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #9B84B2;           /* cv-mauve on drag */
+}
+
+::-webkit-scrollbar-corner {
+  background: #F5F3F7;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C9A84C #F5F3F7;  /* thumb track */
+}
 
 /* Autofill fix for your theme */
 input:-webkit-autofill,

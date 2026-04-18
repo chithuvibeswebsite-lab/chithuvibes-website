@@ -1,6 +1,6 @@
 import { useCart } from "../../../../context/cart.context";
 
-export default function BespokeSection() {
+export default function BespokeSection({content}) {
   const { homePageWhatsapp } = useCart();
   return (
     <section
@@ -14,12 +14,12 @@ export default function BespokeSection() {
           className="font-cv-regular leading-cv-tight mb-cv-lg font-cv-serif text-cv-purple"
           style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
         >
-          Begin Your Bespoke Journey
+          {content.title}
         </h2>
 
 
         <p className="text-cv-sm leading-cv-relaxed mb-cv-3xl font-cv-sans text-cv-muted">
-          Custom requests, bulk orders, or personal engravings. We are just a message away.
+          {content.description}
         </p>
 
         <button
@@ -52,7 +52,7 @@ export default function BespokeSection() {
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
 
-          Order via WhatsApp
+          {content.cta}
         </button>
 
       </div>

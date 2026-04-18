@@ -4,45 +4,43 @@ import { useNavigate } from "react-router-dom";
 import CartProductCard from "../../../../components/cartproduct_card/cartproduct_card";
 import ProductCard from "../../../../components/product_card/product_card";
 import RecommendationCard from "../../../../components/recommendation_card/recommendation_card";
+import { ShoppingCart, } from "lucide-react";
 
-/* ===================== EMPTY CART ===================== */
-function EmptyCart({ onBrowse }) {
+function EmptyCart({ onBrowse, content }) {
   return (
     <div className="flex flex-col items-center justify-center py-cv-5xl text-center">
       <div className="text-cv-border mb-cv-lg">
-        <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
+        <ShoppingCart size={120} />
       </div>
       <h3 className="mb-cv-sm font-cv-serif italic font-cv-regular text-cv-black text-cv-xl md:text-cv-2xl">
-        Your cart is empty
+        {content.emptyCartTitle} 
       </h3>
       <p className="mb-cv-2xl font-cv-sans text-cv-sm font-cv-light text-cv-muted leading-cv-relaxed max-w-xs">
-        Explore our calligraphy and gift collections and add something beautiful to your selection.
+        {content.emptyCartDescription}
       </p>
       <button
         onClick={onBrowse}
         className="border border-cv-gold bg-transparent cursor-pointer font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-cv-gold px-cv-2xl py-cv-md rounded-cv-xs transition duration-cv-base hover:bg-cv-gold hover:text-white"
       >
-        Browse Collection
+        {content.emptyCartcta}
       </button>
     </div>
   );
 }
 
-/* ===================== CART ITEMS (LEFT) ===================== */
-function CartItems({ cartItems, clearCart }) {
+
+function CartItems({ cartItems, clearCart, content }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-cv-2xl">
         <p className="font-cv-sans text-cv-sm font-cv-medium text-cv-charcoal">
-          {cartItems.length} {cartItems.length === 1 ? "item" : "items"} in your selection
+          {cartItems.length} {cartItems.length === 1 ? "item" : "items"} {content.cartItemTitle[0]}
         </p>
         <button
           onClick={clearCart}
           className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-xs font-cv-medium text-cv-muted underline underline-offset-4 transition duration-cv-base hover:text-cv-gold"
         >
-          Clear all
+          {content.cartItemcta}
         </button>
       </div>
 
@@ -56,7 +54,7 @@ function CartItems({ cartItems, clearCart }) {
         ))}
       </div>
 
-      {/* Personal Touch Note */}
+  
       <div className="flex gap-cv-md items-start mt-cv-3xl pt-cv-3xl border-t border-cv-border">
         <div className="shrink-0 mt-cv-xs">
           <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
@@ -66,10 +64,10 @@ function CartItems({ cartItems, clearCart }) {
         </div>
         <div>
           <h4 className="mb-cv-xs font-cv-sans text-cv-xl font-cv-semibold text-cv-black">
-            A Personal Touch
+            {content.cartItemTitle[1]}
           </h4>
           <p className="font-cv-sans text-cv-md font-cv-light text-cv-charcoal leading-cv-relaxed">
-            Once you inquire, <span className="font-cv-semibold text-cv-black">Jeya Chitra</span> will personally connect with you via WhatsApp to discuss customization and finalize your bespoke order.
+            {content.cartItemDescription[0]} <span className="font-cv-semibold text-cv-black">{content.cartItemDescription[1]}</span> {content.cartItemDescription[2]}
           </p>
         </div>
       </div>
@@ -77,27 +75,27 @@ function CartItems({ cartItems, clearCart }) {
   );
 }
 
-/* ===================== SUMMARY PANEL ===================== */
-function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp, navigate }) {
+
+function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp, navigate,content }) {
   return (
     <div className="bg-white rounded-cv-lg shadow-cv-md p-cv-xl border border-cv-border w-full">
       <h3 className="mb-cv-xl font-cv-serif font-cv-regular text-cv-black text-cv-xl md:text-cv-2xl">
-        Summary
+        {content.cartSummaryTitle[0]}
       </h3>
 
       <div className="flex items-center justify-between mb-cv-sm">
-        <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">Subtotal</span>
+        <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">{content.cartSummaryTitle[1]}</span>
         <span className="font-cv-sans text-cv-sm font-cv-semibold text-cv-black">
           ₹{subtotal.toLocaleString("en-IN")}
         </span>
       </div>
 
       <div className="flex items-center justify-between pb-cv-lg border-b border-cv-border mb-cv-lg">
-        <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">Studio Processing</span>
-        <span className="font-cv-sans text-cv-xs font-cv-medium text-cv-muted italic">Complimentary</span>
+        <span className="font-cv-sans text-cv-sm font-cv-light text-cv-charcoal">{content.cartSummaryTitle[2]}</span>
+        <span className="font-cv-sans text-cv-xs font-cv-medium text-cv-muted italic">{content.cartSummaryTitle[3]}</span>
       </div>
 
-      {/* Gift Checkbox */}
+     
       <div className="flex items-start gap-cv-sm mb-cv-lg">
         <input
           type="checkbox"
@@ -108,15 +106,15 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         />
         <div>
           <label htmlFor="is-gift" className="font-cv-sans text-cv-sm font-cv-medium text-cv-black cursor-pointer">
-            Is this a gift?
+            {content.cartSummaryTitle[4]}
           </label>
           <p className="mt-cv-xs font-cv-sans text-cv-xs font-cv-light text-cv-muted leading-cv-normal">
-            Include a hand-written calligraphic note by Chithuvibes (+₹200–500)
+            {content.cartSummaryTitle[5]}
           </p>
         </div>
       </div>
 
-      {/* Estimated Total */}
+      
       <div className="flex items-end justify-between mb-cv-xl">
         <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">Estimated Total</span>
         <div className="text-right">
@@ -124,14 +122,14 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
             ₹{subtotal.toLocaleString("en-IN")}
           </p>
           <p className="font-cv-sans text-cv-label font-cv-regular tracking-cv-wide uppercase text-cv-muted">
-            Final price on consultation
+            {content.cartSummaryTitle[6]}
           </p>
         </div>
       </div>
 
-      {/* Note for Artist */}
+      
       <p className="mb-cv-sm font-cv-sans text-cv-xs font-cv-medium tracking-cv-wide uppercase text-cv-muted">
-        A Note for the Artist
+        {content.cartSummaryDescription[0]}
       </p>
       <div className="relative mb-cv-lg">
         <textarea
@@ -142,53 +140,53 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
           className="w-full font-cv-sans text-cv-xs font-cv-light text-cv-charcoal leading-cv-relaxed border border-cv-border rounded-cv-md p-cv-md resize-none outline-none transition duration-cv-base bg-cv-white focus:border-cv-gold"
         />
         <span className="absolute bottom-cv-sm right-cv-md font-cv-serif italic pointer-events-none select-none text-cv-border text-cv-md opacity-cv-soft">
-          Artistry in Motion
+          {content.cartSummaryDescription[1]}
         </span>
       </div>
 
-      {/* WhatsApp Button */}
+      
       <button
         onClick={openWhatsApp}
         className="w-full flex items-center justify-center gap-cv-sm py-cv-md px-cv-lg rounded-cv-sm font-cv-sans text-cv-sm font-cv-semibold tracking-cv-wide uppercase text-white bg-cv-gold hover:bg-cv-plum transition duration-cv-base mb-cv-lg"
       >
-        Finalize Design via WhatsApp
+        {content.cartSummarycta}
       </button>
 
-      {/* Trust Badges */}
+      
       <div className="flex flex-col gap-cv-sm mb-cv-lg">
         <div className="flex items-center gap-cv-sm">
           <span className="text-cv-muted">🛡️</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">Secure Professional Handling</span>
+          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[0]}</span>
         </div>
         <div className="flex items-center gap-cv-sm">
           <span className="text-cv-muted">🚚</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">Insured Premium Shipping</span>
+          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[1]}</span>
         </div>
         <div className="flex items-center gap-cv-sm">
           <span className="text-cv-muted">⭐</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">100% Artist-Certified Original</span>
+          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[2]}</span>
         </div>
       </div>
 
-      {/* Continue Shopping */}
+      
       <div className="text-center">
         <button
           onClick={() => navigate("/calligraphy-products")}
           className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-xs font-cv-medium tracking-cv-wide uppercase text-cv-muted underline underline-offset-4 transition duration-cv-base hover:text-cv-gold"
         >
-          Continue Browsing Collection
+          {content.cartSummarycta[1]}
         </button>
       </div>
     </div>
   );
 }
 
-/* ===================== MOBILE BOTTOM BAR ===================== */
-function MobileSummaryBar({ subtotal, onOpen }) {
+
+function MobileSummaryBar({ subtotal, onOpen,content }) {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-cv-white border-t border-cv-border px-cv-lg py-cv-sm flex justify-between items-center lg:hidden z-40 shadow-cv-md">
       <div>
-        <p className="font-cv-sans text-cv-xs font-cv-light text-cv-muted uppercase tracking-cv-wide">Total</p>
+        <p className="font-cv-sans text-cv-xs font-cv-light text-cv-muted uppercase tracking-cv-wide">{content.mobileSummaryBarTitle[0]}</p>
         <p className="font-cv-serif font-cv-semibold text-cv-gold text-cv-xl">
           ₹{subtotal.toLocaleString("en-IN")}
         </p>
@@ -197,27 +195,27 @@ function MobileSummaryBar({ subtotal, onOpen }) {
         onClick={onOpen}
         className="bg-cv-gold text-white font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase px-cv-xl py-cv-md rounded-cv-sm hover:bg-cv-plum transition duration-cv-base"
       >
-        View Summary
+        {content.mobileSummaryBarcta[0]}
       </button>
     </div>
   );
 }
 
-/* ===================== MOBILE DRAWER ===================== */
-function MobileSummaryDrawer({ show, onClose, children }) {
+
+function MobileSummaryDrawer({ show, onClose, children, content }) {
   return (
     <div className={`fixed inset-0 z-50 ${show ? "visible" : "invisible"}`}>
-      {/* Backdrop */}
+      
       <div
         className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
       />
-      {/* Panel */}
+      
       <div
         className={`absolute bottom-0 left-0 right-0 top-30 bg-cv-white rounded-t-2xl max-h-[90vh] overflow-y-auto transition-transform duration-300 ${show ? "translate-y-0" : "translate-y-full"}`}
       >
         <div className="sticky top-0 bg-cv-white flex justify-between items-center px-cv-lg pt-cv-lg pb-cv-md border-b border-cv-border">
-          <h3 className="font-cv-serif font-cv-regular text-cv-black text-cv-xl">Summary</h3>
+          <h3 className="font-cv-serif font-cv-regular text-cv-black text-cv-xl">{content.mobileDrawerTitle[0]}</h3>
           <button
             onClick={onClose}
             className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-muted text-cv-lg hover:text-cv-black transition"
@@ -233,8 +231,8 @@ function MobileSummaryDrawer({ show, onClose, children }) {
   );
 }
 
-/* ===================== MAIN PAGE ===================== */
-export default function CartPage() {
+
+export default function CartPage({content}) {
   const {
     cartItems,
     clearCart,
@@ -291,40 +289,40 @@ const getRandomProducts = (products, count = 3) => {
     <section className="bg-cv-white px-cv-lg py-cv-2xl pb-cv-5xl md:px-cv-4xl">
       <div className="w-full max-w-screen-2xl mx-auto">
 
-        {/* Empty State */}
+        
         {!hasItems && (
-          <EmptyCart onBrowse={() => navigate("/calligraphy-products")} />
+          <EmptyCart onBrowse={() => navigate("/calligraphy-products")} content={content} />
         )}
 
-        {/* Filled Cart */}
+        
         {hasItems && (
           <>
-            {/* Desktop Grid — wider summary column */}
+            
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_500px] gap-cv-3xl xl:gap-cv-4xl items-start">
 
-              {/* Left — Cart Items */}
-              <CartItems cartItems={cartItems} clearCart={clearCart} navigate={navigate} />
+              
+              <CartItems cartItems={cartItems} clearCart={clearCart} navigate={navigate} content={content}/>
 
-              {/* Right — Desktop Summary (hidden on mobile) */}
+              
               <div className="hidden lg:block sticky top-24">
-                <CartSummary {...summaryProps} />
+                <CartSummary {...summaryProps} content={content}/>
               </div>
             </div>
 
-            {/* Mobile bottom bar */}
-            <MobileSummaryBar subtotal={subtotal} onOpen={() => setShowSummary(true)} />
+            
+            <MobileSummaryBar subtotal={subtotal} onOpen={() => setShowSummary(true)} content={content}/>
 
-            {/* Mobile drawer */}
-            <MobileSummaryDrawer show={showSummary} onClose={() => setShowSummary(false)}>
-              <CartSummary {...summaryProps} />
+            
+            <MobileSummaryDrawer show={showSummary} onClose={() => setShowSummary(false)} content={content}>
+              <CartSummary {...summaryProps} content={content}/>
             </MobileSummaryDrawer>
           </>
         )}
 
-        {/* Recommended Products — always visible */}
+        
         <div className="mt-cv-4xl">
           <p className="mb-cv-xl font-cv-sans text-cv-label font-cv-medium tracking-cv-widest uppercase text-cv-muted">
-            You Might Also Like
+            {content.title[0]}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-cv-3xl">
             {randomGiftProducts.map((product) => (

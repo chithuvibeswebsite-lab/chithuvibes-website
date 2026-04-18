@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function HeritageSection() {
+export default function HeritageSection({content}) {
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 min-h-[520px]"
@@ -36,7 +36,7 @@ export default function HeritageSection() {
 
           <div className="inline-block mb-cv-xl px-cv-md py-cv-xs bg-cv-purple">
             <span className="text-cv-label tracking-cv-wider uppercase text-white font-cv-sans">
-              The Heritage
+              {content.title[0]}
             </span>
           </div>
 
@@ -45,7 +45,7 @@ export default function HeritageSection() {
             className="italic font-cv-regular leading-cv-snug mb-cv-3xl font-cv-serif text-cv-purple"
             style={{ fontSize: "clamp(36px, 6vw, 70px)" }}
           >
-            Evolving the<br />Eternal Script
+            {content.title[1]}<br />{content.title[2]}
           </h2>
 
 
@@ -53,7 +53,7 @@ export default function HeritageSection() {
             className="text-cv-md leading-[1.85] mb-cv-xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
           >
-            Chithu Vibes was born from a singular vision: to ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world.
+            {content.description[0]}
           </p>
 
 
@@ -61,7 +61,7 @@ export default function HeritageSection() {
             className="text-cv-md leading-[1.85] mb-cv-3xl w-full md:max-w-[480px] font-cv-sans"
             style={{ color: "#444444" }}
           >
-            Our process combines the meditative patience of a traditional scribe with the uncompromising power of industrial lasers. Every piece is a dialogue between the old and the new.
+            {content.description[1]}
           </p>
 
 
@@ -70,7 +70,7 @@ export default function HeritageSection() {
             className="bg-transparent border-none text-cv-xs font-cv-bold tracking-cv-wider uppercase pb-cv-xs cursor-pointer font-cv-sans text-cv-gold"
             style={{ borderBottom: "2px solid var(--color-cv-gold)" }}
           >
-            Learn Our Process
+            {content.cta}
           </Link>
 
         </div>

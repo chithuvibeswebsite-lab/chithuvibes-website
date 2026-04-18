@@ -3,16 +3,8 @@ import { Sparkles } from "lucide-react";
 
 
 
-function SparkleIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="#C9A84C" opacity="0.85" />
-      <path d="M18 4 L18.8 7.2 L22 8 L18.8 8.8 L18 12 L17.2 8.8 L14 8 L17.2 7.2 Z" fill="#C9A84C" opacity="0.5" />
-    </svg>
-  );
-}
 
-export default function Section3() {
+export default function Section3({ content }) {
   const { inquireBespoke } = useCart();
 
   return (
@@ -23,18 +15,18 @@ export default function Section3() {
         </div>
 
         <blockquote className="mb-cv-xl font-cv-serif italic font-cv-semibold leading-cv-relaxed text-cv-black text-cv-lg md:text-cv-xl">
-          "True art is the bridge between the transient moment and eternal memory. We don't just craft items; we etch soul into matter."
+          {content.title}
         </blockquote>
 
         <p className="mb-cv-2xl font-cv-sans text-cv-label font-cv-medium tracking-cv-widest uppercase text-cv-muted">
-          The Artisan's Touch
+          {content.description}
         </p>
 
         <button
           onClick={inquireBespoke}
           className="w-full md:w-auto flex items-center justify-center gap-cv-sm px-cv-xl py-cv-md md:px-cv-2xl rounded-cv-full font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-white bg-[#735C00] hover:bg-cv-purple transition duration-cv-base"
         >
-          <span>Inquire via WhatsApp for Bespoke Keepsakes</span>
+          <span>{content.cta}</span>
           <span>→</span>
         </button>
       </div>
