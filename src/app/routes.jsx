@@ -7,6 +7,7 @@ import GiftProducts from "../pages/gift_products/gift_products";
 import Cart from "../pages/cart/cart";
 import Contact from "../pages/contact/contact";
 import NotFound404 from "../pages/404/404";
+import ComingSoon from "../pages/coming_soon/coming_soon";
 
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
@@ -29,7 +30,17 @@ function MainLayout() {
 }
 
 
-export default function AppRoutes() {
+export default function AppRoutes({ isComingSoon }) {
+    if (isComingSoon) {
+        return (
+            <Routes>
+                <Route element={<MainLayout />}>
+                    <Route path="*" element={<ComingSoon />} />
+                </Route>
+            </Routes>
+        );
+    }
+
     return (
         <Routes>
 

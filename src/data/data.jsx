@@ -214,6 +214,20 @@ export const NOT_FOUND = {
     section2: {}, section3: {}, section4: {}, section5: {}, section6: {}
 }
 
+export const COMING_SOON = {
+    section1: {
+        label: "COMING SOON",
+        title: ["A New Chapter", "in Tamil Calligraphy"],
+        description: "We are preparing a curated atelier where heritage script meets precision laser artistry. Our full collection and bespoke inquiries will be unveiled shortly.",
+        cta: {
+            primary: "CONTACT VIA WHATSAPP",
+            message: "Hello Chithu Vibes! I would like to know about the upcoming launch and bespoke calligraphy pieces."
+        },
+        badge: "HERITAGE-FIRST · MASTERY SINCE 2023",
+    },
+    section2: {}, section3: {}, section4: {}, section5: {}, section6: {}
+}
+
 export const NAVBAR = {
     logo: "Chithu Vibes",
     cartLabel: "View cart",
