@@ -15,6 +15,7 @@ type: short description
 
 ---
 
+
 ## Commit Types
 
 | Type       | When to use                                  |
