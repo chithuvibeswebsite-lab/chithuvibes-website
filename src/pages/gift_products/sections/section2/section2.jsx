@@ -1,15 +1,95 @@
 import ProductCard from "../../../../components/product_card/product_card";
 import { useCart } from "../../../../context/cart.context";
+import { useState, useEffect, useRef } from "react";
+import { Search, X } from "lucide-react";
 
 export default function Section2({ content }) {
   const { giftProducts, loading } = useCart();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [sortOption, setSortOption] = useState("default");
+  const debounceTimer = useRef(null);
+
+  // Debounce search query
+  useEffect(() => {
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    debounceTimer.current = setTimeout(() => {
+      setDebouncedQuery(searchQuery);
+    }, 300);
+
+    return () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    };
+  }, [searchQuery]);
+
+  // Derive unique product types
+  const productTypes = Array.from(
+    new Set(giftProducts.map((p) => p.type).filter(Boolean))
+  ).sort();
+
+  // Filter products
+  const filteredProducts = giftProducts.filter((product) => {
+    // Search filter
+    const matchesSearch =
+      debouncedQuery === "" ||
+      product.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+      product.description
+        .toLowerCase()
+        .includes(debouncedQuery.toLowerCase());
+
+    // Type filter
+    const matchesType =
+      selectedTypes.length === 0 || selectedTypes.includes(product.type);
+
+    return matchesSearch && matchesType;
+  });
+
+  // Sort products
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortOption) {
+      case "price-low-to-high":
+        return a.price - b.price;
+      case "price-high-to-low":
+        return b.price - a.price;
+      case "name-a-z":
+        return a.name.localeCompare(b.name);
+      case "name-z-a":
+        return b.name.localeCompare(a.name);
+      case "default":
+      default:
+        return 0;
+    }
+  });
+
+  // Toggle type filter
+  const toggleTypeFilter = (type) => {
+    setSelectedTypes((prev) =>
+      prev.includes(type)
+        ? prev.filter((t) => t !== type)
+        : [...prev, type]
+    );
+  };
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchQuery("");
+    setDebouncedQuery("");
+    setSelectedTypes([]);
+    setSortOption("default");
+  };
+
+  const hasActiveFilters =
+    searchQuery !== "" || selectedTypes.length > 0 || sortOption !== "default";
 
   if (loading) {
     return (
       <section className="bg-cv-white px-cv-lg py-cv-5xl md:px-cv-4xl">
         <div className="w-full max-w-screen-xl mx-auto text-center py-cv-4xl">
           <div className="inline-block w-8 h-8 border-4 border-cv-gold border-t-transparent rounded-full animate-spin" />
-          <p className="mt-cv-md font-cv-sans text-cv-sm text-cv-muted">{content.title[1]}</p>
+          <p className="mt-cv-md font-cv-sans text-cv-sm text-cv-muted">
+            {content.title[1]}
+          </p>
         </div>
       </section>
     );
@@ -18,8 +98,7 @@ export default function Section2({ content }) {
   return (
     <section className="bg-cv-white px-cv-lg py-cv-5xl md:px-cv-4xl">
       <div className="w-full max-w-screen-xl mx-auto">
-
-        
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-cv-3xl gap-cv-lg">
           <div>
             <h2 className="m-0 mb-cv-sm font-cv-serif italic font-cv-regular text-cv-black text-cv-2xl md:text-cv-3xl">
@@ -32,19 +111,143 @@ export default function Section2({ content }) {
           </p>
         </div>
 
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-cv-3xl">
-          {giftProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        {/* Search Bar */}
+        <div className="mb-cv-2xl">
+          <div className="relative">
+            <Search className="absolute left-cv-md top-1/2 -translate-y-1/2 w-4 h-4 text-cv-muted pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search by name or description..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-cv-3xl pr-cv-lg py-cv-md border border-cv-border rounded-cv-xs 
+                font-cv-sans text-cv-sm text-cv-black placeholder-cv-muted
+                focus:outline-none focus:ring-1 focus:ring-cv-gold focus:border-cv-gold
+                bg-cv-white transition-all duration-300"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-cv-md top-1/2 -translate-y-1/2 text-cv-muted hover:text-cv-black transition-colors p-1"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
         </div>
 
-        {giftProducts.length === 0 && (
+        {/* Filter and Sort Controls */}
+        <div className="mb-cv-3xl space-y-cv-lg">
+          {/* Filter by Type */}
+          {productTypes.length > 0 && (
+            <div className="flex flex-wrap items-center gap-cv-sm">
+              <span className="font-cv-sans text-cv-xs font-cv-semibold text-cv-black uppercase tracking-cv-wider">
+                Type:
+              </span>
+              <button
+                onClick={() => setSelectedTypes([])}
+                className={`px-cv-md py-cv-xs rounded-full border font-cv-sans text-cv-xs font-cv-medium transition-all duration-300 ${
+                  selectedTypes.length === 0
+                    ? "bg-cv-gold border-cv-gold text-white"
+                    : "border-cv-border text-cv-muted hover:border-cv-gold hover:text-cv-black"
+                }`}
+              >
+                All
+              </button>
+              {productTypes.map((type) => (
+                <button
+                  key={type}
+                  onClick={() => toggleTypeFilter(type)}
+                  className={`px-cv-md py-cv-xs rounded-full border font-cv-sans text-cv-xs font-cv-medium transition-all duration-300 ${
+                    selectedTypes.includes(type)
+                      ? "bg-cv-gold border-cv-gold text-white"
+                      : "border-cv-border text-cv-muted hover:border-cv-gold hover:text-cv-black"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Sort Segmented Control */}
+          <div className="flex flex-wrap items-center gap-cv-lg">
+            <div className="flex flex-wrap items-center gap-cv-sm">
+              <span className="font-cv-sans text-cv-xs font-cv-semibold text-cv-black uppercase tracking-cv-wider">
+                Sort:
+              </span>
+              {[
+                { value: "default", label: "Default" },
+                { value: "price-low-to-high", label: "Price ↑" },
+                { value: "price-high-to-low", label: "Price ↓" },
+                { value: "name-a-z", label: "A → Z" },
+                { value: "name-z-a", label: "Z → A" },
+              ].map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setSortOption(option.value)}
+                  className={`px-cv-md py-cv-xs rounded-full border font-cv-sans text-cv-xs font-cv-medium transition-all duration-300 ${
+                    sortOption === option.value
+                      ? "bg-cv-gold border-cv-gold text-white"
+                      : "border-cv-border text-cv-muted hover:border-cv-gold hover:text-cv-black"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Clear All Button */}
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="px-cv-md py-cv-xs text-cv-xs font-cv-semibold text-cv-muted hover:text-cv-black transition-colors underline"
+              >
+                Clear All
+              </button>
+            )}
+          </div>
+
+          {/* Results Counter */}
+          {hasActiveFilters && (
+            <p className="font-cv-sans text-cv-xs text-cv-muted">
+              Showing {sortedProducts.length} of {giftProducts.length} products
+            </p>
+          )}
+        </div>
+
+        {/* Products Grid */}
+        {sortedProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-cv-3xl">
+            {sortedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-cv-3xl">
+            <p className="font-cv-sans text-cv-muted mb-cv-md">
+              No products match your search.
+            </p>
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="px-cv-md py-cv-xs border border-cv-border rounded-cv-xs 
+                  font-cv-sans text-cv-sm font-cv-medium text-cv-black
+                  hover:bg-cv-gold hover:border-cv-gold hover:text-white
+                  transition-all duration-300"
+              >
+                Clear Filters
+              </button>
+            )}
+          </div>
+        )}
+
+        {sortedProducts.length === 0 && !hasActiveFilters && (
           <p className="text-center font-cv-sans text-cv-muted py-cv-2xl">
             {content.sectionStatus}
           </p>
         )}
-
       </div>
     </section>
   );
