@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function Section1({content}) {
+export default function Section1({ content }) {
   return (
     <section
       className="flex flex-col px-6 sm:px-10 md:px-30 w-full pt-10 sm:pt-12 md:pt-16 items-center min-h-screen box-border"
@@ -10,9 +10,9 @@ export default function Section1({content}) {
         className="w-full px-0 sm:px-cv-lg py-cv-xl md:px-cv-4xl md:py-cv-3xl grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-cv-3xl items-center box-border"
       >
 
-        
+
         <div className="flex flex-col items-start">
-          
+
           <p
             className="mb-4 md:mb-cv-xl text-sm sm:text-base md:text-xl uppercase text-cv-label tracking-cv-wider font-cv-sans text-cv-purple"
             style={{
@@ -27,7 +27,7 @@ export default function Section1({content}) {
 
           <h1
             className="m-0 mb-3 md:mb-4 leading-cv-tight tracking-cv-tight font-cv-serif font-cv-semibold text-cv-purple"
-            style={{ fontSize: "clamp(28px, 7vw, 90px)" }} 
+            style={{ fontSize: "clamp(28px, 7vw, 90px)" }}
           >
             {content.title[2]}<br />{content.title[3]}
           </h1>
@@ -47,7 +47,7 @@ export default function Section1({content}) {
           </p>
 
           <Link
-          to={'/calligraphy-products'}
+            to={'/calligraphy-products'}
             className="border-none cursor-pointer text-xs sm:text-sm md:text-cv-sm font-cv-semibold tracking-cv-wider uppercase px-6 sm:px-cv-2xl py-3 md:py-cv-md font-cv-sans"
             style={{
               background: "linear-gradient(to right, #f5e6a5, #D4AF37, #D4AF37)",
@@ -60,26 +60,30 @@ export default function Section1({content}) {
           </Link>
         </div>
 
-        
+
         <div className="relative h-[260px] sm:h-[320px] md:h-full w-full flex items-center justify-center">
+
+          {/* Replace fixed 500x500 with responsive sizing that respects parent height */}
           <div
-            className="rounded-cv-md h-[500px] w-[500px] flex items-center justify-center z-cv-base"
+            className="rounded-cv-md h-full w-full max-w-[600px] max-h-[600px] flex items-center justify-center z-cv-base overflow-hidden"
             style={{ backgroundColor: "#D8D8D8" }}
           >
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" strokeWidth="1">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
+            <img
+              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800660/products/other_pics/img4.jpg"
+              alt={content.imgAlt}
+              fetchPriority="high"
+              width={600}
+              height={600}
+              className="w-full h-full object-cover rounded-cv-md"
+            />
           </div>
 
-          <div
-            className="absolute bottom-3 left-3 md:bottom-cv-xs md:left-cv-sm md:-left-cv-lg bg-white rounded-cv-xs p-3 md:p-cv-lg z-cv-raised shadow-cv-lg max-w-[200px] md:max-w-[255px]"
-          >
-            <p className="m-0 text-xs sm:text-sm md:text-cv-base italic leading-[1.6] md:leading-[1.65] font-cv-serif text-cv-purple">
+          <div className="absolute -bottom-10 left-3 md:bottom-cv-xs md:left-cv-sm md:-left-cv-lg bg-white rounded-cv-xs p-3 md:p-cv-lg z-cv-raised shadow-cv-lg max-w-[200px] md:max-w-[255px]">
+            <p className="m-0 text-xs sm:text-lg md:text-cv-base italic leading-[1.6] md:leading-[1.65] font-cv-serif text-cv-purple">
               {content.imgDes}
             </p>
           </div>
+
         </div>
 
       </div>

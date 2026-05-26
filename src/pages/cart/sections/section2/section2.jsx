@@ -4,7 +4,16 @@ import { useNavigate } from "react-router-dom";
 import CartProductCard from "../../../../components/cartproduct_card/cartproduct_card";
 import ProductCard from "../../../../components/product_card/product_card";
 import RecommendationCard from "../../../../components/recommendation_card/recommendation_card";
-import { ShoppingCart, } from "lucide-react";
+
+
+
+import { ShieldCheck, Truck, Star, ShoppingCart } from "lucide-react";
+
+const trustIcons = [
+  <ShieldCheck width={15} height={15} stroke="currentColor" strokeWidth={1.6} fill="none" />,
+  <Truck width={15} height={15} stroke="currentColor" strokeWidth={1.6} fill="none" />,
+  <Star width={15} height={15} stroke="currentColor" strokeWidth={1.6} fill="none" />,
+];
 
 function EmptyCart({ onBrowse, content }) {
   return (
@@ -13,7 +22,7 @@ function EmptyCart({ onBrowse, content }) {
         <ShoppingCart size={120} />
       </div>
       <h3 className="mb-cv-sm font-cv-serif italic font-cv-regular text-cv-black text-cv-xl md:text-cv-2xl">
-        {content.emptyCartTitle} 
+        {content.emptyCartTitle}
       </h3>
       <p className="mb-cv-2xl font-cv-sans text-cv-sm font-cv-light text-cv-muted leading-cv-relaxed max-w-xs">
         {content.emptyCartDescription}
@@ -54,7 +63,7 @@ function CartItems({ cartItems, clearCart, content }) {
         ))}
       </div>
 
-  
+
       <div className="flex gap-cv-md items-start mt-cv-3xl pt-cv-3xl border-t border-cv-border">
         <div className="shrink-0 mt-cv-xs">
           <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
@@ -76,7 +85,7 @@ function CartItems({ cartItems, clearCart, content }) {
 }
 
 
-function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp, navigate,content }) {
+function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp, navigate, content }) {
   return (
     <div className="bg-white rounded-cv-lg shadow-cv-md p-cv-xl border border-cv-border w-full">
       <h3 className="mb-cv-xl font-cv-serif font-cv-regular text-cv-black text-cv-xl md:text-cv-2xl">
@@ -95,7 +104,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         <span className="font-cv-sans text-cv-xs font-cv-medium text-cv-muted italic">{content.cartSummaryTitle[3]}</span>
       </div>
 
-     
+
       <div className="flex items-start gap-cv-sm mb-cv-lg">
         <input
           type="checkbox"
@@ -114,7 +123,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         </div>
       </div>
 
-      
+
       <div className="flex items-end justify-between mb-cv-xl">
         <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">Estimated Total</span>
         <div className="text-right">
@@ -127,7 +136,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         </div>
       </div>
 
-      
+
       <p className="mb-cv-sm font-cv-sans text-cv-xs font-cv-medium tracking-cv-wide uppercase text-cv-muted">
         {content.cartSummaryDescription[0]}
       </p>
@@ -144,7 +153,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         </span>
       </div>
 
-      
+
       <button
         onClick={openWhatsApp}
         className="w-full flex items-center justify-center gap-cv-sm py-cv-md px-cv-lg rounded-cv-sm font-cv-sans text-cv-sm font-cv-semibold tracking-cv-wide uppercase text-white bg-cv-gold hover:bg-cv-plum transition duration-cv-base mb-cv-lg"
@@ -152,23 +161,21 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         {content.cartSummarycta}
       </button>
 
-      
+
+
+
       <div className="flex flex-col gap-cv-sm mb-cv-lg">
-        <div className="flex items-center gap-cv-sm">
-          <span className="text-cv-muted">🛡️</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[0]}</span>
-        </div>
-        <div className="flex items-center gap-cv-sm">
-          <span className="text-cv-muted">🚚</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[1]}</span>
-        </div>
-        <div className="flex items-center gap-cv-sm">
-          <span className="text-cv-muted">⭐</span>
-          <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase text-cv-muted">{content.cartSummaryTrustBadges[2]}</span>
-        </div>
+        {content.cartSummaryTrustBadges.map((badge, i) => (
+          <div key={i} className="flex items-center gap-cv-sm text-cv-muted">
+            {trustIcons[i]}
+            <span className="font-cv-sans text-cv-xs font-cv-light tracking-cv-wide uppercase">
+              {badge}
+            </span>
+          </div>
+        ))}
       </div>
 
-      
+
       <div className="text-center">
         <button
           onClick={() => navigate("/calligraphy-products")}
@@ -182,7 +189,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
 }
 
 
-function MobileSummaryBar({ subtotal, onOpen,content }) {
+function MobileSummaryBar({ subtotal, onOpen, content }) {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-cv-white border-t border-cv-border px-cv-lg py-cv-sm flex justify-between items-center lg:hidden z-40 shadow-cv-md">
       <div>
@@ -205,12 +212,12 @@ function MobileSummaryBar({ subtotal, onOpen,content }) {
 function MobileSummaryDrawer({ show, onClose, children, content }) {
   return (
     <div className={`fixed inset-0 z-50 ${show ? "visible" : "invisible"}`}>
-      
+
       <div
         className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
       />
-      
+
       <div
         className={`absolute bottom-0 left-0 right-0 top-30 bg-cv-white rounded-t-2xl max-h-[90vh] overflow-y-auto transition-transform duration-300 ${show ? "translate-y-0" : "translate-y-full"}`}
       >
@@ -232,7 +239,7 @@ function MobileSummaryDrawer({ show, onClose, children, content }) {
 }
 
 
-export default function CartPage({content}) {
+export default function CartPage({ content }) {
   const {
     cartItems,
     clearCart,
@@ -251,34 +258,34 @@ export default function CartPage({content}) {
 
   const hasItems = cartItems.length > 0;
 
-const getFilteredProducts = (products) => {
-  if (!Array.isArray(products)) return [];
+  const getFilteredProducts = (products) => {
+    if (!Array.isArray(products)) return [];
 
-  const cartIds = new Set(cartItems.map((item) => item.id));
+    const cartIds = new Set(cartItems.map((item) => item.id));
 
-  return products.filter((product) => !cartIds.has(product.id));
-};
+    return products.filter((product) => !cartIds.has(product.id));
+  };
 
-const getRandomProducts = (products, count = 3) => {
-  const filtered = getFilteredProducts(products);
+  const getRandomProducts = (products, count = 3) => {
+    const filtered = getFilteredProducts(products);
 
-  console.log(products, filtered)
+    console.log(products, filtered)
 
-  const result = [];
-  const usedIndexes = new Set();
+    const result = [];
+    const usedIndexes = new Set();
 
-  while (result.length < count && usedIndexes.size < filtered.length) {
-    // eslint-disable-next-line react-hooks/purity
-    const randomIndex = Math.floor(Math.random() * filtered.length);
+    while (result.length < count && usedIndexes.size < filtered.length) {
+      // eslint-disable-next-line react-hooks/purity
+      const randomIndex = Math.floor(Math.random() * filtered.length);
 
-    if (!usedIndexes.has(randomIndex)) {
-      result.push(filtered[randomIndex]);
-      usedIndexes.add(randomIndex);
+      if (!usedIndexes.has(randomIndex)) {
+        result.push(filtered[randomIndex]);
+        usedIndexes.add(randomIndex);
+      }
     }
-  }
 
-  return result;
-};
+    return result;
+  };
 
   const randomGiftProducts = getRandomProducts(giftProducts, 3);
   const randomCalligraphyProducts = getRandomProducts(calligraphyProducts, 3);
@@ -289,37 +296,37 @@ const getRandomProducts = (products, count = 3) => {
     <section className="bg-cv-white px-cv-lg py-cv-2xl pb-cv-5xl md:px-cv-4xl">
       <div className="w-full max-w-screen-2xl mx-auto">
 
-        
+
         {!hasItems && (
           <EmptyCart onBrowse={() => navigate("/calligraphy-products")} content={content} />
         )}
 
-        
+
         {hasItems && (
           <>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_500px] gap-cv-3xl xl:gap-cv-4xl items-start">
 
-              
-              <CartItems cartItems={cartItems} clearCart={clearCart} navigate={navigate} content={content}/>
 
-              
+              <CartItems cartItems={cartItems} clearCart={clearCart} navigate={navigate} content={content} />
+
+
               <div className="hidden lg:block sticky top-24">
-                <CartSummary {...summaryProps} content={content}/>
+                <CartSummary {...summaryProps} content={content} />
               </div>
             </div>
 
-            
-            <MobileSummaryBar subtotal={subtotal} onOpen={() => setShowSummary(true)} content={content}/>
 
-            
+            <MobileSummaryBar subtotal={subtotal} onOpen={() => setShowSummary(true)} content={content} />
+
+
             <MobileSummaryDrawer show={showSummary} onClose={() => setShowSummary(false)} content={content}>
-              <CartSummary {...summaryProps} content={content}/>
+              <CartSummary {...summaryProps} content={content} />
             </MobileSummaryDrawer>
           </>
         )}
 
-        
+{cartItems.length > 0 && (
         <div className="mt-cv-4xl">
           <p className="mb-cv-xl font-cv-sans text-cv-label font-cv-medium tracking-cv-widest uppercase text-cv-muted">
             {content.title[0]}
@@ -330,7 +337,7 @@ const getRandomProducts = (products, count = 3) => {
             ))}
           </div>
         </div>
-
+)}
       </div>
     </section>
   );

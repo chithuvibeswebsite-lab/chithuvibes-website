@@ -67,7 +67,9 @@ export default function BespokeJourney({ content }) {
           <div className="w-full md:w-[480px] lg:w-[560px] shrink-0">
             <img
               src={content.image}
-              alt="Fountain pen"
+              alt="Fountain pen and blank paper - begin your bespoke Tamil calligraphy commission"
+              width={560}
+              height={600}
               className="w-full h-[320px] md:h-[600px] object-cover shadow-lg"
             />
           </div>
@@ -85,8 +87,8 @@ export default function BespokeJourney({ content }) {
                     status === "success"
                       ? "text-cv-gold"
                       : status === "error"
-                      ? "text-red-400"
-                      : "text-cv-muted opacity-60"
+                      ? "text-red-600"
+                      : "text-cv-charcoal"
                   }`}
                 >
                   {status === "success" && content.statusMessages.success}
@@ -108,7 +110,7 @@ export default function BespokeJourney({ content }) {
                     onChange={handleChange}
                     autoComplete="off"
                     placeholder={placeholder}
-                    className="bg-transparent outline-none text-cv-md text-cv-muted py-cv-sm font-cv-serif italic w-full placeholder:text-cv-muted"
+                    className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic w-full placeholder:text-cv-muted"
                   />
                   <div className="h-cv-px bg-cv-border mt-cv-sm" />
                 </div>
@@ -125,7 +127,7 @@ export default function BespokeJourney({ content }) {
                 onChange={handleChange}
                 autoComplete="off"
                 placeholder={content.emailField.placeholder}
-                className="bg-transparent outline-none text-cv-md text-cv-muted py-cv-sm font-cv-serif italic placeholder:text-cv-muted"
+                className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic placeholder:text-cv-muted"
               />
               <div className="h-cv-px bg-cv-border mt-cv-sm" />
             </div>
@@ -140,7 +142,7 @@ export default function BespokeJourney({ content }) {
                 onChange={handleChange}
                 autoComplete="off"
                 placeholder={content.visionField.placeholder}
-                className="bg-transparent outline-none text-cv-md text-cv-muted py-cv-sm font-cv-serif italic resize-none leading-cv-relaxed placeholder:text-cv-muted"
+                className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic resize-none leading-cv-relaxed placeholder:text-cv-muted"
                 rows={4}
               />
               <div className="h-cv-px bg-cv-border mt-cv-sm" />

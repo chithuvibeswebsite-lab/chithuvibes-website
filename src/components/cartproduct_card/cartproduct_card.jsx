@@ -36,7 +36,7 @@ function CartProductCard({ item, isLast = false }) {
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-2">
           <span className="text-lg sm:text-3xl font-cv-sans font-semibold text-cv-gold">
-            ₹<span className='ms-3'>{(item.price * item.quantity).toLocaleString("en-IN")}</span>
+            ₹<span className='ms-3 font-cv-sans'>{(item.price * item.quantity).toLocaleString("en-IN")}</span>
           </span>
 
           <div className="flex items-center justify-between sm:justify-end gap-4">
@@ -63,7 +63,7 @@ function CartProductCard({ item, isLast = false }) {
             {/* Trash */}
             <button
               onClick={() => removeFromCart(item.id)}
-              className="text-cv-muted hover:text-red-500 transition p-1"
+              className="text-cv-muted hover:text-red-500 transition p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
               <Trash2 className="w-5 h-5" strokeWidth={1.5} />
             </button>

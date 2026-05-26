@@ -3,7 +3,9 @@ export default function Section1({content}) {
     <section className="relative w-full overflow-hidden bg-cv-muted min-h-[340px] flex items-center">
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-calligraphy-bg.jpg')" }}
+        role="img"
+        aria-label="Calligraphy products collection background"
+        style={{ backgroundImage: "url('/images/bg-image.png')" }}
       />
       <div className="absolute inset-0 bg-white/50" />
 

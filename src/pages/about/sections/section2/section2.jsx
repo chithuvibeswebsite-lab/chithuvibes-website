@@ -8,11 +8,13 @@ export default function OriginStorySection({ content }) {
             <div className="absolute inset-0 rounded-cv-xl border-3 p-30 border-cv-gold -rotate-5" />
             <div className="absolute inset-0 rounded-cv-xl overflow-hidden" style={{ backgroundColor: "#1a2a1a" }}>
               <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#1C2B1C" }}>
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#3a4a3a" strokeWidth="1">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
+                <img
+                  src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779823357/JCPhoto_1_umabba.png"
+                  alt="Jeya Chitra - Founder and master calligrapher of Chithu Vibes, Tamil epigraphy scholar"
+                  width={420}
+                  height={520}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
               </div>
             </div>
           </div>
