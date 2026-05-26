@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /cart/
+
+Sitemap: https://chithuvibes.in/sitemap.xml

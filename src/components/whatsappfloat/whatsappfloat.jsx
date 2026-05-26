@@ -6,7 +6,7 @@ const SCROLL_THRESHOLD = 0.75;
 
 function WhatsAppIcon() {
   return (
-    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M16 3C8.82 3 3 8.82 3 16c0 2.41.66 4.67 1.8 6.61L3 29l6.55-1.77A12.93 12.93 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z"
         fill="var(--color-cv-mauve)" />
       <path d="M16 5.2A10.8 10.8 0 0126.8 16 10.8 10.8 0 0116 26.8a10.74 10.74 0 01-5.5-1.51l-.39-.23-4.03 1.09 1.1-3.93-.26-.41A10.74 10.74 0 015.2 16 10.8 10.8 0 0116 5.2z"
@@ -19,7 +19,7 @@ function WhatsAppIcon() {
 
 function ArrowUpIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 19V5M5 12l7-7 7 7"
         stroke="var(--color-cv-white)"
         strokeWidth="2"

@@ -21,7 +21,9 @@ export default function RecommendationCard({ product }) {
   <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden bg-cv-black/5">
     <img
       src={imageSrc}
-      alt={product.name}
+      alt={`${product.name} - Recommended Tamil calligraphy product by Chithu Vibes`}
+      width={96}
+      height={96}
       className="w-full h-full object-cover"
     />
   </div>
@@ -31,16 +33,16 @@ export default function RecommendationCard({ product }) {
 
     {/* Content */}
     <div className="flex-1 min-w-0">
-      <h3 className="text-sm sm:text-base md:text-lg font-medium line-clamp-1">
+      <h3 className="text-sm font-cv-serif sm:text-base md:text-lg font-medium line-clamp-1">
         {product.name}
       </h3>
 
-      <p className="text-xs sm:text-sm text-cv-muted mt-1 line-clamp-2">
+      <p className="text-xs font-cv-sans sm:text-sm text-cv-muted mt-1 line-clamp-2">
         {product.description}
       </p>
 
       {/* Mobile price */}
-      <p className="mt-2 text-sm font-semibold text-cv-gold sm:hidden">
+      <p className="mt-2 font-cv-sans text-sm font-semibold text-cv-gold sm:hidden">
         ₹{product.price?.toLocaleString("en-IN")}
       </p>
     </div>

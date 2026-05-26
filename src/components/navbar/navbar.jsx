@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="w-full h-full px-cv-lg lg:px-cv-3xl flex items-center justify-between box-border">
           <div className="flex items-center gap-2 lg:gap-cv-md">
             <img
-              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779566643/chithu-vibes/products/img1.png"
+              src="https://res.cloudinary.com/dvdmdowip/image/upload/v1779566057/Chithuvibes_Logo_1_zleupw.png"
               alt="Chithu Vibes Logo"
               className="h-8 w-auto cursor-pointer"
               onClick={() => navigate("/")}
@@ -70,7 +70,7 @@ export default function Navbar() {
           <div className="flex items-center gap-cv-md">
             <button
               onClick={() => navigate("/cart")}
-              className="bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple relative transition"
+              className="bg-transparent border-none cursor-pointer flex items-center p-2 text-cv-purple relative transition min-w-[44px] min-h-[44px] justify-center"
               style={{ transitionDuration: "var(--duration-cv-base)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cv-gold)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-cv-purple)")}
@@ -88,7 +88,7 @@ export default function Navbar() {
             </button>
 
             <button
-              className="md:hidden bg-transparent border-none cursor-pointer flex items-center p-0 text-cv-purple"
+              className="md:hidden bg-transparent border-none cursor-pointer flex items-center p-2 text-cv-purple min-w-[44px] min-h-[44px] justify-center"
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label={NAVBAR.menuLabel}
             >
@@ -108,7 +108,7 @@ export default function Navbar() {
                 <button
                   key={label}
                   onClick={() => { navigate(path); setMenuOpen(false); }}
-                  className={`bg-transparent border-none cursor-pointer text-left py-cv-sm font-cv-sans text-cv-xs font-cv-medium uppercase tracking-cv-wide transition duration-cv-base hover:text-cv-gold ${active ? "text-cv-gold" : "text-cv-purple"}`}
+                  className={`bg-transparent border-none cursor-pointer text-left py-3 px-cv-lg font-cv-sans text-cv-xs font-cv-medium uppercase tracking-cv-wide transition duration-cv-base hover:text-cv-gold min-h-[44px] flex items-center ${active ? "text-cv-gold" : "text-cv-purple"}`}
                   style={{ borderLeft: active ? "2px solid var(--color-cv-gold)" : "2px solid transparent", paddingLeft: "12px" }}
                 >
                   {label}

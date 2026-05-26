@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 
 
-export function ProductImageCarousel({ images }) {
+export function ProductImageCarousel({ images, productName = "Tamil calligraphy" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const imageList = Array.isArray(images) ? images : [images];
@@ -25,25 +25,30 @@ export function ProductImageCarousel({ images }) {
     return () => clearInterval(timer);
   }, [imageList.length, currentIndex]);
 
+
+  const manyImages = imageList.length > 5;
+
   return (
-    <div className="relative w-full rounded-cv-md overflow-hidden bg-cv-soft aspect-7/8 group">
-      <div className="w-full aspect-4/5 overflow-hidden">
-        <img
-          src={imageList[currentIndex]}
-          alt="product"
-          style={{ opacity: fading ? 0 : 1, transition: "opacity 200ms ease" }}
-          className="w-full h-full object-cover"
-          onError={(e) => (e.target.style.display = "none")}
-        />
-      </div>
+    <div className="relative w-full rounded-cv-md overflow-hidden bg-cv-soft aspect-[7/8] group">
+      {/* Single image container — no nested aspect ratio */}
+      <img
+        src={imageList[currentIndex]}
+        alt={`${productName} - Image ${currentIndex + 1} of ${imageList.length}${imageList.length > 1 ? ' - view more product images' : ' - Tamil calligraphy laser-engraved by Chithu Vibes'}`}
+        width={600}
+        height={686}
+        style={{ opacity: fading ? 0 : 1, transition: "opacity 200ms ease" }}
+        className="absolute inset-0 w-full h-full object-contain"
+        onError={(e) => (e.target.style.display = "none")}
+      />
 
       {imageList.length > 1 && (
         <>
           <button
             onClick={prev}
+            aria-label="View previous product image"
             className="absolute left-2 top-1/2 -translate-y-1/2 
               bg-white/80 hover:bg-white 
-              w-9 h-9 flex items-center justify-center rounded-full
+              w-12 h-12 flex items-center justify-center rounded-full
               opacity-0 group-hover:opacity-100 
               -translate-x-2 group-hover:translate-x-0
               scale-90 group-hover:scale-100
@@ -54,9 +59,10 @@ export function ProductImageCarousel({ images }) {
           </button>
           <button
             onClick={next}
+            aria-label="View next product image"
             className="absolute right-2 top-1/2 -translate-y-1/2 
               bg-white/80 hover:bg-white 
-              w-9 h-9 flex items-center justify-center rounded-full
+              w-12 h-12 flex items-center justify-center rounded-full
               opacity-0 group-hover:opacity-100 
               translate-x-2 group-hover:translate-x-0
               scale-90 group-hover:scale-100
@@ -65,16 +71,29 @@ export function ProductImageCarousel({ images }) {
           >
             →
           </button>
-          <div className="absolute bottom-cv-xs left-1/2 -translate-x-1/2 flex gap-cv-px">
-            {imageList.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goTo(idx)}
-                className={`h-1 rounded transition-all duration-300 ${
-                  idx === currentIndex ? "bg-cv-gold w-cv-sm" : "bg-white/70 w-10"
-                }`}
-              />
-            ))}
+
+          {/* Bottom indicator — dots for ≤5, slim progress bar for 6+ */}
+          <div className="absolute bottom-cv-xs left-1/2 -translate-x-1/2 flex items-center gap-cv-px max-w-[80%]">
+            {manyImages ? (
+
+              <div className="bg-black/40 text-white text-[11px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm">
+                {currentIndex + 1} / {imageList.length}
+              </div>
+            ) : (
+              imageList.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  aria-label={`View image ${idx + 1} of ${imageList.length}`}
+                  aria-current={idx === currentIndex}
+                  className={`h-2 rounded transition-all duration-300 ${idx === currentIndex
+                      ? "bg-cv-gold w-cv-sm"
+                      : "bg-white/70 w-3"
+                    }`}
+                  style={{ minHeight: "24px", minWidth: idx === currentIndex ? "24px" : "24px", padding: "6px" }}
+                />
+              ))
+            )}
           </div>
         </>
       )}
@@ -110,7 +129,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="flex flex-col h-full">
-      <ProductImageCarousel images={product.images} />
+      <ProductImageCarousel images={product.images} productName={product.name} />
 
       <div className="flex-1 flex flex-col pt-cv-md">
         <h3 className="mb-cv-xs font-cv-serif font-cv-semibold text-cv-black italic text-cv-base leading-cv-snug">

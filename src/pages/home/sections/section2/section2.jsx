@@ -1,4 +1,4 @@
-export default function Section2({content}) {
+export default function Section2({ content }) {
   const items = content.cardData || [];
 
   return (
@@ -8,13 +8,13 @@ export default function Section2({content}) {
     >
       <div className="mx-auto max-w-[1400px]">
 
-        
+
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 md:mb-cv-3xl gap-2">
           <h2
             className="m-0 leading-cv-tight italic font-cv-regular font-cv-serif text-cv-purple"
             style={{ fontSize: "clamp(26px, 6vw, 52px)" }} // smaller on mobile
           >
-            {content.title[0]} 
+            {content.title[0]}
           </h2>
 
           <p className="text-xs sm:text-sm md:mt-cv-md md:text-cv-label tracking-cv-wider uppercase font-cv-sans text-cv-muted">
@@ -22,7 +22,7 @@ export default function Section2({content}) {
           </p>
         </div>
 
-        
+
         <div
           className="grid grid-cols-1 lg:grid-cols-3 rounded-cv-md overflow-hidden border border-cv-border"
         >
@@ -35,33 +35,36 @@ export default function Section2({content}) {
               }}
             >
 
-              
+
               <div className='flex flex-col justify-center items-center'>
                 <div
                   className="rounded-cv-xl h-[180px] sm:h-[220px] md:h-[320px] w-full max-w-[600px] flex items-center justify-center mb-5 md:mb-cv-xl shrink-0"
                   style={{ backgroundColor: "#DCDCDC" }}
                 >
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" strokeWidth="1">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <polyline points="21 15 16 10 5 21" />
-                  </svg>
+                  <img
+                    src={item.img}
+                    alt={item.alt || `${item.title} - Tamil calligraphy laser-engraved collection by Chithu Vibes`}
+                    width={600}
+                    height={320}
+                    className="h-full w-full object-cover rounded-cv-xl"
+                  />
+
                 </div>
               </div>
 
-              
+
               <h3
                 className="italic text-xl sm:text-2xl md:text-3xl font-cv-regular leading-cv-snug mb-2 md:mb-cv-sm font-cv-serif text-cv-purple"
               >
                 {item.title}
               </h3>
 
-              
+
               <p className="text-sm sm:text-base md:text-lg text-cv-muted leading-relaxed md:leading-cv-relaxed mb-5 md:mb-cv-lg grow font-cv-sans">
                 {item.desc}
               </p>
 
-             
+
               <div className="flex items-center justify-between pt-4 md:pt-cv-lg border-t border-cv-border">
                 <span className="text-sm md:text-cv-sm font-cv-medium font-cv-sans text-cv-gold">
                   {item.price}

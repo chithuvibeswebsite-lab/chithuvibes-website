@@ -102,11 +102,15 @@ export default function OrderSection({content}) {
             <button
               key={i}
               onClick={() => handleDot(i)}
-              className="border-none cursor-pointer p-0 h-cv-sm rounded-cv-full"
+              aria-label={`View testimonial ${i + 1} of ${testimonials.length}`}
+              aria-current={i === active}
+              className="border-none cursor-pointer p-0 h-3 rounded-cv-full"
               style={{
-                width: i === active ? "28px" : "10px",
+                width: i === active ? "32px" : "12px",
                 backgroundColor: i === active ? "var(--color-cv-purple)" : "#CCCCCC",
                 transition: `all var(--duration-cv-base) ease`,
+                minHeight: "24px",
+                padding: "6px"
               }}
             />
           ))}

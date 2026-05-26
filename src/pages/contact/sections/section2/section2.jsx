@@ -16,7 +16,7 @@ export default function StudioSection({ content }) {
 
         <div className="flex items-center gap-cv-md">
           <div className="w-cv-xl h-cv-xl rounded-cv-full animate-pulse bg-cv-soft flex items-center justify-center shrink-0">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none">
               <path d="M8 1L9.2 5.4H13.8L10.1 7.9L11.4 12.3L8 9.8L4.6 12.3L5.9 7.9L2.2 5.4H6.8L8 1Z"
                 stroke="#b8a5cb" strokeWidth="1.1" strokeLinejoin="round" fill="none"/>
               <line x1="8" y1="0" x2="8" y2="1.5" stroke="#9B84B2" strokeWidth="1" strokeLinecap="round"/>

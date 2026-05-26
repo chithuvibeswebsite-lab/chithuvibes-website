@@ -1,6 +1,6 @@
 export default function Section1({content}) {
   return (
-    <section className="bg-cv-white pt-cv-7xl pb-cv-2xl px-cv-lg md:px-cv-4xl text-center">
+    <section className="bg-cv-white pt-cv-7xl pb-cv-2xl px-cv-lg md:px-cv-4xl text-center pt-3">
       <h1 className="mb-cv-md font-cv-serif italic font-cv-regular text-cv-plum text-[clamp(42px,6vw,72px)] tracking-tight">
         {content.title}
       </h1>
