@@ -126,9 +126,9 @@ style={{ background: "linear-gradient(135deg, #e8c96a 0%, #C9A84C 35%, #8B5A2B  
                       rel="noreferrer"
                       aria-label={socialIcons[i].label}
                       className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200"
-                      style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
+                      style={{ background: "rgba(255,255,255,1)", border: "1px solid rgba(255,255,255,0.15)" }}
                       onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.22)"}
-                      onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
+                      onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,1)"}
                     >
 <Icon size={18} color={socialIcons[i].color} />                    </a>
                   );

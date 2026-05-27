@@ -4,7 +4,7 @@ export const HOME = {
         description: "Where ancient script meets avant-garde technology We immortalize the fluid beauty of Tamil letters into timeless materials with microscopic accuracy",
         cta: "Explore Collection",
         imgAlt: "Hero image showcasing the fusion of traditional Tamil calligraphy and modern laser engraving technology, representing the essence of Chithu Vibes' craftsmanship",
-        imgDes: "\"A celebration of my roots, etched for eternity\"",
+        imgDes: "A celebration of my roots, etched for eternity",
     },
 
     section2: {
@@ -181,7 +181,7 @@ export const CONTACT = {
         steps: [
             { num: "01", title: "Selection", desc: "Browse our curated collections for initial inspiration or medium preference" },
             { num: "02", title: "Inquiry", desc: "Reach out with your vision via the form above for a brief overview" },
-            { num: "03", title: "Consultation", desc: "A 1-on-1 session with Jeya Chitra to finalize script, material, and dimensions" },
+            { num: "03", title: "Consultation", desc: "A 1-on-1 session with our Artist to finalize script, material, and dimensions" },
             { num: "04", title: "Creation", desc: "The artisanal process begins, merging hand-drawn beauty with technical precision" },
         ],
     },
