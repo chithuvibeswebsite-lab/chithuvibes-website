@@ -1,3 +1,6 @@
+import { WifiPen } from 'lucide-react';
+
+
 export default function AuthenticitySection({content}) {
   return (
     <section className="bg-white box-border px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-section">
@@ -5,12 +8,8 @@ export default function AuthenticitySection({content}) {
 
         
         <div className="flex justify-center mb-cv-xl">
-          <svg aria-hidden="true" width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="4" x2="6" y2="38" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
-            <line x1="18" y1="4" x2="30" y2="38" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
-            <line x1="10" y1="22" x2="26" y2="22" stroke="var(--color-cv-gold)" strokeWidth="2" strokeLinecap="round" />
-            <circle cx="18" cy="4" r="2.5" fill="var(--color-cv-gold)" />
-          </svg>
+              <WifiPen className="w-9 h-11 text-cv-gold" />
+
         </div>
 
         

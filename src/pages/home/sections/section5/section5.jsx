@@ -1,3 +1,5 @@
+import {ScrollText} from 'lucide-react'
+
 export default function FounderSection({ content }) {
   return (
     <section
@@ -23,7 +25,7 @@ export default function FounderSection({ content }) {
       {/* Text column */}
       <div className="flex items-center box-border px-cv-lg py-cv-3xl md:pl-cv-2xl md:pr-cv-4xl md:py-cv-4xl">
         <div className="w-full">
-          <div className="w-14 h-cv-pxsm mb-cv-xl bg-cv-gold" />
+        <ScrollText className="w-9 h-11 text-cv-gold mb-3" />
 
           <h2
             className="font-cv-regular leading-cv-snug mb-cv-xl font-cv-serif text-cv-purple"

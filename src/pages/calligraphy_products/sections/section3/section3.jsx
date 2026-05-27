@@ -14,7 +14,7 @@ export default function Section3({ content }) {
           <Sparkles size={32} color="#735C00" />
         </div>
 
-        <blockquote className="mb-cv-xl font-cv-serif italic font-cv-semibold leading-cv-relaxed text-cv-black text-cv-lg md:text-cv-xl">
+        <blockquote className="mb-cv-xl font-cv-serif italic leading-cv-relaxed text-cv-black text-cv-lg md:text-cv-xl">
           {content.title}
         </blockquote>
 
@@ -24,7 +24,7 @@ export default function Section3({ content }) {
 
         <button
           onClick={inquireBespoke}
-          className="w-full md:w-auto flex items-center justify-center gap-cv-sm px-cv-xl py-cv-md md:px-cv-2xl rounded-cv-full font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-white bg-[#735C00] hover:bg-cv-purple transition duration-cv-base"
+          className="w-full md:w-auto flex items-center justify-center gap-cv-sm px-cv-xl py-cv-md md:px-cv-2xl rounded-cv-full font-cv-sans text-cv-xs font-cv-semibold tracking-cv-wide uppercase text-white bg-cv-gold hover:bg-cv-purple transition duration-cv-base"
         >
           <span>{content.cta}</span>
           <span>→</span>

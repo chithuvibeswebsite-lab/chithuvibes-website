@@ -5,9 +5,9 @@ export default function Section1({ content }) {
         className="absolute inset-0 bg-cover bg-center"
         role="img"
         aria-label="Gift products collection background"
-        style={{ backgroundImage: "url('/images/bg-image.png')" }}
+        style={{ backgroundImage: "url('/images/bg-image.jpeg')" }}
       />
-      <div className="absolute inset-0 bg-white/50" />
+      <div className="absolute inset-0 bg-white/0 " />
 
       <div className="relative z-cv-raised w-full max-w-screen-xl mx-auto px-cv-lg py-cv-5xl text-center">
         <div className="mb-cv-xl inline-block px-cv-lg py-cv-xs --radius-cv-none: 0px; border border-cv-gold/50 bg-[#735C00]">

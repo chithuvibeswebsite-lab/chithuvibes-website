@@ -8,7 +8,7 @@ export default function StudioSection({ content }) {
           {content.title}
         </h2>
 
-        <p className="font-cv-sans text-cv-md font-cv-regular text-cv-muted leading-cv-relaxed m-0 mb-10 max-w-[500px]">
+        <p className="font-cv-sans text-cv-md font-cv-regular text-cv-plum leading-cv-relaxed m-0 mb-10 max-w-[500px]">
           {content.description}
         </p>
 
@@ -25,7 +25,7 @@ export default function StudioSection({ content }) {
               <line x1="14.5" y1="8" x2="16" y2="8" stroke="#9B84B2" strokeWidth="1" strokeLinecap="round"/>
             </svg>
           </div>
-          <span className="font-cv-sans text-cv-label tracking-cv-wide text-cv-muted uppercase font-cv-regular">
+          <span className="font-cv-sans font-cv-bold text-cv-label tracking-cv-wide text-cv-plum uppercase">
             {content.availability}
           </span>
         </div>
@@ -35,7 +35,7 @@ export default function StudioSection({ content }) {
 
       <div className="flex-1 px-cv-2xl flex flex-col justify-start mt-cv-xl sm:mt-0">
 
-        <p className="font-cv-sans text-cv-lg tracking-cv-widest text-cv-muted uppercase font-cv-regular m-0 mb-cv-lg">
+        <p className="font-cv-sans text-cv-lg tracking-cv-widest text-cv-plum uppercase font-cv-regular m-0 mb-cv-lg">
           {content.processLabel}
         </p>
 
@@ -45,7 +45,7 @@ export default function StudioSection({ content }) {
               <h3 className="font-cv-serif italic font-cv-regular text-cv-xl text-cv-gold m-0 mb-cv-sm">
                 {step.num} {step.title}
               </h3>
-              <p className="font-cv-sans text-cv-xs tracking-cv-wide uppercase text-cv-muted leading-cv-relaxed m-0 font-cv-regular">
+              <p className="font-cv-sans text-cv-xs tracking-cv-wide uppercase text-cv-plum leading-cv-relaxed m-0 font-cv-regular">
                 {step.desc}
               </p>
             </div>

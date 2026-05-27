@@ -9,7 +9,7 @@ export default function OriginStorySection({ content }) {
             <div className="absolute inset-0 rounded-cv-xl overflow-hidden" style={{ backgroundColor: "#1a2a1a" }}>
               <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#1C2B1C" }}>
                 <img
-                  src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779823357/JCPhoto_1_umabba.png"
+                  src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779887420/WhatsApp_Image_2026-05-27_at_6.39.26_PM_1_dp0oqk.jpg"
                   alt="Jeya Chitra - Founder and master calligrapher of Chithu Vibes, Tamil epigraphy scholar"
                   width={420}
                   height={520}

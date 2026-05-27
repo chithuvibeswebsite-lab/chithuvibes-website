@@ -1,9 +1,12 @@
+
+import { GraduationCap } from "lucide-react";
+
 export default function ManuscriptQuote({ content }) {
   return (
     <section className="flex flex-col items-center justify-center text-center px-cv-lg py-cv-section bg-cv-mauve">
 
       <p className="mb-cv-lg font-cv-bold leading-cv-tight text-cv-3xl md:text-cv-4xl font-cv-serif text-cv-gold">
-        {content.number}
+       <GraduationCap className="text-cv-gold h-20 w-20"  />
       </p>
 
       <blockquote className="max-w-xl md:max-w-3xl mx-auto mb-cv-2xl italic font-cv-regular leading-cv-normal text-cv-2xl md:text-cv-3xl font-cv-serif text-cv-white">

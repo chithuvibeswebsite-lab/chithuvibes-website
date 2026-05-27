@@ -6,11 +6,11 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const socialIcons = [
-  { icon: FaFacebook, label: "Facebook" },
-  { icon: FaInstagram, label: "Instagram" },
-  { icon: FaXTwitter, label: "X / Twitter" },
-  { icon: FaLinkedin, label: "LinkedIn" },
-  { icon: FaYoutube, label: "YouTube" },
+  { icon: FaFacebook,  label: "Facebook",  color: "#1877F2" },
+  { icon: FaInstagram, label: "Instagram", color: "#E1306C" },
+  { icon: FaXTwitter,  label: "X / Twitter", color: "#000000" },
+  { icon: FaLinkedin,  label: "LinkedIn",  color: "#0A66C2" },
+  { icon: FaYoutube,   label: "YouTube",   color: "#FF0000" },
 ];
 
 export default function Footer() {
@@ -130,8 +130,7 @@ style={{ background: "linear-gradient(135deg, #e8c96a 0%, #C9A84C 35%, #8B5A2B  
                       onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.22)"}
                       onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
                     >
-                      <Icon size={18} color="white" />
-                    </a>
+<Icon size={18} color={socialIcons[i].color} />                    </a>
                   );
                 })}
               </div>

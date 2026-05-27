@@ -1,9 +1,10 @@
-import { PenTool, Trophy, FileText, ShieldCheck } from "lucide-react";
+import { PenTool, Trophy, FileText, ShieldCheck, GraduationCap } from "lucide-react";
 
 const icons = [
   <Trophy width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
   <FileText width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
   <ShieldCheck width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
+<GraduationCap width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />
 ];
 
 export default function FounderSection({ content }) {
@@ -67,7 +68,7 @@ export default function FounderSection({ content }) {
         </div>
       </div>
 
-      <div className="w-full max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-cv-lg">
+      <div className="w-full max-w-[1500px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-cv-lg">
         {content.cards.map(({ label, desc }, i) => (
           <div
             key={i}

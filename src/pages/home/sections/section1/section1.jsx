@@ -69,12 +69,12 @@ export default function Section1({ content }) {
             style={{ backgroundColor: "#D8D8D8" }}
           >
             <img
-              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800660/products/other_pics/img4.jpg"
+              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779876579/WhatsApp_Image_2026-05-27_at_3.39.20_PM_z5kp1r.jpg"
               alt={content.imgAlt}
               fetchPriority="high"
               width={600}
               height={600}
-              className="w-full h-full object-cover rounded-cv-md"
+              className="w-full h-full object-cover object-bottom rounded-cv-md"
             />
           </div>
 

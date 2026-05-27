@@ -18,7 +18,7 @@ export default function BespokeSection({content}) {
         </h2>
 
 
-        <p className="text-cv-sm leading-cv-relaxed mb-cv-3xl font-cv-sans text-cv-muted">
+        <p className="text-cv-sm leading-cv-relaxed mb-cv-3xl font-cv-sans text-shadow-cv-charcoal">
           {content.description}
         </p>
 

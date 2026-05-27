@@ -83,13 +83,12 @@ export default function BespokeJourney({ content }) {
 
               {status !== "idle" && (
                 <p
-                  className={`mt-cv-sm font-cv-serif italic text-cv-md transition-all duration-500 ${
-                    status === "success"
+                  className={`mt-cv-sm font-cv-serif italic text-cv-md transition-all duration-500 ${status === "success"
                       ? "text-cv-gold"
                       : status === "error"
-                      ? "text-red-600"
-                      : "text-cv-charcoal"
-                  }`}
+                        ? "text-red-600"
+                        : "text-cv-charcoal"
+                    }`}
                 >
                   {status === "success" && content.statusMessages.success}
                   {status === "error" && content.statusMessages.error}
@@ -110,9 +109,9 @@ export default function BespokeJourney({ content }) {
                     onChange={handleChange}
                     autoComplete="off"
                     placeholder={placeholder}
-                    className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic w-full placeholder:text-cv-muted"
+                    className="bg-transparent outline-none text-cv-md text-cv-plum py-cv-sm font-cv-serif italic w-full placeholder:text-cv-muted"
                   />
-                  <div className="h-cv-px bg-cv-border mt-cv-sm" />
+                  <div className="h-cv-px bg-cv-plum mt-cv-sm" />
                 </div>
               ))}
             </div>
@@ -127,9 +126,9 @@ export default function BespokeJourney({ content }) {
                 onChange={handleChange}
                 autoComplete="off"
                 placeholder={content.emailField.placeholder}
-                className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic placeholder:text-cv-muted"
+                className="bg-transparent outline-none text-cv-md text-cv-plum py-cv-sm font-cv-serif italic placeholder:text-cv-muted"
               />
-              <div className="h-cv-px bg-cv-border mt-cv-sm" />
+              <div className="h-cv-px bg-cv-plum mt-cv-sm" />
             </div>
 
             <div className="flex flex-col mt-cv-2xl">
@@ -142,10 +141,10 @@ export default function BespokeJourney({ content }) {
                 onChange={handleChange}
                 autoComplete="off"
                 placeholder={content.visionField.placeholder}
-                className="bg-transparent outline-none text-cv-md text-cv-charcoal py-cv-sm font-cv-serif italic resize-none leading-cv-relaxed placeholder:text-cv-muted"
+                className="bg-transparent outline-none text-cv-md text-cv-plum py-cv-sm font-cv-serif italic resize-none leading-cv-relaxed placeholder:text-cv-muted"
                 rows={4}
               />
-              <div className="h-cv-px bg-cv-border mt-cv-sm" />
+              <div className="h-cv-px bg-cv-plum mt-cv-sm" />
             </div>
 
             <button

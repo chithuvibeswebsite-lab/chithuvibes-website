@@ -45,7 +45,7 @@ export default function OrderSection({content}) {
     <section className="bg-white box-border px-cv-lg py-cv-3xl md:px-cv-4xl md:py-cv-5xl">
       <div className="w-full mx-auto" style={{ maxWidth: "1200px" }}>
         <h2
-          className="font-cv-regular text-center leading-cv-tight mb-cv-md font-cv-serif text-cv-purple"
+          className="font-cv-regular text-center leading-cv-tight mb-cv-md font-cv-serif text-cv-gold"
           style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
         >
           {content.title[0]}
