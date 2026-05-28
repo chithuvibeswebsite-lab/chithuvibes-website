@@ -1,6 +1,6 @@
 export const HOME = {
     section1: {
-        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "ழகரத்தின் கம்பீரம்", "தமிழின் பேரழகு"], 
+        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "ழகரத்தின் கம்பீரம்", "தமிழின் பேரழகு"],
         description: "Where ancient script meets avant-garde technology We immortalize the fluid beauty of Tamil letters into timeless materials with microscopic accuracy",
         cta: "Explore Collection",
         imgAlt: "Hero image showcasing the fusion of traditional Tamil calligraphy and modern laser engraving technology, representing the essence of Chithu Vibes' craftsmanship",
@@ -82,27 +82,27 @@ export const ABOUT = {
             "Her journey was not without fire In 2017, she faced a life-altering challenge Like the Phoenix she embodies, she didn't just recover—she rose with purpose Chithu Vibes stands as that rebirth: a seamless fusion of technical brilliance and epigraphic wisdom",
         ],
         cards: [
-    { 
-        label: "Award-Winning\nTech", 
-        desc: "M.Phil Gold Medalist\nBringing algorithmic\nprecision to artistic engraving." 
-    },
-    { 
-        label: "Heritage Expert", 
-        desc: "Diploma in Archaeology & Epigraphy.\nCertified Tamizhi specialist ensuring\nabsolute historical authenticity." 
-    },
-    { 
-        label: "Professional\nIntegrity", 
-        desc: "PGDLAL credentials\nEnsuring ethical\npractices in every commission." 
-    },
-    {   
-        label: "Certifications", 
-        desc: "Certified in Web Designing,\nEditing, and Calligraphy." 
-    }
-]
+            {
+                label: "Award-Winning\nTech",
+                desc: "M.Phil Gold Medalist\nBringing algorithmic\nprecision to artistic engraving."
+            },
+            {
+                label: "Heritage Expert",
+                desc: "Diploma in Archaeology & Epigraphy.\nCertified Tamizhi specialist ensuring\nabsolute historical authenticity."
+            },
+            {
+                label: "Professional\nIntegrity",
+                desc: "PGDLAL credentials\nEnsuring ethical\npractices in every commission."
+            },
+            {
+                label: "Certifications",
+                desc: "Certified in Web Designing,\nEditing, and Calligraphy."
+            }
+        ]
     },
     section5: {
         number: "99",
-    quote: "She spent years mastering the logic of code and the grace of the pen Today, she uses laser to etch your emotions into eternity",
+        quote: "She spent years mastering the logic of code and the grace of the pen Today, she uses laser to etch your emotions into eternity",
         cta: "Start Your Manuscript",
     },
 }
@@ -250,8 +250,8 @@ export const NAVBAR = {
     links: [
         { label: "HOME", path: "/" },
         { label: "OUR STORY", path: "/about" },
-        { label: "CALLIGRAPHY PRODUCTS", path: "/calligraphy-products" },
         { label: "GIFT PRODUCTS", path: "/gift-products" },
+        { label: "CALLIGRAPHY ARTWORKS", path: "/calligraphy-products" },
         { label: "CONTACT", path: "/contact" },
     ],
 }
@@ -267,7 +267,7 @@ export const FOOTER = {
     links: [
         { label: "Home", path: "/" },
         { label: "Our story", path: "/about" },
-        { label: "Calligraphy Products", path: "/calligraphy-products" },
+        { label: "Calligraphy Artworks", path: "/calligraphy-products" },
         { label: "Gift Products", path: "/gift-products" },
         { label: "Contact", path: "/contact" },
     ],
