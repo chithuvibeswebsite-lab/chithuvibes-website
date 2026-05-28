@@ -1,5 +1,5 @@
 import { useCart } from "../../context/cart.context";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 
 
@@ -7,30 +7,39 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const imageList = Array.isArray(images) ? images : [images];
+  const indexRef = useRef(0);
 
-  const goTo = (idx) => {
+  const goTo = useCallback((idx) => {
     setFading(true);
     setTimeout(() => {
+      indexRef.current = idx;
       setCurrentIndex(idx);
       setFading(false);
     }, 200);
-  };
+  }, []);
 
-  const next = () => goTo((currentIndex + 1) % imageList.length);
-  const prev = () => goTo((currentIndex - 1 + imageList.length) % imageList.length);
+  const prev = useCallback(
+    () => goTo((indexRef.current - 1 + imageList.length) % imageList.length),
+    [goTo, imageList.length]
+  );
+  const next = useCallback(
+    () => goTo((indexRef.current + 1) % imageList.length),
+    [goTo, imageList.length]
+  );
 
   useEffect(() => {
     if (imageList.length <= 1) return;
-    const timer = setInterval(next, 3000);
-    return () => clearInterval(timer);
-  }, [imageList.length, currentIndex]);
-
+    const id = setInterval(() => {
+      const nextIdx = (indexRef.current + 1) % imageList.length;
+      goTo(nextIdx);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [imageList.length, goTo]); // stable deps — interval never restarts mid-cycle
 
   const manyImages = imageList.length > 5;
 
   return (
     <div className="relative w-full rounded-cv-md overflow-hidden bg-cv-soft aspect-[7/8] group">
-      {/* Single image container — no nested aspect ratio */}
       <img
         src={imageList[currentIndex]}
         alt={`${productName} - Image ${currentIndex + 1} of ${imageList.length}${imageList.length > 1 ? ' - view more product images' : ' - Tamil calligraphy laser-engraved by Chithu Vibes'}`}
@@ -72,10 +81,8 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
             →
           </button>
 
-          {/* Bottom indicator — dots for ≤5, slim progress bar for 6+ */}
           <div className="absolute bottom-cv-xs left-1/2 -translate-x-1/2 flex items-center gap-cv-px max-w-[80%]">
             {manyImages ? (
-
               <div className="bg-black/40 text-white text-[11px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm">
                 {currentIndex + 1} / {imageList.length}
               </div>
@@ -86,11 +93,10 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
                   onClick={() => goTo(idx)}
                   aria-label={`View image ${idx + 1} of ${imageList.length}`}
                   aria-current={idx === currentIndex}
-                  className={`h-2 rounded transition-all duration-300 ${idx === currentIndex
-                      ? "bg-cv-gold w-cv-sm"
-                      : "bg-white/70 w-3"
-                    }`}
-                  style={{ minHeight: "24px", minWidth: idx === currentIndex ? "24px" : "24px", padding: "6px" }}
+                  className={`h-2 rounded transition-all duration-300 ${
+                    idx === currentIndex ? "bg-cv-gold w-cv-sm" : "bg-white/70 w-3"
+                  }`}
+                  style={{ minHeight: "24px", minWidth: "24px", padding: "6px" }}
                 />
               ))
             )}
@@ -101,7 +107,7 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
   );
 }
 
-function AddToCartButton({ product }) {
+export function AddToCartButton({ product }) {
   const { cartItems, addToCart } = useCart();
   const isInCart = cartItems.some((item) => item.id === product.id);
 
@@ -126,7 +132,6 @@ function AddToCartButton({ product }) {
 }
 
 export default function ProductCard({ product }) {
-
   return (
     <div className="flex flex-col h-full">
       <ProductImageCarousel images={product.images} productName={product.name} />

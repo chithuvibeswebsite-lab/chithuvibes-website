@@ -27,6 +27,7 @@ export function CartProvider({ children }) {
 
   const [calligraphyProducts, setCalligraphyProducts] = useState([]);
   const [giftProducts, setGiftProducts] = useState([]);
+  const [trendingProducts, setTrendingProducts] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,13 +64,29 @@ export function CartProvider({ children }) {
   useEffect(() => {
     let completed = 0;
     const total = PRODUCT_SHEETS.length;
+    const allProducts = {};
 
-    const handleComplete = (results, setter, isProducts) => {
+    const handleComplete = (results, setter, name, isProducts) => {
       let formatted = results.data;
       formatted = isProducts ? formatted.map(transformProduct) : formatted;
       setter(formatted);
+
+      if (isProducts) {
+        allProducts[name] = formatted;
+      }
+
       completed++;
-      if (completed === total) setLoading(false);
+
+      if (completed === total) {
+        // Collect trending from all product sheets once both are done
+        const trending = [
+          ...(allProducts["Calligraphy"] ?? []),
+          ...(allProducts["Gift"] ?? []),
+        ].filter((p) => p.trending === true);
+
+        setTrendingProducts(trending);
+        setLoading(false);
+      }
     };
 
     const fetchProducts = () => {
@@ -79,7 +96,7 @@ export function CartProvider({ children }) {
           download: true,
           header: true,
           skipEmptyLines: true,
-          complete: (results) => handleComplete(results, setter, isProducts),
+          complete: (results) => handleComplete(results, setter, name, isProducts),
           error: (err) => {
             console.error(`Error parsing ${name} sheet:`, err);
             setter([]);
@@ -208,6 +225,7 @@ export function CartProvider({ children }) {
         testimonials,
         calligraphyProducts,
         giftProducts,
+        trendingProducts,
         loading,
       }}
     >

@@ -24,8 +24,8 @@ export const HOME = {
     },
 
     section4: {
-        title: ["The Edge of Authenticity"],
-        description: "Unlike generic fonts, our designs are based on hand-drawn calligraphy by Tamil masters We then vectorize these unique strokes to maintain the \"Human Touch\" even after the laser has done its work",
+        title: ["Trending Products"],
+        description: "Our most-loved pieces, picked by the community",
         stats: [
             { value: "100%", label: "Original Script" },
             { value: "0.01mm", label: "Laser Accuracy" },

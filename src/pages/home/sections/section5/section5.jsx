@@ -9,15 +9,15 @@ export default function FounderSection({ content }) {
       {/* Image column — padding creates the inset look, inner div is the relative anchor */}
       <div className="flex items-stretch px-cv-lg py-cv-xl lg:pl-cv-3xl md:pr-cv-xl md:py-cv-xl">
         <div
-          className="relative rounded-cv-md w-full overflow-hidden min-h-[280px] md:min-h-0"
+          className="relative rounded-cv-md w-full overflow-hidden min-h-[300px] md:min-h-0"
           style={{ backgroundColor: "#D5D5D5" }}
         >
           <img
-            src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800556/products/handwritten_letters/img5.jpg"
+            src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779973919/products/handwritten_letters/img13.png"
             alt="Founder of Chithu Vibes - Master calligrapher with expertise in Tamil epigraphy"
             width={600}
-            height={600}
-            className="absolute inset-0 w-full h-full object-cover object-[center_60%] rounded-cv-lg"
+            height={686}
+            className="absolute inset-0 w-full h-full object-cover object-[center_70%] rounded-cv-lg"
           />
         </div>
       </div>
