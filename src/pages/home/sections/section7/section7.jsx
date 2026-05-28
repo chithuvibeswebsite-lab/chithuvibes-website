@@ -23,7 +23,7 @@ export default function BespokeSection({content}) {
         </p>
 
         <button
-          onClick={() => homePageWhatsapp("Hello Chithu Vibes! I am interested in placing a custom order.")}
+          onClick={() => homePageWhatsapp(content.whatsappMessage)}
           className="
     inline-flex items-center gap-cv-lg
     px-cv-2xl py-cv-md

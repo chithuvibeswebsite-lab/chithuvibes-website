@@ -67,7 +67,7 @@ export default function BespokeJourney({ content }) {
           <div className="w-full md:w-[480px] lg:w-[560px] shrink-0">
             <img
               src={content.image}
-              alt="Fountain pen and blank paper - begin your bespoke Tamil calligraphy commission"
+              alt={content.imageAlt}
               width={560}
               height={600}
               className="w-full h-[320px] md:h-[600px] object-cover shadow-lg"

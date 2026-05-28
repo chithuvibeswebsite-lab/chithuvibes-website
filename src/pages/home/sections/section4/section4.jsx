@@ -61,11 +61,11 @@ export default function Section4({ content }) {
                     className="font-cv-regular text-center leading-cv-tight mb-cv-md font-cv-serif text-cv-gold"
                     style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
                 >
-                    {content?.title?.[0] ?? "Trending Now"}
+                    {content.title[0]}
                 </h2>
 
                 <p className="text-cv-sm text-center mb-cv-3xl font-cv-sans text-cv-muted">
-                    {content?.title?.[1] ?? "Our most-loved pieces this season"}
+                    {content.title[1]}
                 </p>
 
                 {/* Product grid */}
@@ -90,7 +90,9 @@ export default function Section4({ content }) {
                             <button
                                 key={i}
                                 onClick={() => goTo(i)}
-                                aria-label={`Page ${i + 1} of ${totalPages}`}
+                                aria-label={content.pageLabel
+                                    .replace("{index}", i + 1)
+                                    .replace("{total}", totalPages)}
                                 aria-current={i === activePage}
                                 className="border-none cursor-pointer p-0 h-3 rounded-cv-full"
                                 style={{

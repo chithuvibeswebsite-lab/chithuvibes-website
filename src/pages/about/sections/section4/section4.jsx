@@ -20,7 +20,7 @@ export default function FounderSection({ content }) {
               <div className="rounded-cv-xl overflow-hidden w-[220px] h-[260px] sm:w-[260px] sm:h-[310px] md:w-[400px] md:h-[450px] bg-[#1a1520]">
                 <img
                   src={content.image}
-                  alt="Jeya Chitra - Gold Medalist, M.Phil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio"
+                  alt={content.imageAlt}
                   width={400}
                   height={500}
                   className="w-full h-full object-cover object-center"

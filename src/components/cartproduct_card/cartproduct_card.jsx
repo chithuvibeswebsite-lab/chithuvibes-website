@@ -1,6 +1,7 @@
 import { useCart } from "../../context/cart.context";
 import { Trash2 } from "lucide-react";
 import { ProductImageCarousel } from "../product_card/product_card";
+import { UI_COPY } from "../../data/data";
 
 
 function CartProductCard({ item, isLast = false }) {
@@ -41,7 +42,7 @@ function CartProductCard({ item, isLast = false }) {
 
           <div className="flex items-center justify-between sm:justify-end gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-xs sm:text-sm text-cv-muted">Qty:</span>
+              <span className="text-xs sm:text-sm text-cv-muted">{UI_COPY.cartProduct.quantityLabel}</span>
 
               <select
                 value={item.quantity}

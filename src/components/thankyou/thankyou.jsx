@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { THANKYOU } from "../../data/data";
 
-const WORD = "நன்றி";
+const WORD = THANKYOU.word;
 const CHAR_INTERVAL = 320; // ms between each character
 const TOTAL_DURATION = 3000; // ms before redirect
 
@@ -90,7 +91,7 @@ export default function ThankYouScreen({ onDone }) {
             style={{ opacity: cursorVisible ? 1 : 0 }}
           />
         </p>
-        <p className="thankyou-sub">Chithu Vibes</p>
+        <p className="thankyou-sub">{THANKYOU.subtitle}</p>
       </div>
     </>
   );

@@ -1,5 +1,9 @@
 import { useCart } from "../../context/cart.context";
 import { Check } from "lucide-react";
+import { UI_COPY } from "../../data/data";
+
+const formatTemplate = (template, values) =>
+  template.replace(/\{(\w+)\}/g, (_, key) => values[key]);
 
 export default function RecommendationCard({ product }) {
   const { cartItems, addToCart } = useCart();
@@ -21,7 +25,7 @@ export default function RecommendationCard({ product }) {
   <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden bg-cv-black/5">
     <img
       src={imageSrc}
-      alt={`${product.name} - Recommended Tamil calligraphy product by Chithu Vibes`}
+      alt={formatTemplate(UI_COPY.recommendationCard.imageAlt, { name: product.name })}
       width={96}
       height={96}
       className="w-full h-full object-cover"
@@ -63,13 +67,13 @@ export default function RecommendationCard({ product }) {
       {isInCart ? (
         <>
           <Check size={14} />
-          <span className="hidden sm:inline">Added</span>
+          <span className="hidden sm:inline">{UI_COPY.recommendationCard.addedLabel}</span>
         </>
       ) : (
         <>
-          Add
+          {UI_COPY.recommendationCard.addLabel}
           <span className="hidden sm:inline font-semibold">
-            • ₹{product.price?.toLocaleString("en-IN")}
+            {UI_COPY.recommendationCard.priceSeparator} ₹{product.price?.toLocaleString("en-IN")}
           </span>
         </>
       )}

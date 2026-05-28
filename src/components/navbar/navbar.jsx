@@ -29,7 +29,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:gap-cv-md">
             <img
               src={buildCloudinaryUrl("v1779566057/Chithuvibes_Logo_1_zleupw.png", { transformations: null })}
-              alt="Chithu Vibes Logo"
+              alt={NAVBAR.logoAlt}
               className="h-8 w-auto cursor-pointer"
               onClick={() => navigate("/")}
             />

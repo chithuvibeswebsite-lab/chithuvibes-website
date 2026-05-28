@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { buildCloudinaryUrl } from '../../../../utils/cloudinary.util';
 
 export default function HeritageSection({ content }) {
   return (
@@ -10,8 +9,8 @@ export default function HeritageSection({ content }) {
       {/* Image column — stretch to fill grid cell, image fills it absolutely */}
       <div className="relative min-h-[300px] md:min-h-0" style={{ backgroundColor: "#CCCCCC" }}>
         <img
-          src={buildCloudinaryUrl("v1779800712/products/thamizhi_calligraphy/img9.jpg")}
-          alt="Heritage craftsmanship in Tamil calligraphy - traditional script meets modern laser precision"
+          src={content.image}
+          alt={content.imageAlt}
           width={800}
           height={600}
           className="absolute inset-0 w-full h-full object-cover object-top rounded-cv-lg"

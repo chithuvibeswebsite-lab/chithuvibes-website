@@ -13,8 +13,8 @@ export default function ComingSoon() {
           <path d="M90,95 Q70,75 85,55 Q105,70 90,95 Z" fill="none" stroke="#C9A84C" strokeWidth="0.8" strokeLinecap="round" opacity="0.5" />
           <path d="M630,95 Q605,70 570,85 Q595,105 630,95 Z" fill="none" stroke="#C9A84C" strokeWidth="0.8" strokeLinecap="round" opacity="0.7" />
           <path d="M630,95 Q650,75 635,55 Q615,70 630,95 Z" fill="none" stroke="#C9A84C" strokeWidth="0.8" strokeLinecap="round" opacity="0.5" />
-          <text x="360" y="225" fontFamily="'Cormorant Garamond', Georgia, serif" fontStyle="italic" fontWeight="300" fontSize="170" fill="#3D3566" opacity="0.08" textAnchor="middle">COMING</text>
-          <text x="360" y="210" fontFamily="'Cormorant Garamond', Georgia, serif" fontStyle="italic" fontWeight="300" fontSize="140" fill="#3D3566" textAnchor="middle">SOON</text>
+          <text x="360" y="225" fontFamily="'Cormorant Garamond', Georgia, serif" fontStyle="italic" fontWeight="300" fontSize="170" fill="#3D3566" opacity="0.08" textAnchor="middle">{section1.svgLines[0]}</text>
+          <text x="360" y="210" fontFamily="'Cormorant Garamond', Georgia, serif" fontStyle="italic" fontWeight="300" fontSize="140" fill="#3D3566" textAnchor="middle">{section1.svgLines[1]}</text>
           <path d="M190,242 Q270,258 360,247 Q450,236 530,247" fill="none" stroke="#C9A84C" strokeWidth="1.2" strokeLinecap="round" />
           <polygon points="360,260 366,267 360,274 354,267" fill="#C9A84C" opacity="0.7" />
           <line x1="40" y1="267" x2="348" y2="267" stroke="#D9D3E0" strokeWidth="0.5" />

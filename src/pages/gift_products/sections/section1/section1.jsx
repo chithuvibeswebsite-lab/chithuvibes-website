@@ -4,8 +4,8 @@ export default function Section1({ content }) {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         role="img"
-        aria-label="Gift products collection background"
-        style={{ backgroundImage: "url('/images/bg-image.jpeg')" }}
+        aria-label={content.backgroundAlt}
+        style={{ backgroundImage: `url('${content.backgroundImage}')` }}
       />
       <div className="absolute inset-0 bg-white/0 " />
 

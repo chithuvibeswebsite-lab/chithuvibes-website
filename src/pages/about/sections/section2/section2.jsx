@@ -1,5 +1,3 @@
-import { buildCloudinaryUrl } from '../../../../utils/cloudinary.util';
-
 export default function OriginStorySection({ content }) {
   return (
     <section className="bg-white py-cv-3xl px-cv-lg md:py-cv-4xl md:px-cv-xl">
@@ -11,8 +9,8 @@ export default function OriginStorySection({ content }) {
             <div className="absolute inset-0 rounded-cv-xl overflow-hidden" style={{ backgroundColor: "#1a2a1a" }}>
               <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#1C2B1C" }}>
                 <img
-                  src={buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.16.07_PM_u5swpa.jpg")}
-                  alt="Jeya Chitra - Founder and master calligrapher of Chithu Vibes, Tamil epigraphy scholar"
+                  src={content.image}
+                  alt={content.imageAlt}
                   width={420}
                   height={520}
                   className="absolute inset-0 w-full h-full object-cover object-top"
