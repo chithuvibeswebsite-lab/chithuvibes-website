@@ -7,6 +7,7 @@ import Section6 from './sections/section6/section6'
 import Section7 from './sections/section7/section7'
 import SEOMeta from '../../components/seo/seo-meta'
 import { HOME } from '../../data/data'
+import { buildCloudinaryUrl } from '../../utils/cloudinary.util'
 
 export default function Home() {
   const { section1,section2,section3,section4,section5,section6,section7 } = HOME;
@@ -18,12 +19,12 @@ export default function Home() {
     canonical: 'https://chithuvibes.in/',
     ogTitle: 'Chithu Vibes — The Soul of Tamil Calligraphy',
     ogDescription: 'Where ancient Tamil script meets avant-garde laser technology. Immortalise the fluid beauty of Tamil letters into timeless materials with 0.01mm accuracy.',
-    ogImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     ogImageAlt: 'Tamil calligraphy laser-engraved on teak wood by Chithu Vibes, Chennai',
     ogUrl: 'https://chithuvibes.in/',
     twitterTitle: 'Chithu Vibes — The Soul of Tamil Calligraphy',
     twitterDescription: 'Where ancient Tamil script meets avant-garde laser technology. Immortalise the fluid beauty of Tamil letters into timeless materials with 0.01mm accuracy.',
-    twitterImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     twitterImageAlt: 'Tamil calligraphy laser-engraved on teak wood by Chithu Vibes, Chennai',
     hreflangEn: 'https://chithuvibes.in/',
     hreflangTa: 'https://chithuvibes.in/?lang=ta',

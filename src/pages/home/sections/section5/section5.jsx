@@ -1,4 +1,5 @@
-import {ScrollText} from 'lucide-react'
+import { ScrollText } from 'lucide-react'
+import { buildCloudinaryUrl } from '../../../../utils/cloudinary.util';
 
 export default function FounderSection({ content }) {
   return (
@@ -13,7 +14,7 @@ export default function FounderSection({ content }) {
           style={{ backgroundColor: "#D5D5D5" }}
         >
           <img
-            src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779973919/products/handwritten_letters/img13.png"
+            src={buildCloudinaryUrl("v1779973919/products/handwritten_letters/img13.png")}
             alt="Founder of Chithu Vibes - Master calligrapher with expertise in Tamil epigraphy"
             width={600}
             height={686}

@@ -3,6 +3,7 @@ import Section2 from './sections/section2/section2'
 import Section3 from './sections/section3/section3'
 import SEOMeta from '../../components/seo/seo-meta'
 import { CONTACT } from '../../data/data'
+import { buildCloudinaryUrl } from '../../utils/cloudinary.util'
 
 export default function Contact() {
   const { section1, section2, section3 } = CONTACT
@@ -14,12 +15,12 @@ export default function Contact() {
     canonical: 'https://chithuvibes.in/contact',
     ogTitle: 'Begin Your Bespoke Journey — Chithu Vibes Studio',
     ogDescription: 'A private 1-on-1 consultation with Jeya Chitra to commission your unique Tamil calligraphy piece. Custom script, material, and dimensions — etched for eternity.',
-    ogImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     ogImageAlt: 'Chithu Vibes studio consultation — bespoke Tamil calligraphy commission process',
     ogUrl: 'https://chithuvibes.in/contact',
     twitterTitle: 'Begin Your Bespoke Journey — Chithu Vibes Studio',
     twitterDescription: 'A private 1-on-1 consultation with Jeya Chitra to commission your unique Tamil calligraphy piece. Custom script, material, and dimensions — etched for eternity.',
-    twitterImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     twitterImageAlt: 'Chithu Vibes studio consultation — bespoke Tamil calligraphy commission process',
     hreflangEn: 'https://chithuvibes.in/contact',
     hreflangTa: 'https://chithuvibes.in/contact?lang=ta',

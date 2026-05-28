@@ -1,5 +1,6 @@
 import SEOMeta from '../../components/seo/seo-meta'
 import { NOT_FOUND } from '../../data/data'
+import { buildCloudinaryUrl } from '../../utils/cloudinary.util'
 
 export default function NotFound404() {
   const { section1 } = NOT_FOUND
@@ -11,12 +12,12 @@ export default function NotFound404() {
     robots: 'noindex, nofollow',
     ogTitle: 'Page Not Found — Chithu Vibes',
     ogDescription: 'The stroke you seek has drifted beyond the canvas. Return home to explore our Tamil calligraphy collections.',
-    ogImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     ogImageAlt: 'Chithu Vibes 404 page — Tamil calligraphy studio Chennai',
     ogUrl: 'https://chithuvibes.in/404',
     twitterTitle: 'Page Not Found — Chithu Vibes',
     twitterDescription: 'The stroke you seek has drifted beyond the canvas. Return home to explore our Tamil calligraphy collections.',
-    twitterImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     twitterImageAlt: 'Chithu Vibes 404 page — Tamil calligraphy studio Chennai',
   };
 

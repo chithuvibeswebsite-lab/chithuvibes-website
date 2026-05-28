@@ -4,6 +4,7 @@ import Section1 from "./sections/section1/section1";
 import Section2 from "./sections/section2/section2";
 import SEOMeta from "../../components/seo/seo-meta";
 import { CART } from "../../data/data";
+import { buildCloudinaryUrl } from "../../utils/cloudinary.util";
 
 export default function Cart() {
     const { showThankYou, handleThankYouDone } = useCart();
@@ -16,12 +17,12 @@ export default function Cart() {
       robots: 'noindex, nofollow',
       ogTitle: 'Your Selection — Chithu Vibes',
       ogDescription: 'Finalise your bespoke Tamil calligraphy order. Jeya Chitra will personally connect to discuss customisation and confirm your unique piece.',
-      ogImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+      ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
       ogImageAlt: 'Chithu Vibes cart — curating your bespoke Tamil calligraphy selection',
       ogUrl: 'https://chithuvibes.in/cart',
       twitterTitle: 'Your Selection — Chithu Vibes',
       twitterDescription: 'Finalise your bespoke Tamil calligraphy order. Jeya Chitra will personally connect to discuss customisation and confirm your unique piece.',
-      twitterImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+      twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
       twitterImageAlt: 'Chithu Vibes cart — curating your bespoke Tamil calligraphy selection',
     };
 
