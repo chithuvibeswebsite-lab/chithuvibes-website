@@ -75,7 +75,7 @@ export const ABOUT = {
         label: "The Founder",
         title: ["The Gold", "Medalist", "The Scholar The", "Phoenix"],
         founderName: "Jeya Chitra",
-        image: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779887899/ChatGPT_Image_May_27_2026_06_47_56_PM_q5ynlv.png",
+        image: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg",
         bio: [
             "Before the laser hummed in her studio, Jeya Chitra's world was shaped by the binary logic of code and the quiet stillness of archives A Gold Medalist with an M Phil in Computer Science, she mastered the digital architecture behind the modern world",
             "Yet her soul was drawn to the stone Through Archaeology & Epigraphy, she learned to read stories etched by ancient hands across Tamil Nadu—understanding the weight of a stroke carved for eternity",

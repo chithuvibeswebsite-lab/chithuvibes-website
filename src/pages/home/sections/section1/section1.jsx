@@ -64,7 +64,7 @@ export default function Section1({ content }) {
             style={{ backgroundColor: "#D8D8D8" }}
           >
             <img
-              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779876579/WhatsApp_Image_2026-05-27_at_3.39.20_PM_z5kp1r.jpg"
+              src="https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"
               alt={content.imgAlt}
               fetchPriority="high"
               width={600}

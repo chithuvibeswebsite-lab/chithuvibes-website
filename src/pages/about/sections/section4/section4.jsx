@@ -4,7 +4,7 @@ const icons = [
   <Trophy width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
   <FileText width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
   <ShieldCheck width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />,
-<GraduationCap width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />
+  <GraduationCap width={26} height={26} stroke="#b8972a" strokeWidth={1.6} fill="none" />
 ];
 
 export default function FounderSection({ content }) {
@@ -17,15 +17,15 @@ export default function FounderSection({ content }) {
 
           <div className="flex h-full justify-center items-center">
             <div className="relative">
-              <div className="rounded-cv-xl overflow-hidden w-[220px] h-[260px] sm:w-[260px] sm:h-[310px] md:w-[400px] md:h-[500px] bg-[#1a1520]">
-  <img
-    src={content.image}
-    alt="Jeya Chitra - Gold Medalist, M.Phil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio"
-    width={400}
-    height={500}
-    className="w-full h-full object-cover object-top"
-  />
-</div>
+              <div className="rounded-cv-xl overflow-hidden w-[220px] h-[260px] sm:w-[260px] sm:h-[310px] md:w-[400px] md:h-[450px] bg-[#1a1520]">
+                <img
+                  src={content.image}
+                  alt="Jeya Chitra - Gold Medalist, M.Phil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio"
+                  width={400}
+                  height={500}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <div className="absolute bottom-[-14px] right-[-14px] md:bottom-[-18px] md:right-[-18px] w-[52px] h-[52px] md:w-[64px] md:h-[64px] flex items-center justify-center rounded-cv-xl text-white text-xl md:text-2xl bg-cv-gold shadow-lg animate-pulse">
                 ✦
               </div>
