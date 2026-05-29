@@ -20,7 +20,7 @@ export default function Section2({ content }) {
           </h2>
 
           <p className="text-xs sm:text-sm md:mt-cv-md md:text-cv-label tracking-cv-wider uppercase font-cv-sans text-cv-muted">
-            {content.title[1]} / {new Date().getFullYear()}
+            {content.title[1]} 
           </p>
         </div>
 

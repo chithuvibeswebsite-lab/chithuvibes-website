@@ -7,7 +7,7 @@ export const HOME = {
         cta: "Explore Collection",
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"),
         imgAlt: "Hero image showcasing the fusion of traditional Tamil calligraphy and modern laser engraving technology, representing the essence of Chithu Vibes' craftsmanship",
-        imgDes: "A celebration of my roots, etched for eternity",
+        imgDes: "A celebration of our roots, etched for eternity",
     },
 
     section2: {
@@ -41,7 +41,7 @@ export const HOME = {
 
     section5: {
         title: "A Note from the Founder",
-        description: "In every stroke of Tamil script, there is a rhythm My goal was to capture that rhythm and make it permanent Each piece we create is more than decor—it's a piece of our shared identity",
+        description: "In every stroke of Tamil script, there is a rhythm Our goal was to capture that rhythm and make it permanent Each piece we create is more than decor—it's a piece of our shared identity",
         founder: ["Jeya Chitra", "Creative Artisan", "Founder"],
         image: buildCloudinaryUrl("v1779973919/products/handwritten_letters/img13.png"),
         imageAlt: "Founder of Chithu Vibes - Master calligrapher with expertise in Tamil epigraphy"
@@ -108,7 +108,7 @@ export const ABOUT = {
     section1: {
         label: "A Master's Legacy",
         title: ["The Soul of Tamil", "Calligraphy", "The Precision of the Laser"],
-        description: "Where Ancient Scripts meet modern radiance Founded in 2023, Chithu Vibes is the convergence of scholarly heritage and laser engineering",
+        description: "Where Ancient Scripts meet modern radiance, Chithu Vibes is the convergence of scholarly heritage and laser engineering",
     },
     section2: {
         title: "Our Origin Story",
@@ -134,9 +134,9 @@ export const ABOUT = {
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg"),
         imageAlt: "Jeya Chitra - Gold Medalist, MPhil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio",
         bio: [
-            "Before the laser hummed in her studio, Jeya Chitra's world was shaped by the binary logic of code and the quiet stillness of archives A Gold Medalist with an M Phil in Computer Science, she mastered the digital architecture behind the modern world",
-            "Yet her soul was drawn to the stone Through Archaeology & Epigraphy, she learned to read stories etched by ancient hands across Tamil Nadu—understanding the weight of a stroke carved for eternity",
-            "Her journey was not without fire In 2017, she faced a life-altering challenge Like the Phoenix she embodies, she didn't just recover—she rose with purpose Chithu Vibes stands as that rebirth: a seamless fusion of technical brilliance and epigraphic wisdom",
+            "Before the laser hummed in our studio, Chithu Vibes was shaped by the binary logic of code and the quiet stillness of archives A Gold Medalist with an M Phil in Computer Science, our founder mastered the digital architecture behind the modern world",
+            "Yet the soul of our craft was drawn to the stone Through Archaeology & Epigraphy, our team learned to read stories etched by ancient hands across Tamil Nadu—understanding the weight of a stroke carved for eternity",
+            "Our journey was not without fire In 2017, our founder faced a life-altering challenge Like the Phoenix we embody, Chithu Vibes didn't just recover—we rose with purpose Our studio stands as that rebirth: a seamless fusion of technical brilliance and epigraphic wisdom",
         ],
         cards: [
             {
@@ -159,22 +159,22 @@ export const ABOUT = {
     },
     section5: {
         number: "99",
-        quote: "She spent years mastering the logic of code and the grace of the pen Today, she uses laser to etch your emotions into eternity",
+        quote: "Years spent mastering the logic of code and the grace of the pen Today, we use laser to etch your emotions into eternity",
         cta: "Start Your Manuscript",
         ctaLink: "/contact",
     },
     seo: {
         title: "Our Story — Jeya Chitra & Tamil Calligraphy Heritage | Chithu Vibes",
-        description: "Meet Jeya Chitra — Gold Medalist, MPhil Computer Science, Tamil Epigraphy scholar and founder of Chithu Vibes Laser precision meets ancestral script since 2023",
+        description: "Meet our founder Jeya Chitra — Gold Medalist, MPhil Computer Science, Tamil Epigraphy scholar and the vision behind Chithu Vibes Laser precision meets ancestral script since 2023",
         keywords: "Jeya Chitra calligrapher, Tamil epigraphy, Chithu Vibes founder, laser engraving Chennai, Tamil calligraphy heritage",
         canonical: "https://chithuvibes.in/about",
         ogTitle: "A Master's Legacy — The Story of Chithu Vibes",
-        ogDescription: "Gold Medalist Archaeologist Phoenix Jeya Chitra merges MPhil precision with Tamil epigraphy to create calligraphy that lasts centuries",
+        ogDescription: "Gold Medalist Archaeologist Phoenix — our founder Jeya Chitra merges MPhil precision with Tamil epigraphy to create calligraphy that lasts centuries",
         ogImage: buildCloudinaryUrl("v1779823667/ChatGPT_Image_May_27_2026_12_57_31_AM_eu8lkk.png"),
         ogImageAlt: "Jeya Chitra, founder of Chithu Vibes, Tamil calligraphy and laser engraving artist",
         ogUrl: "https://chithuvibes.in/about",
         twitterTitle: "A Master's Legacy — The Story of Chithu Vibes",
-        twitterDescription: "Gold Medalist Archaeologist Phoenix Jeya Chitra merges MPhil precision with Tamil epigraphy to create calligraphy that lasts centuries",
+        twitterDescription: "Gold Medalist Archaeologist Phoenix — our founder Jeya Chitra merges MPhil precision with Tamil epigraphy to create calligraphy that lasts centuries",
         twitterImage: buildCloudinaryUrl("v1779823667/ChatGPT_Image_May_27_2026_12_57_31_AM_eu8lkk.png"),
         twitterImageAlt: "Jeya Chitra, founder of Chithu Vibes, Tamil calligraphy and laser engraving artist",
         hreflangEn: "https://chithuvibes.in/about",
@@ -375,7 +375,7 @@ export const CONTACT = {
     },
     section2: {
         title: "The Studio",
-        description: "Founder Jeya Chitra welcomes inquiries for custom commissions that blend heritage Tamil calligraphy with modern laser precision Each piece is a unique dialogue between ancestral script and contemporary materiality",
+        description: "Our team welcomes inquiries for custom commissions that blend heritage Tamil calligraphy with modern laser precision Each piece is a unique dialogue between ancestral script and contemporary materiality",
         availability: "Available for global consultations",
         processLabel: "Engagement Process",
         steps: [
@@ -403,16 +403,16 @@ export const CONTACT = {
     },
     seo: {
         title: "Contact & Custom Orders — Bespoke Tamil Calligraphy | Chithu Vibes",
-        description: "Commission a bespoke Tamil calligraphy piece with Jeya Chitra Submit an inquiry for custom engravings, bulk orders or personal consultations Studio in Chennai",
+        description: "Commission a bespoke Tamil calligraphy piece with our team Submit an inquiry for custom engravings, bulk orders or personal consultations Studio in Chennai",
         keywords: "contact Chithu Vibes, custom Tamil calligraphy order, bespoke laser engraving, commission calligraphy Chennai, Jeya Chitra consultation",
         canonical: "https://chithuvibes.in/contact",
         ogTitle: "Begin Your Bespoke Journey — Chithu Vibes Studio",
-        ogDescription: "A private 1-on-1 consultation with Jeya Chitra to commission your unique Tamil calligraphy piece Custom script, material, and dimensions — etched for eternity",
+        ogDescription: "A private 1-on-1 consultation with our team to commission your unique Tamil calligraphy piece Custom script, material, and dimensions — etched for eternity",
         ogImage: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"),
         ogImageAlt: "Chithu Vibes studio consultation — bespoke Tamil calligraphy commission process",
         ogUrl: "https://chithuvibes.in/contact",
         twitterTitle: "Begin Your Bespoke Journey — Chithu Vibes Studio",
-        twitterDescription: "A private 1-on-1 consultation with Jeya Chitra to commission your unique Tamil calligraphy piece Custom script, material, and dimensions — etched for eternity",
+        twitterDescription: "A private 1-on-1 consultation with our team to commission your unique Tamil calligraphy piece Custom script, material, and dimensions — etched for eternity",
         twitterImage: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"),
         twitterImageAlt: "Chithu Vibes studio consultation — bespoke Tamil calligraphy commission process",
         hreflangEn: "https://chithuvibes.in/contact",
@@ -422,7 +422,7 @@ export const CONTACT = {
             "@type": "ContactPage",
             name: "Contact Chithu Vibes",
             url: "https://chithuvibes.in/contact",
-            description: "Commission bespoke Tamil calligraphy with Jeya Chitra Custom engravings, consultations, and bulk orders",
+            description: "Commission bespoke Tamil calligraphy with our team Custom engravings, consultations, and bulk orders",
             provider: {
                 "@type": "LocalBusiness",
                 name: "Chithu Vibes",
@@ -451,7 +451,7 @@ export const CART = {
         itemCount: { singular: "item", plural: "items" },
         cartItemTitle: ["in your selection", "A Personal Touch"],
         cartItemcta: "Clear all ",
-        cartItemDescription: ["Once you inquire,", "Jeya Chitra", "will personally connect with you via WhatsApp to discuss customization and finalize your bespoke order"],
+        cartItemDescription: ["Once you inquire,", "our team", "will personally connect with you via WhatsApp to discuss customization and finalize your bespoke order"],
         emptyCartTitle: "Your cart is empty",
         emptyCartcta: ["Browse Collection",],
         emptyCartDescription: "Explore our calligraphy and gift collections and add something beautiful to your selection",
@@ -469,16 +469,16 @@ export const CART = {
     },
     seo: {
         title: "Your Selection — Chithu Vibes",
-        description: "Review your selected Tamil calligraphy and laser-engraved pieces Finalise your bespoke order via WhatsApp with Jeya Chitra for personal customisation",
+        description: "Review your selected Tamil calligraphy and laser-engraved pieces Finalise your bespoke order via WhatsApp with our team for personal customisation",
         canonical: "https://chithuvibes.in/cart",
         robots: "noindex, nofollow",
         ogTitle: "Your Selection — Chithu Vibes",
-        ogDescription: "Finalise your bespoke Tamil calligraphy order Jeya Chitra will personally connect to discuss customisation and confirm your unique piece",
+        ogDescription: "Finalise your bespoke Tamil calligraphy order Our team will personally connect to discuss customisation and confirm your unique piece",
         ogImage: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"),
         ogImageAlt: "Chithu Vibes cart — curating your bespoke Tamil calligraphy selection",
         ogUrl: "https://chithuvibes.in/cart",
         twitterTitle: "Your Selection — Chithu Vibes",
-        twitterDescription: "Finalise your bespoke Tamil calligraphy order Jeya Chitra will personally connect to discuss customisation and confirm your unique piece",
+        twitterDescription: "Finalise your bespoke Tamil calligraphy order Our team will personally connect to discuss customisation and confirm your unique piece",
         twitterImage: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"),
         twitterImageAlt: "Chithu Vibes cart — curating your bespoke Tamil calligraphy selection",
     },
@@ -559,7 +559,7 @@ export const FOOTER = {
     phone: "+91 73053 27776",
     whatsappLink: "https://wa.me/917305327776",
     email: "hello@chithuvibesin",
-    copyright: "© 2026 Chithu Vibes All rights reserved",
+    copyright: "© Chithu Vibes All rights reserved",
     craftedLine: "Crafted with care in Chennai",
     links: [
         { label: "Home", path: "/" },
