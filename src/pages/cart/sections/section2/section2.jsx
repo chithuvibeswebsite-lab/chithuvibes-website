@@ -43,7 +43,7 @@ function CartItems({ cartItems, clearCart, content }) {
     <div>
       <div className="flex items-center justify-between mb-cv-2xl">
         <p className="font-cv-sans text-cv-sm font-cv-medium text-cv-charcoal">
-          {cartItems.length} {cartItems.length === 1 ? "item" : "items"} {content.cartItemTitle[0]}
+          {cartItems.length} {cartItems.length === 1 ? content.itemCount.singular : content.itemCount.plural} {content.cartItemTitle[0]}
         </p>
         <button
           onClick={clearCart}
@@ -125,7 +125,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
 
 
       <div className="flex items-end justify-between mb-cv-xl">
-        <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">Estimated Total</span>
+        <span className="font-cv-sans text-cv-base font-cv-medium text-cv-black">{content.estimatedTotalLabel}</span>
         <div className="text-right">
           <p className="font-cv-serif font-cv-semibold text-cv-gold text-cv-xl md:text-cv-2xl">
             ₹{subtotal.toLocaleString("en-IN")}
@@ -144,7 +144,7 @@ function CartSummary({ subtotal, isGift, setIsGift, note, setNote, openWhatsApp,
         <textarea
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          placeholder="Share your personalization details or special requests..."
+          placeholder={content.notePlaceholder}
           rows={4}
           className="w-full font-cv-sans text-cv-xs font-cv-light text-cv-charcoal leading-cv-relaxed border border-cv-border rounded-cv-md p-cv-md resize-none outline-none transition duration-cv-base bg-cv-white focus:border-cv-gold"
         />
@@ -227,7 +227,7 @@ function MobileSummaryDrawer({ show, onClose, children, content }) {
             onClick={onClose}
             className="bg-transparent border-none cursor-pointer font-cv-sans text-cv-muted text-cv-lg hover:text-cv-black transition"
           >
-            ✕
+            {content.mobileDrawerCloseLabel}
           </button>
         </div>
         <div className="p-cv-lg">

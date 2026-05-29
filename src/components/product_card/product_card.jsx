@@ -1,8 +1,12 @@
 import { useCart } from "../../context/cart.context";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ShoppingCart, Check } from "lucide-react";
+import { UI_COPY } from "../../data/data";
 
-export function ProductImageCarousel({ images, productName = "Tamil calligraphy" }) {
+const formatTemplate = (template, values) =>
+  template.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+
+export function ProductImageCarousel({ images, productName = UI_COPY.productCard.defaultProductName }) {
   const imageList = Array.isArray(images) ? images : [images];
   const [currentIndex, setCurrentIndex] = useState(0);
   const indexRef = useRef(0);
@@ -46,8 +50,12 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
           src={src}
           alt={
             idx === 0
-              ? `${productName} - Tamil calligraphy laser-engraved by Chithu Vibes`
-              : `${productName} - image ${idx + 1} of ${imageList.length}`
+              ? formatTemplate(UI_COPY.productCard.primaryImageAlt, { name: productName })
+              : formatTemplate(UI_COPY.productCard.secondaryImageAlt, {
+                name: productName,
+                index: idx + 1,
+                total: imageList.length,
+              })
           }
           width={600}
           height={686}
@@ -61,7 +69,7 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
         <>
           <button
             onClick={prev}
-            aria-label="View previous product image"
+            aria-label={UI_COPY.productCard.prevImageLabel}
             className="absolute left-2 top-1/2 -translate-y-1/2 
               bg-white/80 hover:bg-white 
               w-12 h-12 flex items-center justify-center rounded-full
@@ -75,7 +83,7 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
           </button>
           <button
             onClick={next}
-            aria-label="View next product image"
+            aria-label={UI_COPY.productCard.nextImageLabel}
             className="absolute right-2 top-1/2 -translate-y-1/2 
               bg-white/80 hover:bg-white 
               w-12 h-12 flex items-center justify-center rounded-full
@@ -98,7 +106,10 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
                 <button
                   key={idx}
                   onClick={() => { goTo(idx); resetTimer(); }}
-                  aria-label={`View image ${idx + 1} of ${imageList.length}`}
+                  aria-label={formatTemplate(UI_COPY.productCard.dotImageLabel, {
+                    index: idx + 1,
+                    total: imageList.length,
+                  })}
                   aria-current={idx === currentIndex}
                   className={`h-2 rounded transition-all duration-300 ${
                     idx === currentIndex ? "bg-cv-gold w-cv-sm" : "bg-white/70 w-3"

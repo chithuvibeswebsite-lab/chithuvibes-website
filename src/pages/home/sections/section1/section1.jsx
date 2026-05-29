@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { buildCloudinaryUrl } from '../../../../utils/cloudinary.util';
 
 export default function Section1({ content }) {
   return (
@@ -65,7 +64,7 @@ export default function Section1({ content }) {
             style={{ backgroundColor: "#D8D8D8" }}
           >
             <img
-              src={buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg")}
+              src={content.image}
               alt={content.imgAlt}
               fetchPriority="high"
               width={600}

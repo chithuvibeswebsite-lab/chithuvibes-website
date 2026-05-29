@@ -1,29 +1,12 @@
 import SEOMeta from '../../components/seo/seo-meta'
 import { NOT_FOUND } from '../../data/data'
-import { buildCloudinaryUrl } from '../../utils/cloudinary.util'
 
 export default function NotFound404() {
   const { section1 } = NOT_FOUND
 
-  const seoMetadata = {
-    title: 'Page Not Found — Chithu Vibes',
-    description: 'The page you are looking for has wandered off. Return to Chithu Vibes to explore our Tamil calligraphy and laser engraving collections.',
-    canonical: 'https://chithuvibes.in/404',
-    robots: 'noindex, nofollow',
-    ogTitle: 'Page Not Found — Chithu Vibes',
-    ogDescription: 'The stroke you seek has drifted beyond the canvas. Return home to explore our Tamil calligraphy collections.',
-    ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
-    ogImageAlt: 'Chithu Vibes 404 page — Tamil calligraphy studio Chennai',
-    ogUrl: 'https://chithuvibes.in/404',
-    twitterTitle: 'Page Not Found — Chithu Vibes',
-    twitterDescription: 'The stroke you seek has drifted beyond the canvas. Return home to explore our Tamil calligraphy collections.',
-    twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
-    twitterImageAlt: 'Chithu Vibes 404 page — Tamil calligraphy studio Chennai',
-  };
-
   return (
     <>
-      <SEOMeta {...seoMetadata} />
+      <SEOMeta {...NOT_FOUND.seo} />
       <div className="bg-cv-white min-h-screen flex flex-col items-center justify-center px-cv-lg py-cv-2xl">
 
         <div className="w-full max-w-[700px] mb-cv-sm">

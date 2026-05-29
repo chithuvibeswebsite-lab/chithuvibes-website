@@ -5,13 +5,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-const socialIcons = [
-  { icon: FaFacebook,  label: "Facebook",  color: "#1877F2" },
-  { icon: FaInstagram, label: "Instagram", color: "#E1306C" },
-  { icon: FaXTwitter,  label: "X / Twitter", color: "#000000" },
-  { icon: FaLinkedin,  label: "LinkedIn",  color: "#0A66C2" },
-  { icon: FaYoutube,   label: "YouTube",   color: "#FF0000" },
-];
+const socialIcons = [FaFacebook, FaInstagram, FaXTwitter, FaLinkedin, FaYoutube];
 
 export default function Footer() {
   return (
@@ -117,20 +111,20 @@ style={{ background: "linear-gradient(135deg, #e8c96a 0%, #C9A84C 35%, #8B5A2B  
               {/* Socials */}
               <div className="flex items-center gap-cv-sm">
                 {FOOTER.socials.map((s, i) => {
-                  const Icon = socialIcons[i].icon;
+                 const Icon = socialIcons[i];
                   return (
                     <a
                       key={i}
                       href={s.href}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={socialIcons[i].label}
+                     aria-label={s.label}
                       className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200"
                       style={{ background: "rgba(255,255,255,1)", border: "1px solid rgba(255,255,255,0.15)" }}
                       onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.22)"}
                       onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,1)"}
                     >
-<Icon size={18} color={socialIcons[i].color} />                    </a>
+<Icon size={18} color={s.color} />                    </a>
                   );
                 })}
               </div>
@@ -149,7 +143,7 @@ style={{ background: "linear-gradient(135deg, #e8c96a 0%, #C9A84C 35%, #8B5A2B  
           {FOOTER.copyright}
         </p>
         <p className="m-0 font-cv-sans text-cv-xs text-cv-charcoal/80">
-          Crafted with care in Chennai
+          {FOOTER.craftedLine}
         </p>
       </div>
 

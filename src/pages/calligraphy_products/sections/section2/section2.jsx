@@ -95,7 +95,7 @@ export default function Section2({ content }) {
             <Search className="absolute left-cv-md top-1/2 -translate-y-1/2 w-4 h-4 text-cv-muted pointer-events-none" />
             <input
               type="text"
-              placeholder="Search by name or description..."
+              placeholder={content.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-cv-3xl pr-cv-lg py-cv-md border border-cv-border rounded-cv-xs 
@@ -107,7 +107,7 @@ export default function Section2({ content }) {
               <button
                 onClick={() => setSearchQuery("")}
                 className="absolute right-cv-md top-1/2 -translate-y-1/2 text-cv-muted hover:text-cv-black transition-colors p-1"
-                aria-label="Clear search"
+                aria-label={content.clearSearchLabel}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -119,15 +119,9 @@ export default function Section2({ content }) {
         <div className="mb-cv-3xl flex flex-wrap items-center gap-cv-lg">
           <div className="flex flex-wrap items-center gap-cv-sm">
             <span className="font-cv-sans text-cv-xs font-cv-semibold text-cv-black uppercase tracking-cv-wider">
-              Sort:
+              {content.sortLabel}
             </span>
-            {[
-              { value: "default", label: "Default" },
-              { value: "price-low-to-high", label: "Price ↑" },
-              { value: "price-high-to-low", label: "Price ↓" },
-              { value: "name-a-z", label: "A → Z" },
-              { value: "name-z-a", label: "Z → A" },
-            ].map((option) => (
+            {content.sortOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => setSortOption(option.value)}
@@ -148,7 +142,7 @@ export default function Section2({ content }) {
               onClick={clearFilters}
               className="px-cv-md py-cv-xs text-cv-xs font-cv-semibold text-cv-muted hover:text-cv-black transition-colors underline"
             >
-              Clear All
+              {content.clearAllLabel}
             </button>
           )}
         </div>
@@ -156,7 +150,9 @@ export default function Section2({ content }) {
         {/* Results Counter */}
         {hasActiveFilters && (
           <p className="font-cv-sans text-cv-xs text-cv-muted mb-cv-3xl">
-            Showing {sortedProducts.length} of {calligraphyProducts.length} products
+            {content.resultsLabel
+              .replace("{shown}", sortedProducts.length)
+              .replace("{total}", calligraphyProducts.length)}
           </p>
         )}
 
@@ -170,7 +166,7 @@ export default function Section2({ content }) {
         ) : (
           <div className="text-center py-cv-3xl">
             <p className="font-cv-sans text-cv-muted mb-cv-md">
-              No products match your search.
+              {content.noResultsLabel}
             </p>
             {hasActiveFilters && (
               <button
@@ -180,7 +176,7 @@ export default function Section2({ content }) {
                   hover:bg-cv-gold hover:border-cv-gold hover:text-white
                   transition-all duration-300"
               >
-                Clear Filters
+                {content.clearFiltersLabel}
               </button>
             )}
           </div>

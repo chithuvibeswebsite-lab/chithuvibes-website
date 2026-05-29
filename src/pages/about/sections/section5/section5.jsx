@@ -15,7 +15,7 @@ export default function ManuscriptQuote({ content }) {
 
       <div className="mb-cv-2xl bg-cv-gold opacity-cv-soft w-cv-px h-cv-3xl" />
 
-      <button onClick={() => window.location.href = '/contact'} className="uppercase font-cv-medium tracking-cv-wider rounded-cv-full cursor-pointer px-cv-xl py-cv-md font-cv-sans text-cv-label bg-cv-gold text-cv-white">
+      <button onClick={() => window.location.href = content.ctaLink} className="uppercase font-cv-medium tracking-cv-wider rounded-cv-full cursor-pointer px-cv-xl py-cv-md font-cv-sans text-cv-label bg-cv-gold text-cv-white">
         {content.cta}
       </button>
 
