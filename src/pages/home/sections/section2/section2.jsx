@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Section2({ content }) {
   const items = content.cardData || [];
 
@@ -65,14 +67,18 @@ export default function Section2({ content }) {
               </p>
 
 
-              <div className="flex items-center justify-between pt-4 md:pt-cv-lg border-t border-cv-border">
+              <Link
+                to={item.href || "/calligraphy-products"}
+                className="flex items-center justify-between pt-4 md:pt-cv-lg border-t border-cv-border text-inherit no-underline"
+                aria-label={`Open ${item.title}`}
+              >
                 <span className="text-sm md:text-cv-sm font-cv-medium font-cv-sans text-cv-gold">
                   {item.price}
                 </span>
                 <span className="text-lg md:text-cv-xl leading-none font-cv-light text-cv-gold">
                   ›
                 </span>
-              </div>
+              </Link>
 
             </div>
           ))}
