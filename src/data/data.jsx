@@ -1,3 +1,5 @@
+import { buildCloudinaryUrl } from "../utils/cloudinary.util";
+
 export const HOME = {
     section1: {
         title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "ழகரத்தின் கம்பீரம்", "தமிழின் பேரழகு"],
@@ -10,9 +12,9 @@ export const HOME = {
     section2: {
         title: ["The Masterpieces", "Curated Selection"],
         cardData: [
-            { title: "Wooden Engravings", desc: "Sustainable teak and walnut infused with classical Tamil literature", price: "From ₹4,500", img: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg", alt: "Teak wood laser-engraved with classical Tamil literature by Chithu Vibes" },
-            { title: "Acrylic Masterpieces", desc: "Modern luminosity meeting traditional script for contemporary spaces", price: "From ₹3,200", img: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800503/products/acrylic_name_plaque/img4.jpg", alt: "Acrylic name plaque with Tamil script for contemporary spaces by Chithu Vibes" },
-            { title: "Metal Art", desc: "Brass and copper plates etched with surgical precision for lifelong endurance", price: "From ₹7,800", img: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800512/products/brass_and_copper/img1.jpg", alt: "Brass plate etched with Tamil calligraphy with surgical laser precision by Chithu Vibes" },
+            { title: "Wooden Engravings", desc: "Sustainable teak and walnut infused with classical Tamil literature", price: "From ₹4,500", img: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"), alt: "Teak wood laser-engraved with classical Tamil literature by Chithu Vibes" },
+            { title: "Acrylic Masterpieces", desc: "Modern luminosity meeting traditional script for contemporary spaces", price: "From ₹3,200", img: buildCloudinaryUrl("v1779800503/products/acrylic_name_plaque/img4.jpg"), alt: "Acrylic name plaque with Tamil script for contemporary spaces by Chithu Vibes" },
+            { title: "Metal Art", desc: "Brass and copper plates etched with surgical precision for lifelong endurance", price: "From ₹7,800", img: buildCloudinaryUrl("v1779800512/products/brass_and_copper/img1.jpg"), alt: "Brass plate etched with Tamil calligraphy with surgical laser precision by Chithu Vibes" },
         ],
     },
 
@@ -63,7 +65,7 @@ export const ABOUT = {
             "We believe that emotions are the most precious cargo of human communication When you choose a word, a name, or a verse, you are sharing a piece of your soul",
             "We create artifacts that don't just decorate spaces—they anchor memories",
         ],
-        quote: "\"Etching Your Emotions into Eternity\"",
+        quote: "Etching Your Emotions into Eternity",
     },
     section3: {
         label: "Our Vision",
@@ -75,7 +77,7 @@ export const ABOUT = {
         label: "The Founder",
         title: ["The Gold", "Medalist", "The Scholar The", "Phoenix"],
         founderName: "Jeya Chitra",
-        image: "https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg",
+        image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg"),
         bio: [
             "Before the laser hummed in her studio, Jeya Chitra's world was shaped by the binary logic of code and the quiet stillness of archives A Gold Medalist with an M Phil in Computer Science, she mastered the digital architecture behind the modern world",
             "Yet her soul was drawn to the stone Through Archaeology & Epigraphy, she learned to read stories etched by ancient hands across Tamil Nadu—understanding the weight of a stroke carved for eternity",
@@ -186,7 +188,7 @@ export const CONTACT = {
         ],
     },
     section3: {
-        quote: "\"Artistry is the bridge between what is felt and what is seen\"",
+        quote: "Artistry is the bridge between what is felt and what is seen",
     },
 }
 
@@ -217,7 +219,7 @@ export const CART = {
 export const NOT_FOUND = {
     section1: {
         label: "PAGE NOT FOUND",
-        quote: ["\"The stroke you seek has drifted", "beyond the canvas\""],
+        quote: ["The stroke you seek has drifted", "beyond the canvas"],
         description: "The page wandered off — much like ink on an uncharted surface Let us guide you back to where the artistry begins",
         cta: {
             back: "GO BACK →",

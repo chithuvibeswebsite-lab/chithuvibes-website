@@ -3,6 +3,7 @@ import Section2 from "./sections/section2/section2";
 import Section3 from "./sections/section3/section3";
 import SEOMeta from "../../components/seo/seo-meta";
 import { GIFT_PRODUCTS } from "../../data/data";
+import { buildCloudinaryUrl } from "../../utils/cloudinary.util";
 
 export default function GiftProducts() {
   const { section1,section2,section3 } = GIFT_PRODUCTS;
@@ -14,12 +15,12 @@ export default function GiftProducts() {
     canonical: 'https://chithuvibes.in/gift-products',
     ogTitle: 'Laser-Crafted Tamil Calligraphy Gifts — Chithu Vibes',
     ogDescription: 'Modern precision meets sentimental value. Our laser-crafted gifts are designed to preserve your most cherished milestones in the beauty of Tamil script.',
-    ogImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    ogImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     ogImageAlt: 'Personalised Tamil calligraphy laser-engraved gift from Chithu Vibes',
     ogUrl: 'https://chithuvibes.in/gift-products',
     twitterTitle: 'Laser-Crafted Tamil Calligraphy Gifts — Chithu Vibes',
     twitterDescription: 'Modern precision meets sentimental value. Our laser-crafted gifts are designed to preserve your most cherished milestones in the beauty of Tamil script.',
-    twitterImage: 'https://res.cloudinary.com/dvdmdowip/image/upload/q_auto/f_auto/v1779800731/products/wooden_photo_frame/img2.jpg',
+    twitterImage: buildCloudinaryUrl('v1779800731/products/wooden_photo_frame/img2.jpg'),
     twitterImageAlt: 'Personalised Tamil calligraphy laser-engraved gift from Chithu Vibes',
     hreflangEn: 'https://chithuvibes.in/gift-products',
     hreflangTa: 'https://chithuvibes.in/gift-products?lang=ta',

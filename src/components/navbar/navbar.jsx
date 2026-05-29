@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useCart } from "../../context/cart.context";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { NAVBAR } from "../../data/data";
+import { buildCloudinaryUrl } from "../../utils/cloudinary.util";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function Navbar() {
         <div className="w-full h-full px-cv-lg lg:px-cv-3xl flex items-center justify-between box-border">
           <div className="flex items-center gap-2 lg:gap-cv-md">
             <img
-              src="https://res.cloudinary.com/dvdmdowip/image/upload/v1779566057/Chithuvibes_Logo_1_zleupw.png"
+              src={buildCloudinaryUrl("v1779566057/Chithuvibes_Logo_1_zleupw.png", { transformations: null })}
               alt="Chithu Vibes Logo"
               className="h-8 w-auto cursor-pointer"
               onClick={() => navigate("/")}

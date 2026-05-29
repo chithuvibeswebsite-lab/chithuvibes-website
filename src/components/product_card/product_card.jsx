@@ -2,53 +2,60 @@ import { useCart } from "../../context/cart.context";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 
-
 export function ProductImageCarousel({ images, productName = "Tamil calligraphy" }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fading, setFading] = useState(false);
   const imageList = Array.isArray(images) ? images : [images];
+  const [currentIndex, setCurrentIndex] = useState(0);
   const indexRef = useRef(0);
+  const timerRef = useRef(null);
 
   const goTo = useCallback((idx) => {
-    setFading(true);
-    setTimeout(() => {
-      indexRef.current = idx;
-      setCurrentIndex(idx);
-      setFading(false);
-    }, 200);
+    indexRef.current = idx;
+    setCurrentIndex(idx);
   }, []);
 
-  const prev = useCallback(
-    () => goTo((indexRef.current - 1 + imageList.length) % imageList.length),
-    [goTo, imageList.length]
-  );
-  const next = useCallback(
-    () => goTo((indexRef.current + 1) % imageList.length),
-    [goTo, imageList.length]
-  );
+  const resetTimer = useCallback(() => {
+    clearInterval(timerRef.current);
+    if (imageList.length <= 1) return;
+    timerRef.current = setInterval(() => {
+      goTo((indexRef.current + 1) % imageList.length);
+    }, 3000);
+  }, [imageList.length, goTo]);
 
   useEffect(() => {
-    if (imageList.length <= 1) return;
-    const id = setInterval(() => {
-      const nextIdx = (indexRef.current + 1) % imageList.length;
-      goTo(nextIdx);
-    }, 3000);
-    return () => clearInterval(id);
-  }, [imageList.length, goTo]); // stable deps — interval never restarts mid-cycle
+    resetTimer();
+    return () => clearInterval(timerRef.current);
+  }, [resetTimer]);
+
+  const prev = useCallback(() => {
+    goTo((indexRef.current - 1 + imageList.length) % imageList.length);
+    resetTimer();
+  }, [goTo, resetTimer, imageList.length]);
+
+  const next = useCallback(() => {
+    goTo((indexRef.current + 1) % imageList.length);
+    resetTimer();
+  }, [goTo, resetTimer, imageList.length]);
 
   const manyImages = imageList.length > 5;
 
   return (
     <div className="relative w-full rounded-cv-md overflow-hidden bg-cv-soft aspect-[7/8] group">
-      <img
-        src={imageList[currentIndex]}
-        alt={`${productName} - Image ${currentIndex + 1} of ${imageList.length}${imageList.length > 1 ? ' - view more product images' : ' - Tamil calligraphy laser-engraved by Chithu Vibes'}`}
-        width={600}
-        height={686}
-        style={{ opacity: fading ? 0 : 1, transition: "opacity 200ms ease" }}
-        className="absolute inset-0 w-full h-full object-contain"
-        onError={(e) => (e.target.style.display = "none")}
-      />
+      {imageList.map((src, idx) => (
+        <img
+          key={src}
+          src={src}
+          alt={
+            idx === 0
+              ? `${productName} - Tamil calligraphy laser-engraved by Chithu Vibes`
+              : `${productName} - image ${idx + 1} of ${imageList.length}`
+          }
+          width={600}
+          height={686}
+          className="absolute inset-0 w-full h-full object-contain transition-opacity duration-200"
+          style={{ opacity: idx === currentIndex ? 1 : 0 }}
+          onError={(e) => (e.target.style.display = "none")}
+        />
+      ))}
 
       {imageList.length > 1 && (
         <>
@@ -90,7 +97,7 @@ export function ProductImageCarousel({ images, productName = "Tamil calligraphy"
               imageList.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => goTo(idx)}
+                  onClick={() => { goTo(idx); resetTimer(); }}
                   aria-label={`View image ${idx + 1} of ${imageList.length}`}
                   aria-current={idx === currentIndex}
                   className={`h-2 rounded transition-all duration-300 ${
@@ -113,7 +120,7 @@ export function AddToCartButton({ product }) {
 
   return (
     <button
-      onClick={() => addToCart(product)}
+      onClick={() => isInCart ? null : addToCart(product)}
       className={`group flex items-center justify-center gap-2 border rounded-cv-xs cursor-pointer 
       transition-all duration-300 font-cv-sans text-cv-label font-cv-medium tracking-cv-wider uppercase 
       px-cv-md py-cv-xs min-h-9
