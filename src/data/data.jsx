@@ -7,7 +7,7 @@ export const HOME = {
         cta: "Explore Collection",
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"),
         imgAlt: "Hero image showcasing the fusion of traditional Tamil calligraphy and modern laser engraving technology, representing the essence of Chithu Vibes' craftsmanship",
-        imgDes: "A celebration of our roots, etched for eternity",
+        imgDes: "A Celebration Of Our Roots, Etched For Eternity",
     },
 
     section2: {
