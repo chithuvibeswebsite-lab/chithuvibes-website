@@ -1,9 +1,9 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const EMAILJS_SERVICE_ID = "service_w1ccqt4";
-const EMAILJS_TEMPLATE_ID = "template_0obwdow";
-const EMAILJS_PUBLIC_KEY = "tZ6uCr0jgGzlfsL97";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function BespokeJourney({ content }) {
   const [form, setForm] = useState({ name: "", mobile: "", email: "", vision: "" });
