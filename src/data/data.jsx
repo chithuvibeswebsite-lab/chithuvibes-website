@@ -542,7 +542,7 @@ export const FOOTER = {
     address: "Chennai, Tamil Nadu",
     phone: "+91 73053 27776",
     whatsappLink: "https://wa.me/917305327776",
-    email: "hello@chithuvibesin",
+    email: "hello@chithuvibes.in",
     copyright: "© Chithu Vibes All rights reserved",
     craftedLine: "Crafted with care in Chennai",
     links: [
