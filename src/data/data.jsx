@@ -21,7 +21,7 @@ export const HOME = {
 
     section3: {
         title: ["The Heritage", "Evolving the", "Thamizhi Script"],
-        description: ["Chithu Vibes was born from a singular vision: to ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world",
+        description: ["Chithu Vibes was born from a singular vision: To ensure that the exquisite flow of Tamil calligraphy survives the digital age by carving it into the physical world",
             "Our process combines the meditative patience of a traditional scribe with the uncompromising power of industrial lasers. Every piece is a dialogue between the old and the new"],
         cta: "Learn Our Process",
         image: buildCloudinaryUrl("v1779800712/products/thamizhi_calligraphy/img9.jpg"),
@@ -129,7 +129,7 @@ export const ABOUT = {
     },
     section4: {
         label: "The Founder",
-        title: ["The Gold", "Medalist", "The Scholar The", "Phoenix"],
+        title: ["The Gold Medalist", "The Scholar", "The Phoenix", ""],
         founderName: "Jeya Chitra",
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg"),
         imageAlt: "Jeya Chitra - Gold Medalist, MPhil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio",
@@ -358,7 +358,7 @@ export const CONTACT = {
     },
     section2: {
         title: "The Studio",
-        description: "Our team welcomes inquiries for custom commissions that blend heritage Tamil calligraphy with modern laser precision Each piece is a unique dialogue between ancestral script and contemporary materiality",
+        description: "Our team welcomes inquiries for custom commissions that blend heritage Tamil calligraphy with modern laser precision. Each piece is a unique dialogue between ancestral script and contemporary materiality",
         availability: "Available for global consultations",
         processLabel: "Engagement Process",
         steps: [
