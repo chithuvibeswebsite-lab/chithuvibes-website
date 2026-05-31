@@ -81,7 +81,12 @@ export default function Navbar() {
             >
               {/* Icon + badge wrapper */}
               <span className="relative flex items-center">
-                <ShoppingCart size={20} strokeWidth={1.5} color="currentColor" />
+                <span
+                className="hidden md:inline font-cv-sans font-cv-medium uppercase tracking-cv-wide me-3"
+                style={{ fontSize: "clamp(9px, 1vw, 12px)" }}
+              >
+                Cart
+              </span>
                 {totalItems > 0 && (
                   <span
                     className="absolute bg-cv-gold text-white font-cv-sans font-cv-semibold rounded-cv-full flex items-center justify-center"
@@ -96,16 +101,11 @@ export default function Navbar() {
                   >
                     {totalItems > 9 ? NAVBAR.cartMax : totalItems}
                   </span>
-                )}
+                )} <ShoppingCart size={20} strokeWidth={1.5} color="currentColor" />
               </span>
 
               {/* "Cart" label — hidden on small screens, visible md+ */}
-              <span
-                className="hidden md:inline font-cv-sans font-cv-medium uppercase tracking-cv-wide"
-                style={{ fontSize: "clamp(9px, 1vw, 12px)" }}
-              >
-                Cart
-              </span>
+             
             </button>
 
             {/* Hamburger — mobile only */}

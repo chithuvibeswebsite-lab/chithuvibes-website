@@ -13,7 +13,7 @@ export const HOME = {
     section2: {
         title: ["Signature Collections", "Curated Selection"],
         cardData: [
-            { title: "Wooden Engravings", desc: "Sustainable teak and walnut infused with classical Tamil literature", price: "From ₹600", href: "/gift-products", img: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"), alt: "Teak wood laser-engraved with classical Tamil literature by Chithu Vibes" },
+            { title: "Wooden Engravings", desc: "Celebrate life’s special moments with beautifully detailed wood-engraved gifts", price: "From ₹600", href: "/gift-products", img: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"), alt: "Teak wood laser-engraved with classical Tamil literature by Chithu Vibes" },
             { title: "Acrylic Masterpieces", desc: "Modern luminosity meeting traditional script for contemporary spaces", price: "From ₹1,000", href: "/calligraphy-products", img: buildCloudinaryUrl("v1779800503/products/acrylic_name_plaque/img4.jpg"), alt: "Acrylic name plaque with Tamil script for contemporary spaces by Chithu Vibes" },
             { title: "Metal Art", desc: "Brass and copper plates etched with surgical precision for lifelong endurance", price: "From ₹300", href: "/gift-products", img: buildCloudinaryUrl("v1779800512/products/metal_keychain/img10.jpg"), alt: "Brass plate etched with Tamil calligraphy with surgical laser precision by Chithu Vibes" },
         ],
