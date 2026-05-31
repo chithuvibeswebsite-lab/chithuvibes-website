@@ -1,110 +1,58 @@
-# Chithu Vibes — Developer Contribution Guide
+# Chithu Vibes — Website Overview
 
-This document defines the **commit standards and workflow rules** for all developers working on the chithuvibes_website project.
-Follow these strictly to maintain code quality, clarity, and team efficiency.
+Chithu Vibes is a client-facing website that showcases Tamil calligraphy artistry, curated product collections, and a WhatsApp-led ordering experience. The site blends **static brand storytelling** with **dynamic catalog data** pulled from Google Sheets.
 
----
+## Architecture (Client View)
 
-## Git Commit Format
+This is a Vite + React application. Content and data are delivered in two distinct streams:
 
-Every commit must follow this format:
+1. **Curated content (static)**  
+   Copy, section structure, and SEO metadata live in `src/data/data.jsx`. Pages import these objects directly (Home, About, Calligraphy Products, Gift Products, Contact).
 
-```
-type: short description
-```
+2. **Catalog + testimonials (dynamic)**  
+   Product lists and testimonials are fetched from Google Sheets (Excel) published as CSV. The fetch, parsing, and normalization happen inside `src/context/cart.context.jsx`.
 
----
+## Data Flow (From `data.jsx` + Excel)
 
+### 1) Page copy & layout
+- `src/data/data.jsx` exports structured content objects (`HOME`, `ABOUT`, `CALLIGRAPHY_PRODUCTS`, `GIFT_PRODUCTS`, `CONTACT`).
+- Each page imports its section object and renders copy, imagery, and SEO metadata.
+- Cloudinary images are built from `buildCloudinaryUrl`, keeping images consistent and optimized.
 
-## Commit Types
+### 2) Product & testimonial data (Excel / Google Sheets)
+- `CartProvider` (global context) builds CSV URLs from environment variables:
+  - `VITE_EXCEL_SHEET_ID`
+  - `VITE_EXCEL_CALLIGRAPHY_PRODUCTS_GID`
+  - `VITE_EXCEL_GIFT_PRODUCTS_GID`
+  - `VITE_EXCEL_TESTIMONIALS_GID`
+- The sheet is fetched as CSV and parsed using **PapaParse**.
+- Product rows are normalized via `transformProduct` to match UI expectations:
+  - **Supported column names** (any of these will work):  
+    `id / product_id`, `name / product_name`, `description / product_description`,  
+    `type / product_type`, `price / product_price`,  
+    `trending / is_trending`, `product_images / images`,  
+    `folder / image_folder / product_folder`.
+- A combined **Trending Products** list is built from both product sheets.
+- Testimonials are also pulled from their sheet and displayed on the home page.
 
-| Type       | When to use                                  |
-| ---------- | -------------------------------------------- |
-| `feat`     | Adding a new feature or functionality        |
-| `fix`      | Fixing a bug or broken functionality         |
-| `refactor` | Restructuring code without changing behavior |
-| `chore`    | Maintenance, config updates, dependencies    |
-| `style`    | UI/CSS changes (no logic change)             |
-| `docs`     | Documentation updates                        |
-| `test`     | Adding or updating test cases                |
-| `perf`     | Performance improvements                     |
-| `hotfix`   | Urgent fix on production                     |
+### 3) Cart & WhatsApp order flow
+- Cart state lives in `CartProvider` and is stored in cookies for persistence.
+- When the customer proceeds, the app formats an order summary and opens WhatsApp using:
+  - `VITE_CLIENT_PHONE_NUMBER`  
+  (see `src/utils/whatsapp.util.jsx`)
 
----
+## Updating the Excel (Google Sheets) Data
 
-## Examples
+1. Open the Google Sheet.
+2. Keep the **column headers** aligned with the supported field names above.
+3. Ensure the sheet is **published to the web** as CSV.
+4. Update the relevant GID environment variables if a sheet tab changes.
+5. Refresh the site — new data appears without code changes.
 
-```
-feat: added gift products listing page
-fix: resolved cart item count not updating
-refactor: optimized sheet data fetch utility
-chore: updated env example with sheet url key
-style: improved mobile layout for product card
-docs: updated readme with local setup steps
-test: added test cases for cart context
-hotfix: fixed checkout crash on mobile
-```
+## What This Means for the Client
 
----
+- **Brand copy and layout** are managed in `data.jsx`.
+- **Product catalog and testimonials** are managed in Google Sheets (Excel-style).
+- **Ordering** is powered through WhatsApp with a prefilled message.
 
-## Commit Rules
-
-- Keep the message **short and clear** (one line)
-- Use **lowercase only**
-- Do not write vague messages like:
-  - ❌ fix: stuff
-  - ❌ chore: changes
-- Each commit should represent **one logical change only**
-- Do not bundle unrelated changes in a single commit
-
----
-
-## Branch & Workflow Rules
-
-- Always pull latest before starting work:
-  ```
-  git pull origin main
-  ```
-- Never push directly to `main`
-- Follow this flow:
-  1. Create a new branch
-  2. Complete your task
-  3. Commit with proper format
-  4. Push your branch
-  5. Raise a Pull Request (PR)
-- Example:
-  ```
-  git checkout -b feat/gift_products_page
-  git add .
-  git commit -m "feat: added gift products listing page"
-  git push origin feat/gift_products_page
-  ```
-
----
-
-## Pull Request Rules
-
-- PR title must follow commit format
-- Add a short description of what was done
-- Mention any related pages or components touched
-- Ensure no console errors or warnings
-- Make sure UI is responsive (mobile-first)
-
----
-
-## Code Discipline
-
-- Everything is **snake_case** — files, folders, variables, functions
-- React component functions inside `.jsx` are the only PascalCase exception
-- Data constants in `src/data/` are **UPPER_SNAKE_CASE**
-- Write clean and readable code
-- Reuse components wherever possible — check `src/components/` first
-- Test your changes before pushing
-
----
-
-## Final Note
-
-This is a real product for a real client. Work like the client is watching.
-
-Be clean. Be consistent. Be accountable.
+This split keeps the site **editable for non-developers** while preserving a refined, high-performance front-end experience.
