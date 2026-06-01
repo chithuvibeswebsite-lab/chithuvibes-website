@@ -5,7 +5,7 @@ export const HOME = {
         title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "உயிர் மெய்யாய்", "வாழும் தமிழ்!"],
         description: "Personalized Gifts, Custom Name Boards, Laser-Crafted Decor and Timeless Tamil Calligraphy Creations that Transform Names, Words, and Memories into Lasting Keepsakes for Generations to Come",
         cta: "Explore Collection",
-        image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"),
+        image: buildCloudinaryUrl("v1779973806/hero_img"),
         imgAlt: "Hero image showcasing the fusion of traditional Tamil calligraphy and modern laser engraving technology, representing the essence of Chithu Vibes' craftsmanship",
         imgDes: "A Celebration Of Our Roots, Etched For Eternity",
     },
@@ -112,7 +112,7 @@ export const ABOUT = {
     },
     section2: {
         title: "Our Origin Story",
-        image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.16.07_PM_u5swpa.jpg"),
+        image: buildCloudinaryUrl("v1779973806/about_img1"),
         imageAlt: "Founder of Chithu Vibes holding a calligraphy piece in the studio",
         description: [
             
@@ -132,8 +132,8 @@ export const ABOUT = {
         label: "The Founder",
         title: ["The Gold Medalist", "The Scholar", "The Phoenix", ""],
         founderName: "Jeya Chitra",
-        image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-28_at_3.29.05_PM_lqezvj.jpg"),
-        imageAlt: "Jeya Chitra - Gold Medalist, MPhil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio",
+            image: buildCloudinaryUrl("v1779973806/about_img2"),
+            imageAlt: "Jeya Chitra - Gold Medalist, MPhil Computer Science, Tamil epigraphy scholar, and founder of Chithu Vibes laser calligraphy studio",
         bio: [
             "Before the laser hummed in our studio, Chithu Vibes was shaped by the binary logic of code and the quiet stillness of archives. A Gold Medalist with an M Phil in Computer Science, our founder mastered the digital architecture behind the modern world",
             "Yet the soul of our craft was drawn to the stone. Through Archaeology & Epigraphy, our team learned to read stories etched by ancient hands across Tamil Nadu—understanding the weight of a stroke carved for eternity",
