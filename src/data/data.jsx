@@ -2,7 +2,7 @@ import { buildCloudinaryUrl } from "../utils/cloudinary.util";
 
 export const HOME = {
     section1: {
-        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "உயிர் மெய்யாய்", "வாழும் தமிழ்! வாழும் தமிழ்! வாழும் தமிழ்!"],
+        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy!!!!", "உயிர் மெய்யாய்", "வாழும் தமிழ்! வாழும் தமிழ்! வாழும் தமிழ்!"],
         description: "Personalized Gifts, Custom Name Boards, Laser-Crafted Decor and Timeless Tamil Calligraphy Creations that Transform Names, Words, and Memories into Lasting Keepsakes for Generations to Come",
         cta: "Explore Collection",
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"),
