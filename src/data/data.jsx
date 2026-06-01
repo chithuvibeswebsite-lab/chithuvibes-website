@@ -548,8 +548,8 @@ export const FOOTER = {
     links: [
         { label: "Home", path: "/" },
         { label: "Our story", path: "/about" },
-        { label: "Calligraphy Artworks", path: "/calligraphy-products" },
         { label: "Gift Products", path: "/gift-products" },
+        { label: "Calligraphy Artworks", path: "/calligraphy-products" },
         { label: "Contact", path: "/contact" },
     ],
     socials: [
