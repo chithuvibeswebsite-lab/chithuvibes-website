@@ -2,7 +2,7 @@ import { buildCloudinaryUrl } from "../utils/cloudinary.util";
 
 export const HOME = {
     section1: {
-        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy!!!!", "உயிர் மெய்யாய்", "வாழும் தமிழ்! வாழும் தமிழ்! வாழும் தமிழ்!"],
+        title: ["Heritage", "Technology", "The Soul of", "Tamil Calligraphy", "உயிர் மெய்யாய்", "வாழும் தமிழ்!"],
         description: "Personalized Gifts, Custom Name Boards, Laser-Crafted Decor and Timeless Tamil Calligraphy Creations that Transform Names, Words, and Memories into Lasting Keepsakes for Generations to Come",
         cta: "Explore Collection",
         image: buildCloudinaryUrl("v1779973806/WhatsApp_Image_2026-05-27_at_3.39.20_PM_1_zwae5u.jpg"),
@@ -15,7 +15,7 @@ export const HOME = {
         cardData: [
             { title: "Wooden Engravings", desc: "Celebrate life’s special moments with beautifully detailed wood-engraved gifts", price: "From ₹600", href: "/gift-products", img: buildCloudinaryUrl("v1779800731/products/wooden_photo_frame/img2.jpg"), alt: "Teak wood laser-engraved with classical Tamil literature by Chithu Vibes" },
             { title: "Acrylic Masterpieces", desc: "Modern luminosity meeting traditional script for contemporary spaces", price: "From ₹1,000", href: "/calligraphy-products", img: buildCloudinaryUrl("v1779800503/products/acrylic_name_plaque/img4.jpg"), alt: "Acrylic name plaque with Tamil script for contemporary spaces by Chithu Vibes" },
-            { title: "Metal Art", desc: "Brass and copper plates etched with surgical precision for lifelong endurance", price: "From ₹300", href: "/gift-products", img: buildCloudinaryUrl("v1779800512/products/metal_keychain/img10.jpg"), alt: "Brass plate etched with Tamil calligraphy with surgical laser precision by Chithu Vibes" },
+            { title: "Metal Art", desc: "Permanent Laser Marking on Stainless Steel, Brass Ideal for Gifts, Nameplates, Premium Custom Products Keychains, Pendants", price: "From ₹299", href: "/gift-products", img: buildCloudinaryUrl("v1779800512/products/metal_keychain/img10.jpg"), alt: "Brass plate etched with Tamil calligraphy with surgical laser precision by Chithu Vibes" },
         ],
     },
 
